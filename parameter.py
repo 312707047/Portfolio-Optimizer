@@ -1,0 +1,9 @@
+class DDPGparam:
+    LR = 0.0001
+    EPSILON = 0.2
+    MIN_EPSILON = 0.0001
+    MEMORY_SIZE = 5000
+    EPISODES = 20000
+    BATCH_SIZE = 64
+    MODEL_UPDATE = 1000
+    GAMMA = 0.3
