@@ -8,12 +8,11 @@ class ConvBlock(nn.Module):
         self.conv2 = nn.Conv2d()
         self.conv3 = nn.Conv2d()
 
-class Actor(nn.Module):
+class PolicyNetwork(nn.Module):
     def __init__(self) -> None:
-        super(Actor, self).__init__()
-        
-        
-    
-    
-    
-    
+        super(PolicyNetwork, self).__init__()
+
+
+class QNetwork(nn.Module):
+    def __init__(self) -> None:
+        super(QNetwork).__init__()

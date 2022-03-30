@@ -1,3 +1,6 @@
+import torch
+import numpy as np
+
 class LinearAnneal:
     """Decay a parameter linearly"""
     def __init__(self, start_val, end_val, steps):
@@ -9,3 +12,16 @@ class LinearAnneal:
         if self.p > self.end_val:
             self.p -= self.decay_rate
         return self.p
+
+
+class StateProcessor:
+    """Convert state image to tensor"""
+    def to_array(self, state):
+        state = np.array(state).transpose((2, 0, 1))
+        state = np.ascontiguousarray(state, dtype=np.float32) / 255
+        return state
+
+    def to_tensor(self, state):
+        state = self.to_array(state)
+        state = torch.from_numpy(state)
+        return state.unsqueeze(0)
