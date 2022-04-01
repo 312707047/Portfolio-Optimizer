@@ -1,4 +1,4 @@
-from DDPG_agent import DDPG
+from TD3_agent import TD3
 import gym
 import torch
 
@@ -12,11 +12,15 @@ params = {
     'GAMMA':0.96,
     'CRITIC_LR':0.001,
     'ACTOR_LR':0.001,
-    'TAU': 0.02,
+    'TAU': 0.05,
     'BATCH_SIZE':256,
     'MEMORY_SIZE': 100000,
-    'EPISODES': 100
+    'EPISODES': 1000,
+    'POLICY_NOISE': 0.2,
+    'NOISE_CLIP': 0.5,
+    'POLICY_DELAY': 2,
+    'EXPLORATION_NOISE':0.1
 }
 
-agent = DDPG(**params)
+agent = TD3(**params)
 agent.train()
