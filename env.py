@@ -1,3 +1,6 @@
+import gym
+import os
+
 class TradingEnv(gym.Env):
     def __init__(self, data_path, rolling_window=60, commission=0.01, balance=10000):
         
