@@ -88,7 +88,7 @@ class DDPG:
             ou_noise.reset()
             
             for step in range(500):
-                # self.env.render()
+                self.env.render()
                 a0 = self._choose_action(s0)
                 a0 = ou_noise.get_action(a0, step)
                 s1, r1, done, _ = self.env.step(a0)

@@ -9,7 +9,7 @@ import copy
 
 from collections import deque
 from model import TD3_Actor, TD3_Critic
-# from utils import  OUNoise
+from utils import  OUNoise
 
 
 class TD3:
@@ -94,8 +94,8 @@ class TD3:
             self._soft_update(self.critic_target, self.critic)
             self.itr = 0
     
-    def train(self):
-        
+    def train(self, noise='Gaussian'):
+        ou_noise = OUNoise(self.env.action_space)
         for episode in range(self.EPISODES):
             s0 = self.env.reset()
             episode_reward = 0
@@ -103,8 +103,13 @@ class TD3:
             for step in itertools.count():
                 self.env.render()
                 a0 = self._choose_action(s0)
-                a0 += np.random.normal(0, self.EXPLORATION_NOISE, size=self.env.action_space.shape[0])
-                a0 = a0.clip(self.env.action_space.low, self.env.action_space.high)
+                
+                if noise == 'Gaussian':
+                    a0 += np.random.normal(0, self.EXPLORATION_NOISE, size=self.env.action_space.shape[0])
+                    a0 = a0.clip(self.env.action_space.low, self.env.action_space.high)
+                elif noise == 'OUNoise':
+                    a0 = ou_noise.get_action(a0, step)
+                    
                 s1, r1, done, _ = self.env.step(a0)
                 self._update_memory(s0, a0, r1, s1, done)
                 
