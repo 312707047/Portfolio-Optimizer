@@ -1,4 +1,4 @@
-from TD3_agent import TD3
+from agent.TD3_agent import TD3
 import gym
 import torch
 

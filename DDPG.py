@@ -1,4 +1,4 @@
-from DDPG_agent import DDPG
+from agent.DDPG_agent import DDPG
 import gym
 import torch
 
