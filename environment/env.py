@@ -14,8 +14,12 @@ class TradingEnv(gym.Env):
         self.action_space = gym.spaces.Box(
             0, 1, shape=(len(self.data_num) + 1,), dtype=np.float32)  # include cash
         
-        self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(len(abbreviation), rolling_window,
-                                                                                 history.shape[-1]), dtype=np.float32)
+        spaces = {
+            'portfolio': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(self.data_num, rolling_window, 3), dtype=np.float32),
+            'covariance': gym.spaces.Box(low=-1.0, high=1.0, shape=(7, 7, 1), dtype=np.float32)
+        }
+        
+        self.observation_space = gym.spaces.Dict(spaces)
         
         self.infos = []
         

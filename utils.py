@@ -1,4 +1,6 @@
 import torch
+import os
+import pandas as pd
 import numpy as np
 
 class OUNoise(object):
@@ -27,3 +29,24 @@ class OUNoise(object):
         ou_state = self.evolve_state()
         self.sigma = self.max_sigma - (self.max_sigma - self.min_sigma) * min(1.0, t/self.decay_period)
         return np.clip(action + ou_state, self.low, self.high)
+
+
+# def three_dim_array(data_path):
+#     '''this function will preprocess multiple pandas dataframe into 3D numpy array'''
+    
+#     data_list = os.listdir(data_path)
+#     high_df = pd.DataFrame()
+#     low_df = pd.DataFrame()
+#     close_df = pd.DataFrame()
+    
+#     for i in data_list:
+#         temp_df = pd.read_csv(f'data/{i}') # assume all the data start at the same date
+#         high_df = pd.concat([high_df, temp_df['High']], axis=1, ignore_index=True)
+#         low_df = pd.concat([low_df, temp_df['Low']], axis=1, ignore_index=True)
+#         close_df = pd.concat([close_df, temp_df['Close']], axis=1, ignore_index=True)
+    
+#     close = close_df.to_numpy()
+#     high = high_df.to_numpy()
+#     low = low_df.to_numpy()
+    
+#     return np.stack((high, low, close))
