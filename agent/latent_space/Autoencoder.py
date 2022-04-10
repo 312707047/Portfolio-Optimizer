@@ -5,7 +5,7 @@ class Encoder(nn.Module):
     
     def __init__(self):
         super().__init__()
-        '''input shape: (3*7*60)'''
+        '''input shape: (3*8*60)'''
         self.encoder = nn.Sequential(
             nn.Conv2d(3, 8, (1, 3), padding=1),
             nn.BatchNorm2d(8),

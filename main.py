@@ -1,4 +1,3 @@
-from testenv import TradeEnv
-import numpy as np
+from environment.env import TradingEnv
 
-print(np.load('data\RVNBTC-5m-data.csv', allow_pickle=True))
+
