@@ -6,16 +6,27 @@ import pandas as pd
 EPS = 1e-8
 
 class TradingEnv(gym.Env):
-    def __init__(self, data_path, rolling_window=60,
+    def __init__(self, data_path,
+                 rolling_window=60,
                  commission=0.01,
-                 balance=10000,
                  steps=200,
                  start_date_index=None,
                  observation_features='Close'):
-        
+        '''
+        Args:
+            data_path: folder containing history data
+            rolling_window: observation length for agent
+            commission: just commission
+            steps: steps in an episode
+            start_date_index: the date index in the price array
+            observation_features: choose how many features you'd like to input
+                Close: close data only
+                Three: including high, low, and close data
+                All: Three + covariance matrix of high, low, and close data
+        '''
         self.rolling_window = rolling_window
-        self.balance = balance
         self.commission = commission
+        self.observation_features = observation_features
         
         close_prices = pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True)
         self.tickers = close_prices.columns.to_list()
@@ -27,6 +38,8 @@ class TradingEnv(gym.Env):
         self.info = []
         self.step_number = 0
         
+        # Observation and action space for the agent
+        
         self.action_space = gym.spaces.Box(
             0, 1, shape=(len(self.data_num)+1, ), dtype=np.float32)  # include cash
         
@@ -34,7 +47,7 @@ class TradingEnv(gym.Env):
         
         if observation_features == 'Close':
             self.observation = close_obs
-            self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(self.tickers_num, rolling_window, 3), dtype=np.float32)
+            self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(1, self.tickers_num, rolling_window), dtype=np.float32)
         
         elif observation_features == 'Three':
             
@@ -45,13 +58,22 @@ class TradingEnv(gym.Env):
             low_obs = np.expand_dims(low_prices.T, 0)
             
             self.observation = np.concatenate([high_obs, low_obs, close_obs], axis=0) #shape(3, 8, 815)
-            
+            self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32)
+
+        elif observation_features == 'All':
             spaces = {
                 'portfolio': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(self.tickers_num, rolling_window, 3), dtype=np.float32),
-                'covariance': gym.spaces.Box(low=-1.0, high=1.0, shape=(9, 9, 3), dtype=np.float32)
+                'covariance': gym.spaces.Box(low=-1.0, high=1.0, shape=(3, self.tickers_num, self.tickers_num), dtype=np.float32)
             }
             
             self.observation_space = gym.spaces.Dict(spaces)
+            ########## finish observation space ##########
+            
+            # TO DO:
+            # 1. Calculate covariance matrix of every step
+            # 2. Dealing with observation Dict
+            
+            ##############################################
         
         self.start_date_index = start_date_index
         self.steps = steps
@@ -76,6 +98,19 @@ class TradingEnv(gym.Env):
         p1 = np.clip(p1, 0, np.inf)
         rho1 = p1 / p0 - 1
         reward = np.log((p1+EPS)/(p0+EPS))
+        
+        #################### TO DO ####################
+        #
+        # Reward Function:
+        #   1. Calculate return of Markowitz
+        #   2. Calculate return of same-weighted portfolio
+        #   3. Calculate Sharpe, DD, MDD, etc
+        #
+        # Reward Shaping:
+        #   1. Avoid digicurrencies have more than 10% weight
+        #   2. Avoid single asset has more than 65% weight
+        #
+        ###############################################
         
         # save weights and portfolio value for next iteration
         self.weights = w1
@@ -123,6 +158,13 @@ class TradingEnv(gym.Env):
         
         t = self.start_date_index + self.step_number
         t0 = t - self.rolling_window + 1
-        observation = self.observation[:, :, t0:t+1] # need to deal with the dict space
+        
+        ################## TO DO ##################
+        
+        # Observation for 'All' mode
+        
+        ###########################################
+        if self.observation_features == ('Close' or 'Three'):
+            observation = self.observation[:, :, t0:t+1] # need to deal with the dict space
         
         return observation
