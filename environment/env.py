@@ -87,7 +87,7 @@ class TradingEnv(gym.Env):
         w1 = np.insert(w1, 0, np.clip(1 - w1.sum(), a_min=0, a_max=1))
         w1 = w1 / w1.sum()
         
-        # claculate the reward
+        # calculate the reward
         t = self.start_date_index + self.step_number
         y1 = self.gain[t]
         w0 = self.weights
@@ -110,6 +110,57 @@ class TradingEnv(gym.Env):
         #   1. Avoid digicurrencies have more than 10% weight
         #   2. Avoid single asset has more than 65% weight
         #
+        
+        port_returns = []
+        port_volatility = []
+        sharpe_ratio = []
+        stock_weights = []
+        
+        num_portfolios = 50000   #這裡是用MC模擬50000次，實際上讓agent自己去跟環境互動即可
+
+        np.random.seed(100)
+
+        for single_portfolio in range(num_portfolios):
+            weights = np.random.random(tickers_num)
+            weights /= np.sum(weights)
+            returns = np.dot(weights, reward.mean() * 250)   #交易天數250天
+            volatility = np.sqrt(np.dot(weights.T, np.dot(reward.cov() * 250, weights)))
+            sharpe = returns / volatility
+            sharpe_ratio.append(sharpe)
+            port_returns.append(returns)
+            port_volatility.append(volatility)
+            stock_weights.append(weights)
+
+        portfolio = {'Returns': port_returns,          #return
+                     'Volatility': port_volatility,
+                     'Sharpe Ratio': sharpe_ratio}     #Sharpe Ratio
+        
+        for counter,symbol in enumerate(tickers):
+            portfolio[symbol + 'Weight'] = [Weight[counter] for Weight in stock_weights]
+
+        df = pd.DataFrame(portfolio)
+        column_order = ['Returns', 'Volatility', 'Sharpe Ratio'] + [stock + 'Weight' for stock in tickers]
+        df = df[column_order]
+        
+        min_volatility = df['Volatility'].min()
+        max_sharpe = df['Sharpe Ratio'].max()
+        sharpe_portfolio = df.loc[df['Sharpe Ratio'] == max_sharpe]
+        min_variance_port = df.loc[df['Volatility'] == min_volatility]    #return of Markowitz that minimizes the risk
+        
+        def calc_MDD(networth):    #calculate DD and MDD
+            series = pd.Series(networth, name="nw").to_frame()
+
+            max_peaks_idx = series.nw.expanding(min_periods=1).apply(lambda x: x.argmax()).fillna(0).astype(int)
+            series['max_peaks_idx'] = pd.Series(max_peaks_idx).to_frame()
+
+            nw_peaks = pd.Series(series.nw.iloc[max_peaks_idx.values].values, index=series.nw.index)
+
+            series['dd'] = ((series.nw - nw_peaks)/nw_peaks)
+            series['mdd'] = series.groupby('max_peaks_idx').dd.apply(lambda x: x.expanding(min_periods=1).apply(lambda y: y.min())).fillna(0)
+
+            return series
+        
+        calc_MDD(df)
         ###############################################
         
         # save weights and portfolio value for next iteration
