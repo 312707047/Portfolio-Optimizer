@@ -23,4 +23,4 @@ params = {
 }
 
 agent = TD3(**params)
-agent.train(noise='Gaussian')
+agent.train(noise='OUNoise')

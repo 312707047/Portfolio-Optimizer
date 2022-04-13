@@ -121,7 +121,7 @@ class TradingEnv(gym.Env):
         np.random.seed(100)
 
         for single_portfolio in range(num_portfolios):
-            weights = np.random.random(tickers_num)
+            weights = np.random.random(self.tickers_num)
             weights /= np.sum(weights)
             returns = np.dot(weights, reward.mean() * 250)   #交易天數250天
             volatility = np.sqrt(np.dot(weights.T, np.dot(reward.cov() * 250, weights)))
@@ -135,11 +135,11 @@ class TradingEnv(gym.Env):
                      'Volatility': port_volatility,
                      'Sharpe Ratio': sharpe_ratio}     #Sharpe Ratio
         
-        for counter,symbol in enumerate(tickers):
+        for counter,symbol in enumerate(self.tickers):
             portfolio[symbol + 'Weight'] = [Weight[counter] for Weight in stock_weights]
 
         df = pd.DataFrame(portfolio)
-        column_order = ['Returns', 'Volatility', 'Sharpe Ratio'] + [stock + 'Weight' for stock in tickers]
+        column_order = ['Returns', 'Volatility', 'Sharpe Ratio'] + [stock + 'Weight' for stock in self.tickers]
         df = df[column_order]
         
         min_volatility = df['Volatility'].min()

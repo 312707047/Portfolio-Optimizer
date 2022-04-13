@@ -8,7 +8,7 @@ import itertools
 import copy
 
 from collections import deque
-from model import TD3_Actor, TD3_Critic
+from agent.model import TD3_Actor, TD3_Critic
 from utils import  OUNoise
 
 

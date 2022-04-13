@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 
 from collections import deque
-from model import Actor, Critic
+from agent.model import Actor, Critic
 from utils import  OUNoise
 
 class DDPG:
