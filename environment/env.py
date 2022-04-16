@@ -111,6 +111,9 @@ class TradingEnv(gym.Env):
         #   2. Avoid single asset has more than 65% weight
         #
         
+        
+        #   1. Calculate return of Markowitz
+    
         port_returns = []
         port_volatility = []
         sharpe_ratio = []
@@ -147,20 +150,43 @@ class TradingEnv(gym.Env):
         sharpe_portfolio = df.loc[df['Sharpe Ratio'] == max_sharpe]
         min_variance_port = df.loc[df['Volatility'] == min_volatility]    #return of Markowitz that minimizes the risk
         
-        def calc_MDD(networth):    #calculate DD and MDD
-            series = pd.Series(networth, name="nw").to_frame()
-
-            max_peaks_idx = series.nw.expanding(min_periods=1).apply(lambda x: x.argmax()).fillna(0).astype(int)
-            series['max_peaks_idx'] = pd.Series(max_peaks_idx).to_frame()
-
-            nw_peaks = pd.Series(series.nw.iloc[max_peaks_idx.values].values, index=series.nw.index)
-
-            series['dd'] = ((series.nw - nw_peaks)/nw_peaks)
-            series['mdd'] = series.groupby('max_peaks_idx').dd.apply(lambda x: x.expanding(min_periods=1).apply(lambda y: y.min())).fillna(0)
-
-            return series
+        #   2. Calculate return of same-weighted portfolio
         
-        calc_MDD(df)
+        #   tickers = ["ETH", "BTC", "SPY", "IVV", "QQQ", "VOO", "USDC-USD", "VTI"]       
+        same_weighted = np.array([0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.1/3, 0.9/5])
+        same_weighted_returns = []
+        same_weighted_volatility = []
+        same_weighted_sharpe_ratio = []
+
+        returns = np.dot(same_weighted, reward.mean() * 250)
+        volatility = np.sqrt(np.dot(same_weighted.T, np.dot(reward.cov() * 250, same_weighted)))
+        sharpe = returns / volatility
+        same_weighted_returns.append(returns)
+        same_weighted_volatility.append(volatility)
+        same_weighted_sharpe_ratio.append(sharpe)
+
+        same_weighted_portfolio = {'Returns': same_weighted_returns,
+                                   'Volatility': same_weighted_volatility,
+                                   'Sharpe Ratio': same_weighted_sharpe_ratio}
+       
+        #   3. Calculate MDD
+        
+        def MDD(close_prices):
+            dr=close_prices.pct_change(1)
+            r=dr.add(1).cumprod()
+            dd=r.div(r.cummax()).sub(1)
+            mdd=dd.min()
+            end=dd.idxmin()
+            start=r.loc[:end[0]].idxmax()
+            days=end-start
+            return mdd[:], start[:], end[:], days[:]
+        
+        data1 = pd.DataFrame(MDD(close_prices)[0], columns=["Mdd"])
+        data2 = pd.DataFrame(MDD(close_prices)[3], columns=["Days"])
+        Data = pd.concat([data1, data2], axis = 1)
+        Data       #max drawdown dataframe
+        
+        
         ###############################################
         
         # save weights and portfolio value for next iteration
