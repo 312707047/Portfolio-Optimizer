@@ -44,26 +44,14 @@ class TradingEnv(gym.Env):
         self.info = []
         self.step_number = 0
         
-        # Observation space and action space for the agent
-        
+        # Observation space and action space
         self.action_space = gym.spaces.Box(
             0, 1, shape=(self.tickers_num+1, ), dtype=np.float32)  # include cash
         
-        # close_obs = np.expand_dims(close_prices.T, 0) # shape (1, 8, 815)
-        
         if observation_features == 'Close':
-            # self.observation = close_obs
             self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(1, self.tickers_num, rolling_window), dtype=np.float32)
         
         elif observation_features == 'Three':
-            
-            # high_prices = pd.read_csv(os.path.join(data_path, 'High.csv'), index_col=0, parse_dates=True)
-            # low_prices = pd.read_csv(os.path.join(data_path, 'Low.csv'), index_col=0, parse_dates=True)
-            
-            # high_obs = np.expand_dims(high_prices.T, 0)
-            # low_obs = np.expand_dims(low_prices.T, 0)
-            
-            # self.observation = np.concatenate([high_obs, low_obs, close_obs], axis=0) #shape(3, 8, 815)
             self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32)
 
         elif observation_features == 'All':
@@ -73,27 +61,6 @@ class TradingEnv(gym.Env):
             }
             
             self.observation_space = gym.spaces.Dict(spaces)
-            ########## finish observation space ##########
-            
-            # TO DO:
-            # 1. Calculate covariance matrix of every step
-            # 2. Dealing with observation Dict
-            # finish!!!
-            # high_prices = pd.read_csv(os.path.join(data_path, 'High.csv'), index_col=0, parse_dates=True)
-            # low_prices = pd.read_csv(os.path.join(data_path, 'Low.csv'), index_col=0, parse_dates=True)
-            
-            # high_obs = np.expand_dims(high_prices.T, 0)
-            # low_obs = np.expand_dims(low_prices.T, 0)
-            
-            # close_cov = np.expand_dims(np.cov(close_obs[0]), axis=0)
-            # high_cov = np.expand_dims(np.cov(high_obs[0]), axis=0)
-            # low_cov = np.expand_dims(np.cov(low_obs[0]), axis=0)
-            
-            # self.covariance = np.concatenate([high_cov, low_cov, close_cov], axis=0) # shape(3, 8, 8)
-            
-            # self.observation = np.concatenate([high_obs, low_obs, close_obs], axis=0)
-            
-            ##############################################
         
         self.start_date_index = start_date_index
         self.steps = steps
@@ -215,7 +182,7 @@ class TradingEnv(gym.Env):
         
         # observe the next state
         t0 = t - self.rolling_window + 1
-        observation = self.observation[:, :, t0:t+1]
+        observation = self.observation[:, :, t0:t+1] # fixe here!
         
         # info
         r = y1.mean()
@@ -254,13 +221,7 @@ class TradingEnv(gym.Env):
         t = self.start_date_index + self.step_number
         t0 = t - self.rolling_window + 1
         
-        ################## TO DO ##################
-        
-        # Observation for 'All' mode
-        # finish!!!
-        ###########################################
-        # observation = self.observation[:, :, t0:t+1]
-        
+        # Observation in different situations
         if (self.observation_features == 'Close'):
             observation = np.expand_dims(self.close_prices.T, 0)
             
@@ -271,7 +232,7 @@ class TradingEnv(gym.Env):
             low_obs = np.expand_dims(self.low_prices.T, 0)
             close_obs = np.expand_dims(self.close_prices.T, 0)
             
-            self.observation = np.concatenate([high_obs, low_obs, close_obs], axis=0) #shape(3, 8, 815)
+            observation = np.concatenate([high_obs, low_obs, close_obs], axis=0) #shape(3, 8, 815)
             return observation[:, :, t0:t+1] # shape(3, 8, 60)
         
         elif self.observation_features == 'All':
