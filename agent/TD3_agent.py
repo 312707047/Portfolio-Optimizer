@@ -101,7 +101,7 @@ class TD3:
             episode_reward = 0
             done = False
             for step in itertools.count():
-                self.env.render()
+                # self.env.render()
                 a0 = self._choose_action(s0)
                 
                 if noise == 'Gaussian':

@@ -27,42 +27,48 @@ class TradingEnv(gym.Env):
         self.rolling_window = rolling_window
         self.commission = commission
         self.observation_features = observation_features
+        self.data_path = data_path
         
-        close_prices = pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True)
-        self.tickers = close_prices.columns.to_list()
+        # read in data
+        self.close_prices = pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True)
+        if observation_features != 'Close':
+            self.high_prices = pd.read_csv(os.path.join(self.data_path, 'High.csv'), index_col=0, parse_dates=True)
+            self.low_prices = pd.read_csv(os.path.join(self.data_path, 'Low.csv'), index_col=0, parse_dates=True)
+            
+        self.tickers = self.close_prices.columns.to_list()
         self.tickers_num = len(self.tickers)
-        self.dates = close_prices.index.values[1:]
+        self.dates = self.close_prices.index.values[1:]
         self.dates_num = self.dates.shape[0]
-        self.gain = np.hstack((np.ones((close_prices.shape[0]-1, 1)), close_prices.values[1:] / close_prices.values[:-1]))
+        self.gain = np.hstack((np.ones((self.close_prices.shape[0]-1, 1)), self.close_prices.values[1:] / self.close_prices.values[:-1]))
         
         self.info = []
         self.step_number = 0
         
-        # Observation and action space for the agent
+        # Observation space and action space for the agent
         
         self.action_space = gym.spaces.Box(
-            0, 1, shape=(len(self.data_num)+1, ), dtype=np.float32)  # include cash
+            0, 1, shape=(self.tickers_num+1, ), dtype=np.float32)  # include cash
         
-        close_obs = np.expand_dims(close_prices.T, 0) # shape (1, 8, 815)
+        # close_obs = np.expand_dims(close_prices.T, 0) # shape (1, 8, 815)
         
         if observation_features == 'Close':
-            self.observation = close_obs
+            # self.observation = close_obs
             self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(1, self.tickers_num, rolling_window), dtype=np.float32)
         
         elif observation_features == 'Three':
             
-            high_prices = pd.read_csv(os.path.join(data_path, 'High.csv'), index_col=0, parse_dates=True)
-            low_prices = pd.read_csv(os.path.join(data_path, 'Low.csv'), index_col=0, parse_dates=True)
+            # high_prices = pd.read_csv(os.path.join(data_path, 'High.csv'), index_col=0, parse_dates=True)
+            # low_prices = pd.read_csv(os.path.join(data_path, 'Low.csv'), index_col=0, parse_dates=True)
             
-            high_obs = np.expand_dims(high_prices.T, 0)
-            low_obs = np.expand_dims(low_prices.T, 0)
+            # high_obs = np.expand_dims(high_prices.T, 0)
+            # low_obs = np.expand_dims(low_prices.T, 0)
             
-            self.observation = np.concatenate([high_obs, low_obs, close_obs], axis=0) #shape(3, 8, 815)
+            # self.observation = np.concatenate([high_obs, low_obs, close_obs], axis=0) #shape(3, 8, 815)
             self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32)
 
         elif observation_features == 'All':
             spaces = {
-                'portfolio': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(self.tickers_num, rolling_window, 3), dtype=np.float32),
+                'portfolio': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32),
                 'covariance': gym.spaces.Box(low=-1.0, high=1.0, shape=(3, self.tickers_num, self.tickers_num), dtype=np.float32)
             }
             
@@ -72,6 +78,20 @@ class TradingEnv(gym.Env):
             # TO DO:
             # 1. Calculate covariance matrix of every step
             # 2. Dealing with observation Dict
+            # finish!!!
+            # high_prices = pd.read_csv(os.path.join(data_path, 'High.csv'), index_col=0, parse_dates=True)
+            # low_prices = pd.read_csv(os.path.join(data_path, 'Low.csv'), index_col=0, parse_dates=True)
+            
+            # high_obs = np.expand_dims(high_prices.T, 0)
+            # low_obs = np.expand_dims(low_prices.T, 0)
+            
+            # close_cov = np.expand_dims(np.cov(close_obs[0]), axis=0)
+            # high_cov = np.expand_dims(np.cov(high_obs[0]), axis=0)
+            # low_cov = np.expand_dims(np.cov(low_obs[0]), axis=0)
+            
+            # self.covariance = np.concatenate([high_cov, low_cov, close_cov], axis=0) # shape(3, 8, 8)
+            
+            # self.observation = np.concatenate([high_obs, low_obs, close_obs], axis=0)
             
             ##############################################
         
@@ -181,10 +201,10 @@ class TradingEnv(gym.Env):
             days=end-start
             return mdd[:], start[:], end[:], days[:]
         
-        data1 = pd.DataFrame(MDD(close_prices)[0], columns=["Mdd"])
-        data2 = pd.DataFrame(MDD(close_prices)[3], columns=["Days"])
-        Data = pd.concat([data1, data2], axis = 1)
-        Data       #max drawdown dataframe
+        # data1 = pd.DataFrame(MDD(close_prices)[0], columns=["Mdd"])
+        # data2 = pd.DataFrame(MDD(close_prices)[3], columns=["Days"])
+        # Data = pd.concat([data1, data2], axis = 1)
+        # Data       #max drawdown dataframe
         
         
         ###############################################
@@ -229,9 +249,7 @@ class TradingEnv(gym.Env):
                                                               self.dates_num-self.steps-1)
         
         else:
-            self.start_date_index = np.clip(self.start_date_index,
-                                            a_min=self.rolling_window-1,
-                                            a_max=self.dates_num-self.steps-1)
+            self.start_date_index = np.clip(self.start_date_index, a_min=self.rolling_window-1, a_max=self.dates_num-self.steps-1)
         
         t = self.start_date_index + self.step_number
         t0 = t - self.rolling_window + 1
@@ -239,9 +257,36 @@ class TradingEnv(gym.Env):
         ################## TO DO ##################
         
         # Observation for 'All' mode
-        
+        # finish!!!
         ###########################################
-        if self.observation_features == ('Close' or 'Three'):
-            observation = self.observation[:, :, t0:t+1] # need to deal with the dict space
+        # observation = self.observation[:, :, t0:t+1]
         
-        return observation
+        if (self.observation_features == 'Close'):
+            observation = np.expand_dims(self.close_prices.T, 0)
+            
+            return observation[:, :, t0:t+1] # shape(1, 8, 60)
+        
+        elif (self.observation_features == 'Three'):
+            high_obs = np.expand_dims(self.high_prices.T, 0)
+            low_obs = np.expand_dims(self.low_prices.T, 0)
+            close_obs = np.expand_dims(self.close_prices.T, 0)
+            
+            self.observation = np.concatenate([high_obs, low_obs, close_obs], axis=0) #shape(3, 8, 815)
+            return observation[:, :, t0:t+1] # shape(3, 8, 60)
+        
+        elif self.observation_features == 'All':
+            high_obs = np.expand_dims(self.high_prices.T, axis=0)
+            low_obs = np.expand_dims(self.low_prices.T, axis=0)
+            close_obs = np.expand_dims(self.close_prices.T, axis=0)
+            
+            high_cov = np.expand_dims(np.cov(high_obs[0]), axis=0)
+            low_cov = np.expand_dims(np.cov(low_obs[0]), axis=0)
+            close_cov = np.expand_dims(np.cov(close_obs[0]), axis=0)
+            
+            portfolio = np.concatenate([high_obs, low_obs, close_obs], axis=0) # shape(3, 8, 60)
+            covariance = np.concatenate([high_cov, low_cov, close_cov], axis=0) # shape(3, 8, 8)
+            
+            observation = {'portfolio':portfolio,
+                           'covariance':covariance}
+        
+            return observation
