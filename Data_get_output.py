@@ -11,6 +11,7 @@ Created on Sun Apr  3 13:31:15 2022
 import pandas as pd
 import yfinance as yf
 from pandas_datareader import data as pdr
+from datetime import date
 import time
 import requests
 
@@ -25,7 +26,7 @@ from_thisdate = "2017-01-01"
 start_struct_time =time.strptime(from_thisdate, "%Y-%m-%d")
 start_date = int(time.mktime(start_struct_time))
 
-end_thisdate = "2022-01-01"
+end_thisdate = str(date.today())
 end_struct_time =time.strptime(end_thisdate, "%Y-%m-%d")
 end_date = int(time.mktime(end_struct_time))
 
@@ -175,6 +176,6 @@ print('-'*20,'Trading Asset','-'*20)
 print(asset_filtered)
 print('shape of stocks data input : ' + str(asset_filtered.shape))
 
-asset_filtered.to_csv('/Users/ray/Desktop/This semester/RL/RL_project/asset_data.csv')
+asset_filtered.to_csv('data/asset_data.csv')
 
 

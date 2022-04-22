@@ -236,9 +236,9 @@ class TradingEnv(gym.Env):
             return observation[:, :, t0:t+1] # shape(3, 8, 60)
         
         elif self.observation_features == 'All':
-            high_obs = np.expand_dims(self.high_prices.T, axis=0)
-            low_obs = np.expand_dims(self.low_prices.T, axis=0)
-            close_obs = np.expand_dims(self.close_prices.T, axis=0)
+            high_obs = np.expand_dims(self.high_prices.T, axis=0)[:, :, t0:t+1]
+            low_obs = np.expand_dims(self.low_prices.T, axis=0)[:, :, t0:t+1]
+            close_obs = np.expand_dims(self.close_prices.T, axis=0)[:, :, t0:t+1]
             
             high_cov = np.expand_dims(np.cov(high_obs[0]), axis=0)
             low_cov = np.expand_dims(np.cov(low_obs[0]), axis=0)
