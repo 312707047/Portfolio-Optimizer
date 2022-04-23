@@ -30,10 +30,10 @@ class TradingEnv(gym.Env):
         self.data_path = data_path
         
         # read in data
-        self.close_prices = pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True)
+        self.close_prices = self._data_preprocessing(pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True))
         if observation_features != 'Close':
-            self.high_prices = pd.read_csv(os.path.join(self.data_path, 'High.csv'), index_col=0, parse_dates=True)
-            self.low_prices = pd.read_csv(os.path.join(self.data_path, 'Low.csv'), index_col=0, parse_dates=True)
+            self.high_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'High.csv'), index_col=0, parse_dates=True))
+            self.low_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'Low.csv'), index_col=0, parse_dates=True))
             
         self.tickers = self.close_prices.columns.to_list()
         self.tickers_num = len(self.tickers)
@@ -65,6 +65,10 @@ class TradingEnv(gym.Env):
         self.start_date_index = start_date_index
         self.steps = steps
         self.reset()
+    
+    def _data_preprocessing(self, df):
+        '''preprocess the price data into log return'''
+        return (np.log(df) - np.log(df.shift(1))).dropna()
     
     def step(self, action):
         
