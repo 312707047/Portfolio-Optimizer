@@ -58,11 +58,8 @@ class PretrainedAEModel:
         
     def _data_preprocessing(self, df):
         '''preprocess the price data into log return'''
-        scaler = MinMaxScaler()
         df = (np.log(df) - np.log(df.shift(1))).dropna()
-        
-        
-        
+        df = self._scaler(df)
         df = self._split_sequence(df)
         
         return np.expand_dims(np.transpose(df, (0, 2, 1)), axis=1)
@@ -77,9 +74,11 @@ class PretrainedAEModel:
             x.append(seq_x)
         return np.array(x)
     
-    def _Scaler(self, array):
-        scaler = MinMaxScaler()
-        
+    def _scaler(self, array):
+        '''scale 3D array with MinMaxScaler'''
+        for i in range(array.shape[0]):
+            scaler = MinMaxScaler()
+            array[i, :, :] = scaler.fit_transform(array[i, :, :]) 
     
     def train(self, loss_threshold=0.5):
         total_loss = []
@@ -119,15 +118,22 @@ class PretrainedAEModel:
         '''
         this will denoise the observation
         Arg:
-            observation: state space from trading environment
+            observation: state space from trading environment, shape(3*8*60)
         '''
         self.model.load_state_dict(torch.load(self.model_path))
-        
+        observation = self._scaler(observation)
+        observation = np.expand_dims(observation, axis=0)
         observation = torch.tensor(observation, dtype=torch.float, device=self.device)
+        
+        ############## To Do ##############
+        # apply KalmanFilter on observation
+        ###################################
         
         self.model.eval()
         with torch.no_grad():
             denoised_obs = self.model(observation)
+        
+        denoised_obs = torch.squeeze(denoised_obs, dim=0) # shape(3*8*30)
         
         return denoised_obs
 
