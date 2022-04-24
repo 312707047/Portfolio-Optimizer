@@ -29,7 +29,7 @@ class TradingEnv(gym.Env):
         self.observation_features = observation_features
         self.data_path = data_path
         
-        # read in data
+        # read data
         self.close_prices = self._data_preprocessing(pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True))
         if observation_features != 'Close':
             self.high_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'High.csv'), index_col=0, parse_dates=True))
@@ -46,7 +46,7 @@ class TradingEnv(gym.Env):
         
         # Observation space and action space
         self.action_space = gym.spaces.Box(
-            0, 1, shape=(self.tickers_num+1, ), dtype=np.float32)  # include cash
+            0, 1, shape=(self.tickers_num,), dtype=np.float32)  # include cash
         
         if observation_features == 'Close':
             self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(1, self.tickers_num, rolling_window), dtype=np.float32)
@@ -89,62 +89,11 @@ class TradingEnv(gym.Env):
         p1 = np.clip(p1, 0, np.inf)
         rho1 = p1 / p0 - 1
         reward = np.log((p1+EPS)/(p0+EPS))
-        
-        #################### TO DO ####################
-        #
-        # Reward Function:
-        #   1. Calculate return of Markowitz
-        #   2. Calculate return of same-weighted portfolio
-        #   3. Calculate Sharpe, DD, MDD, etc
-        #
-        # Reward Shaping:
-        #   1. Avoid digicurrencies have more than 10% weight
-        #   2. Avoid single asset has more than 65% weight
-        #
-        
-        
-        #   1. Calculate return of Markowitz
-    
-        port_returns = []
-        port_volatility = []
-        sharpe_ratio = []
-        stock_weights = []
-        
-        num_portfolios = 50000   #這裡是用MC模擬50000次，實際上讓agent自己去跟環境互動即可
 
-        np.random.seed(100)
-
-        for single_portfolio in range(num_portfolios):
-            weights = np.random.random(self.tickers_num)
-            weights /= np.sum(weights)
-            returns = np.dot(weights, reward.mean() * 250)   #交易天數250天
-            volatility = np.sqrt(np.dot(weights.T, np.dot(reward.cov() * 250, weights)))
-            sharpe = returns / volatility
-            sharpe_ratio.append(sharpe)
-            port_returns.append(returns)
-            port_volatility.append(volatility)
-            stock_weights.append(weights)
-
-        portfolio = {'Returns': port_returns,          #return
-                     'Volatility': port_volatility,
-                     'Sharpe Ratio': sharpe_ratio}     #Sharpe Ratio
-        
-        for counter,symbol in enumerate(self.tickers):
-            portfolio[symbol + 'Weight'] = [Weight[counter] for Weight in stock_weights]
-
-        df = pd.DataFrame(portfolio)
-        column_order = ['Returns', 'Volatility', 'Sharpe Ratio'] + [stock + 'Weight' for stock in self.tickers]
-        df = df[column_order]
-        
-        min_volatility = df['Volatility'].min()
-        max_sharpe = df['Sharpe Ratio'].max()
-        sharpe_portfolio = df.loc[df['Sharpe Ratio'] == max_sharpe]
-        min_variance_port = df.loc[df['Volatility'] == min_volatility]    #return of Markowitz that minimizes the risk
-        
         #   2. Calculate return of same-weighted portfolio
         
-        #   tickers = ["ETH", "BTC", "SPY", "IVV", "QQQ", "VOO", "USDC-USD", "VTI"]       
-        same_weighted = np.array([0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.1/3, 0.9/5])
+        #   tickers = ["ETH", "BTC", "USDT-USD", "SPY", "IVV", "QQQ", "VOO", "VTI"]       
+        same_weighted = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
         same_weighted_returns = []
         same_weighted_volatility = []
         same_weighted_sharpe_ratio = []
@@ -186,7 +135,15 @@ class TradingEnv(gym.Env):
         
         # observe the next state
         t0 = t - self.rolling_window + 1
-        observation = self.observation[:, :, t0:t+1] # fixe here!
+        
+        if self.observation_features == 'Close':
+            observation = self.observation[:, :, t0:t+1] # fixe here!
+        
+        elif self.observation_features == 'Three':
+            pass
+        
+        elif self.observation_features == 'All':
+            pass
         
         # info
         r = y1.mean()
