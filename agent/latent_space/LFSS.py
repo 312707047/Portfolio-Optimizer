@@ -169,7 +169,7 @@ class PretrainedAEModel:
             observation: state space from trading environment, shape(3*8*60)
         '''
         self.model.load_state_dict(torch.load(self.model_path))
-        observation = self._scaler(np.transpose(observation))
+        observation = self._scaler(observation)
         observation = np.expand_dims(observation, axis=0)
         observation = torch.tensor(observation, dtype=torch.float, device=self.device)
         
