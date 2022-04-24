@@ -14,7 +14,8 @@ class TimeSeriesDataset(data.Dataset):
     def __init__(self, data, F=None, B=None, H=None, Q=None, R=None, P=None, x0=None):
         self.X = data
         self.kf = KalmanFilter(F, B, H, Q, R, P, x0)
-    
+        self.scaler = MinMaxScaler()
+        
     def __len__(self):
         return len(self.X)
     
@@ -22,7 +23,8 @@ class TimeSeriesDataset(data.Dataset):
         ############## TO DO ##############
         # implement KalmanFilter
         # self.X[index] is a rolling window of log return
-        # please let them filtered by KalmanFilter
+        # please scale them with MinMaxScaler first,
+        # and then filtered them with KalmanFilter
         ###################################
         
         return self.X[index]
@@ -48,8 +50,11 @@ class PretrainedAEModel:
 
         # model for training Autoencoder
         self.model = Autoencoder()
+        self.model.to(self.device)
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
         self.criterion = nn.MSELoss()
+        
+        self.model_path = 'agent/latent_space/Autoencoder.ckpt'
         
     def _data_preprocessing(self, df):
         '''preprocess the price data into log return'''
@@ -98,11 +103,17 @@ class PretrainedAEModel:
             
             if max(total_loss[-5:]) < loss_threshold:
                 print('-------------Finish pretraining the model!-------------')
-                torch.save(self.model.state_dict(), 'agent/latent_space/Autoencoder.ckpt')
+                torch.save(self.model.state_dict(), self.model_path)
                 break
     
-    def evaluate(self, model_path='agent/latent_space/Autoencoder.ckpt'):
-        pass
+    def predict(self, dataloader):
+        self.model.load_state_dict(torch.load(self.model_path))
+        
+        self.model.eval()
+        with torch.no_grad():
+            
+            for 
+            
     
 
 
