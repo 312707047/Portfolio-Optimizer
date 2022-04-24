@@ -29,8 +29,8 @@ class TimeSeriesDataset(data.Dataset):
         filterdata = []
         
         for element in self.X:
-            filterdata.append(np.dot(H,  kf.predict())[0])
-            kf.update(element)
+            filterdata.append(np.dot(H, self.kf.predict())[0])
+            self.kf.update(element)
         
         filterdata[0] = self.X[0]
         self.X = filterdata
