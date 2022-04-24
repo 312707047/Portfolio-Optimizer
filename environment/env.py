@@ -28,18 +28,24 @@ class TradingEnv(gym.Env):
         self.commission = commission
         self.observation_features = observation_features
         self.data_path = data_path
+        self.info_list = []
         
         # read data
         self.close_prices = self._data_preprocessing(pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True))
+        self.close_obs = np.expand_dims(self.close_prices.T, 0)
         if observation_features != 'Close':
             self.high_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'High.csv'), index_col=0, parse_dates=True))
             self.low_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'Low.csv'), index_col=0, parse_dates=True))
+            
+            self.high_obs = np.expand_dims(self.high_prices.T, 0)
+            self.low_obs = np.expand_dims(self.low_prices.T, 0)
             
         self.tickers = self.close_prices.columns.to_list()
         self.tickers_num = len(self.tickers)
         self.dates = self.close_prices.index.values[1:]
         self.dates_num = self.dates.shape[0]
-        self.gain = np.hstack((np.ones((self.close_prices.shape[0]-1, 1)), self.close_prices.values[1:] / self.close_prices.values[:-1]))
+        # self.gain = np.hstack((np.ones((self.close_prices.shape[0]-1, 1)), self.close_prices.values[1:] / self.close_prices.values[:-1]))
+        self.gain = self.close_prices.values[1:] / self.close_prices.values[:-1]
         
         self.info = []
         self.step_number = 0
@@ -49,19 +55,27 @@ class TradingEnv(gym.Env):
             0, 1, shape=(self.tickers_num,), dtype=np.float32)  # include cash
         
         if observation_features == 'Close':
-            self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(1, self.tickers_num, rolling_window), dtype=np.float32)
+            
+            spaces = {
+                'portfolio': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(1, self.tickers_num, rolling_window), dtype=np.float32),
+                'action': gym.spaces.Box(0, 1, shape=(self.tickers_num,), dtype=np.float32)
+            }
         
         elif observation_features == 'Three':
-            self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32)
+            
+            spaces = {
+                'portfolio': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32),
+                'action': gym.spaces.Box(0, 1, shape=(self.tickers_num,), dtype=np.float32)
+            }
 
         elif observation_features == 'All':
             spaces = {
                 'portfolio': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32),
+                'action': gym.spaces.Box(0, 1, shape=(self.tickers_num,), dtype=np.float32),
                 'covariance': gym.spaces.Box(low=-1.0, high=1.0, shape=(3, self.tickers_num, self.tickers_num), dtype=np.float32)
             }
             
-            self.observation_space = gym.spaces.Dict(spaces)
-        
+        self.observation_space = gym.spaces.Dict(spaces)
         self.start_date_index = start_date_index
         self.steps = steps
         self.reset()
@@ -75,7 +89,7 @@ class TradingEnv(gym.Env):
         self.step_number += 1
         
         w1 = np.clip(action, a_min=0, a_max=1)
-        w1 = np.insert(w1, 0, np.clip(1 - w1.sum(), a_min=0, a_max=1))
+        # w1 = np.insert(w1, 0, np.clip(1 - w1.sum(), a_min=0, a_max=1))
         w1 = w1 / w1.sum()
         
         # calculate the reward
@@ -93,33 +107,33 @@ class TradingEnv(gym.Env):
         #   2. Calculate return of same-weighted portfolio
         
         #   tickers = ["ETH", "BTC", "USDT-USD", "SPY", "IVV", "QQQ", "VOO", "VTI"]       
-        same_weighted = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        same_weighted_returns = []
-        same_weighted_volatility = []
-        same_weighted_sharpe_ratio = []
+        # same_weighted = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
+        # same_weighted_returns = []
+        # same_weighted_volatility = []
+        # same_weighted_sharpe_ratio = []
 
-        returns = np.dot(same_weighted, reward.mean() * 250)
-        volatility = np.sqrt(np.dot(same_weighted.T, np.dot(reward.cov() * 250, same_weighted)))
-        sharpe = returns / volatility
-        same_weighted_returns.append(returns)
-        same_weighted_volatility.append(volatility)
-        same_weighted_sharpe_ratio.append(sharpe)
+        # returns = np.dot(same_weighted, reward.mean() * 250)
+        # volatility = np.sqrt(np.dot(same_weighted.T, np.dot(reward.cov() * 250, same_weighted)))
+        # sharpe = returns / volatility
+        # same_weighted_returns.append(returns)
+        # same_weighted_volatility.append(volatility)
+        # same_weighted_sharpe_ratio.append(sharpe)
 
-        same_weighted_portfolio = {'Returns': same_weighted_returns,
-                                   'Volatility': same_weighted_volatility,
-                                   'Sharpe Ratio': same_weighted_sharpe_ratio}
+        # same_weighted_portfolio = {'Returns': same_weighted_returns,
+        #                            'Volatility': same_weighted_volatility,
+        #                            'Sharpe Ratio': same_weighted_sharpe_ratio}
        
         #   3. Calculate MDD
         
-        def MDD(close_prices):
-            dr=close_prices.pct_change(1)
-            r=dr.add(1).cumprod()
-            dd=r.div(r.cummax()).sub(1)
-            mdd=dd.min()
-            end=dd.idxmin()
-            start=r.loc[:end[0]].idxmax()
-            days=end-start
-            return mdd[:], start[:], end[:], days[:]
+        # def MDD(close_prices):
+        #     dr=close_prices.pct_change(1)
+        #     r=dr.add(1).cumprod()
+        #     dd=r.div(r.cummax()).sub(1)
+        #     mdd=dd.min()
+        #     end=dd.idxmin()
+        #     start=r.loc[:end[0]].idxmax()
+        #     days=end-start
+        #     return mdd[:], start[:], end[:], days[:]
         
         # data1 = pd.DataFrame(MDD(close_prices)[0], columns=["Mdd"])
         # data2 = pd.DataFrame(MDD(close_prices)[3], columns=["Days"])
@@ -137,13 +151,25 @@ class TradingEnv(gym.Env):
         t0 = t - self.rolling_window + 1
         
         if self.observation_features == 'Close':
-            observation = self.observation[:, :, t0:t+1] # fixe here!
+            observation = {'portfolio': self.close_obs[:, :, t0:t+1],
+                           'action': self.weights}
         
         elif self.observation_features == 'Three':
-            pass
+            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0)
+            observation = {'portfolio': portfolio[:, :, t0:t+1],
+                           'action': self.weights}
         
         elif self.observation_features == 'All':
-            pass
+            high_cov = np.expand_dims(np.cov(self.high_obs[0]), axis=0)[:, :, t0:t+1]
+            low_cov = np.expand_dims(np.cov(self.low_obs[0]), axis=0)[:, :, t0:t+1]
+            close_cov = np.expand_dims(np.cov(self.close_obs[0]), axis=0)[:, :, t0:t+1]
+            
+            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 8, 60)
+            covariance = np.concatenate([high_cov, low_cov, close_cov], axis=0) # shape(3, 8, 8)
+            
+            observation = {'portfolio':portfolio[:, :, t0:t+1],
+                           'action': self.weights,
+                           'covariance':covariance}
         
         # info
         r = y1.mean()
@@ -154,19 +180,20 @@ class TradingEnv(gym.Env):
         info = {"reward": reward, "log_return": reward, "portfolio_value": p1, "return": r, "rate_of_return": rho1,
                 "weights_mean": w1.mean(), "weights_std": w1.std(), "cost": mu1, 'date': self.dates[t],
                 'steps': self.step_number, "market_value": market_value}
-        self.info.append(info)
+        self.info_list.append(info)
         
         # ckeck done
         done = False
         if (self.step_number >= self.steps) or (p1 <= 0):
-            done = True
+            done = True    
         
         return observation, reward, done, info
     
     def reset(self):
         
         self.info = []
-        self.weights = np.insert(np.zeros(self.tickers_num+1), 0, 1.0)
+        self.weights = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
+        # self.weights = np.insert(np.zeros(self.tickers_num), 0, 1.0)
         self.portfolio_value = 1.0
         self.step_number = 0
         
@@ -184,31 +211,28 @@ class TradingEnv(gym.Env):
         
         # Observation in different situations
         if (self.observation_features == 'Close'):
-            observation = np.expand_dims(self.close_prices.T, 0)
             
-            return observation[:, :, t0:t+1] # shape(1, 8, 60)
+            portfolio = self.close_obs
+            observation = {'portfolio': portfolio[:, :, t0:t+1],
+                           'action': self.weights}
         
         elif (self.observation_features == 'Three'):
-            high_obs = np.expand_dims(self.high_prices.T, 0)
-            low_obs = np.expand_dims(self.low_prices.T, 0)
-            close_obs = np.expand_dims(self.close_prices.T, 0)
             
-            observation = np.concatenate([high_obs, low_obs, close_obs], axis=0) #shape(3, 8, 815)
-            return observation[:, :, t0:t+1] # shape(3, 8, 60)
+            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) #shape(3, 8, 815)
+            observation = {'portfolio': portfolio[:, :, t0:t+1],
+                           'action': self.weights}
         
         elif self.observation_features == 'All':
-            high_obs = np.expand_dims(self.high_prices.T, axis=0)[:, :, t0:t+1]
-            low_obs = np.expand_dims(self.low_prices.T, axis=0)[:, :, t0:t+1]
-            close_obs = np.expand_dims(self.close_prices.T, axis=0)[:, :, t0:t+1]
             
-            high_cov = np.expand_dims(np.cov(high_obs[0]), axis=0)
-            low_cov = np.expand_dims(np.cov(low_obs[0]), axis=0)
-            close_cov = np.expand_dims(np.cov(close_obs[0]), axis=0)
+            high_cov = np.expand_dims(np.cov(self.high_obs[0]), axis=0)[:, :, t0:t+1]
+            low_cov = np.expand_dims(np.cov(self.low_obs[0]), axis=0)[:, :, t0:t+1]
+            close_cov = np.expand_dims(np.cov(self.close_obs[0]), axis=0)[:, :, t0:t+1]
             
-            portfolio = np.concatenate([high_obs, low_obs, close_obs], axis=0) # shape(3, 8, 60)
+            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 8, 60)
             covariance = np.concatenate([high_cov, low_cov, close_cov], axis=0) # shape(3, 8, 8)
             
-            observation = {'portfolio':portfolio,
+            observation = {'portfolio':portfolio[:, :, t0:t+1],
+                           'action': self.weights,
                            'covariance':covariance}
         
-            return observation
+        return observation
