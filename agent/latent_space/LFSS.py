@@ -23,8 +23,7 @@ class TimeSeriesDataset(data.Dataset):
         ############## TO DO ##############
         # implement KalmanFilter
         # self.X[index] is a rolling window of log return
-        # please scale them with MinMaxScaler first,
-        # and then filtered them with KalmanFilter
+        # please filtered them with KalmanFilter
         ###################################
         
         return self.X[index]
@@ -40,13 +39,14 @@ class PretrainedAEModel:
         
         self.rolling_window = rolling_window
         self.device = device
+        
         high = self._data_preprocessing(pd.read_csv(os.path.join(data_path, 'High.csv'), index_col=0, parse_dates=True))
         low = self._data_preprocessing(pd.read_csv(os.path.join(data_path, 'Low.csv'), index_col=0, parse_dates=True))
         close = self._data_preprocessing(pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True))
         df = np.concatenate([high, low, close], axis=1)
         
         dataset = TimeSeriesDataset(df, F, B, H, Q, R, P, x0)
-        self.dataloader = data.DataLoader(dataset, batch_size=64, num_workers=6) # TO DO: train data
+        self.dataloader = data.DataLoader(dataset, batch_size=64, num_workers=6)
 
         # model for training Autoencoder
         self.model = Autoencoder()
@@ -58,7 +58,11 @@ class PretrainedAEModel:
         
     def _data_preprocessing(self, df):
         '''preprocess the price data into log return'''
+        scaler = MinMaxScaler()
         df = (np.log(df) - np.log(df.shift(1))).dropna()
+        
+        
+        
         df = self._split_sequence(df)
         
         return np.expand_dims(np.transpose(df, (0, 2, 1)), axis=1)
@@ -73,7 +77,11 @@ class PretrainedAEModel:
             x.append(seq_x)
         return np.array(x)
     
-    def train(self, loss_threshold=0.1):
+    def _Scaler(self, array):
+        scaler = MinMaxScaler()
+        
+    
+    def train(self, loss_threshold=0.5):
         total_loss = []
         print('-------------Initialize Autoencoder-------------')
         for epoch in itertools.count():
@@ -103,18 +111,25 @@ class PretrainedAEModel:
             
             if max(total_loss[-5:]) < loss_threshold:
                 print('-------------Finish pretraining the model!-------------')
+                print(f'Total Training Epochs: {epoch}')
                 torch.save(self.model.state_dict(), self.model_path)
                 break
     
-    def predict(self, dataloader):
+    def predict(self, observation):
+        '''
+        this will denoise the observation
+        Arg:
+            observation: state space from trading environment
+        '''
         self.model.load_state_dict(torch.load(self.model_path))
+        
+        observation = torch.tensor(observation, dtype=torch.float, device=self.device)
         
         self.model.eval()
         with torch.no_grad():
-            
-            for 
-            
-    
+            denoised_obs = self.model(observation)
+        
+        return denoised_obs
 
 
 class LFSS:
