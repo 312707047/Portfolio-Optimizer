@@ -9,6 +9,7 @@ import copy
 
 from collections import deque
 from agent.model import TD3_Actor, TD3_Critic
+from agent.latent_space.LFSS import PretrainedAEModel
 from utils import  OUNoise
 
 

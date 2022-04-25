@@ -5,8 +5,7 @@ import torch.nn as nn
 import numpy as np
 import itertools
 
-from Autoencoder import Autoencoder
-from KalmanFilter import KalmanFilter
+from Denoise import Autoencoder, KalmanFilter
 from sklearn.preprocessing import MinMaxScaler
 from torch.utils import data
 
@@ -42,7 +41,7 @@ class TimeSeriesDataset(data.Dataset):
 class PretrainedAEModel:
     '''This class will pretrained the Autoencoder for the agent'''
     def __init__(self,
-                 data_path=None,
+                 data_path='data',
                  rolling_window=60,
                  F=None, B=None, H=None, Q=None, R=None, P=None, x0=None,
                  device=None):
