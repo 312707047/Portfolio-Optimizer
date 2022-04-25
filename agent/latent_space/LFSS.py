@@ -13,6 +13,7 @@ from torch.utils import data
 class TimeSeriesDataset(data.Dataset):
     def __init__(self, data, F=None, B=None, H=None, Q=None, R=None, P=None, x0=None):
         self.X = data
+        self.H = H
         self.kf = KalmanFilter(F, B, H, Q, R, P, x0)
         self.scaler = MinMaxScaler()
         
@@ -28,12 +29,12 @@ class TimeSeriesDataset(data.Dataset):
         
         filterdata = []
         
-        for element in self.X:
-            filterdata.append(np.dot(H, self.kf.predict())[0])
+        for element in self.X[index]:
+            filterdata.append(np.dot(self.H, self.kf.predict())[0])
             self.kf.update(element)
         
-        filterdata[0] = self.X[0]
-        self.X = filterdata
+        filterdata[0] = self.X[index][0]
+        self.X[index] = filterdata
         
         return self.X[index]
 
