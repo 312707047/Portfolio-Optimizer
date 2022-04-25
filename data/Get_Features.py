@@ -80,19 +80,22 @@ class GetStockData():
 
 
 
-class GetRawData():
+class Features():
     
-    def __init__(self, asset_list, asset_data):
+    def __init__(self, crypto_data, stock_data, asset_list, feature):
         
+        self.crypto_data = crypto_data
+        self.stock_data = stock_data
         self.asset_list = asset_list
-        self.asset_data = asset_data
-
+        self.feature = feature
     
-    def MakeOutPut(self):
+    def RawData(self):
         
-        date_list1 = list(self.asset_data[self.asset_data['tic']=='SPY'].date)
-        date_list2 = list(self.asset_data[self.asset_data['tic']=='USDT-USD'].date)
-        asset_filtered = self.asset_data[self.asset_data['date'].isin(date_list1)]
+        asset_data = pd.concat([self.stock_data, self.crypto_data]).sort_values(['date', 'tic']).reset_index(drop = True)
+    
+        date_list1 = list(asset_data[asset_data['tic']=='SPY'].date)
+        date_list2 = list(asset_data[asset_data['tic']=='USDT-USD'].date)
+        asset_filtered = asset_data[asset_data['date'].isin(date_list1)]
         asset_filtered = asset_filtered[asset_filtered['date'].isin(date_list2)].reset_index(drop =True)
         
         print('-'*20,'Trading Asset','-'*20)
@@ -110,22 +113,11 @@ class GetRawData():
         
         return asset_filtered
     
-    
-    
-    
-class GetFeatures():
-    
-    def __init__(self, raw_data, feature):
+    def GetFeatures(self):
         
-        self.raw_data = raw_data
+        raw_data = self.RawData()
         
-        self.feature = feature
-        
-        
-    
-    def MakeOutPut(self):
-        
-        df_prices = self.raw_data.reset_index().set_index(['tic', 'date']).sort_index()
+        df_prices = raw_data.reset_index().set_index(['tic', 'date']).sort_index()
 
         # Get the list of all the tickers
         tic_list = list(set([i for i,j in df_prices.index]))
@@ -142,17 +134,14 @@ class GetFeatures():
             
         df_feature = df_feature.reset_index()
         df_feature = df_feature.reindex(columns = ['date','BTC', 'ETH','USDT-USD','SPY', 'IVV', 'VTI', 'VOO', 'QQQ'])
-
-    
         
         return df_feature
-    
+
     def StoreData(self, path):
         
-        store_data = self.MakeOutPut()
+        store_data = self.GetFeatures()
         store_data.to_csv(path, index = False)
-    
-    
+
 
 
 
@@ -168,36 +157,25 @@ Data Generating
 
 btc = GetCryptoData('2015-01-01', '2022-01-01', 'USDT_BTC').MakeOutPut()
 eth = GetCryptoData('2015-01-01', '2022-01-01', 'USDT_ETH').MakeOutPut()
-crypto_data = pd.concat([btc,eth]).sort_values(['date'])
+
+##Make crypto dataset
+crypto_datas = pd.concat([btc,eth]).sort_values(['date'])
 
 
 """ Stocks Data """
 need_stock_list = ['SPY', 'IVV', 'VTI', 'VOO', 'QQQ', 'USDT-USD']
-stocks_data = GetStockData('2015-01-01', '2021-12-31', need_stock_list).MakeOutPut()
+stocks_datas = GetStockData('2015-01-01', '2021-12-31', need_stock_list).MakeOutPut()
 
 
 
-asset = pd.concat([stocks_data, crypto_data]).sort_values(['date', 'tic']).reset_index(drop = True)
-
-
-
-""" Total Raw Data"""
+""" Get Features"""
 
 total_assets = ['SPY', 'IVV', 'VTI', 'VOO', 'QQQ', 'BTC', 'ETH', 'USDT-USD']
-Raw = GetRawData(total_assets, asset).MakeOutPut()
 
-""" Feature data"""
-
-High = GetFeatures(Raw, 'high').MakeOutPut()
-Close = GetFeatures(Raw, 'close').MakeOutPut()
-Low = GetFeatures(Raw, 'low').MakeOutPut()
-
-
-#
-
-
-
-
+###Get LHC features
+High  = Features(crypto_datas, stocks_datas, total_assets, 'high').GetFeatures()
+Low = Features(crypto_datas, stocks_datas, total_assets, 'low').GetFeatures()
+Close = Features(crypto_datas, stocks_datas, total_assets, 'close').GetFeatures()
 
 
 
