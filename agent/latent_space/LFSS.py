@@ -5,35 +5,33 @@ import torch.nn as nn
 import numpy as np
 import itertools
 
-from Denoise import Autoencoder, KalmanFilter
+from pykalman import KalmanFilter
+from agent.latent_space.Denoise import Autoencoder
 from sklearn.preprocessing import MinMaxScaler
 from torch.utils import data
 
 class TimeSeriesDataset(data.Dataset):
-    def __init__(self, data, F=None, B=None, H=None, Q=None, R=None, P=None, x0=None):
+    def __init__(self, data):
+        '''
+        Args:
+            data: three-dimensional array
+        '''
         self.X = data
-        self.H = H
-        self.kf = KalmanFilter(F, B, H, Q, R, P, x0)
-        self.scaler = MinMaxScaler()
+        self.kf = KalmanFilter(transition_matrices = [1],
+                               observation_matrices = [1],
+                               initial_state_mean = 1,
+                               initial_state_covariance = 1.5,
+                               observation_covariance = 1.5,
+                               transition_covariance = 1/30)
         
     def __len__(self):
         return len(self.X)
     
     def __getitem__(self, index):
-        ############## TO DO ##############
-        # implement KalmanFilter
-        # self.X[index] is a rolling window of log return
-        # please filtered them with KalmanFilter
-        ###################################
-        
-        filterdata = []
-        
-        for element in self.X[index]:
-            filterdata.append(np.dot(self.H, self.kf.predict())[0])
-            self.kf.update(element)
-        
-        filterdata[0] = self.X[index][0]
-        self.X[index] = filterdata
+        for i in range(len(self.X[index])):
+            for j in range(len(self.X[index][i])):
+                a, _ = self.kf.filter(self.X[index][i][j])
+                self.X[index][i][j] = np.squeeze(a)
         
         return self.X[index]
 
@@ -43,7 +41,6 @@ class PretrainedAEModel:
     def __init__(self,
                  data_path='data',
                  rolling_window=60,
-                 F=None, B=None, H=None, Q=None, R=None, P=None, x0=None,
                  device=None):
         
         self.rolling_window = rolling_window
@@ -52,9 +49,9 @@ class PretrainedAEModel:
         high = self._data_preprocessing(pd.read_csv(os.path.join(data_path, 'High.csv'), index_col=0, parse_dates=True))
         low = self._data_preprocessing(pd.read_csv(os.path.join(data_path, 'Low.csv'), index_col=0, parse_dates=True))
         close = self._data_preprocessing(pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True))
-        df = np.concatenate([high, low, close], axis=1)
+        df = np.concatenate([high, low, close], axis=1) # shape()
         
-        dataset = TimeSeriesDataset(df, F, B, H, Q, R, P, x0)
+        dataset = TimeSeriesDataset(df)
         self.dataloader = data.DataLoader(dataset, batch_size=64, num_workers=6)
 
         # model for training Autoencoder
@@ -68,8 +65,9 @@ class PretrainedAEModel:
     def _data_preprocessing(self, df):
         '''preprocess the price data into log return'''
         df = (np.log(df) - np.log(df.shift(1))).dropna()
-        df = self._scaler(df)
+        df = df.values
         df = self._split_sequence(df)
+        df = self._scaler(df)
         
         return np.expand_dims(np.transpose(df, (0, 2, 1)), axis=1)
 
@@ -81,13 +79,15 @@ class PretrainedAEModel:
                 break
             seq_x = df[i:end_ix]
             x.append(seq_x)
+            
         return np.array(x)
     
     def _scaler(self, array):
         '''scale 3D array with MinMaxScaler'''
         for i in range(array.shape[0]):
             scaler = MinMaxScaler()
-            array[i, :, :] = scaler.fit_transform(array[i, :, :]) 
+            array[i, :, :] = scaler.fit_transform(array[i, :, :])
+            return array
     
     def train(self, loss_threshold=0.5):
         total_loss = []
@@ -101,8 +101,8 @@ class PretrainedAEModel:
                 
                 x, y = batch, batch
                 
-                logits = self.model(x.to(self.device))
-                loss = self.criterion(logits, y.to(self.device))
+                logits = self.model(x.to(self.device, dtype=torch.float32))
+                loss = self.criterion(logits, y.to(self.device, dtype=torch.float32))
                 
                 L2_regularization = sum(p.pow(2.0).sum() for p in self.model.parameters())
                 param_num = sum(p.numel() for p in self.model.parameters())
@@ -116,6 +116,8 @@ class PretrainedAEModel:
             
             train_total_loss = sum(train_loss) / len(train_loss)
             total_loss.append(train_total_loss)
+            
+            print(f'Epoch: {epoch} | Loss: {train_total_loss}')
             
             if max(total_loss[-5:]) < loss_threshold:
                 print('-------------Finish pretraining the model!-------------')
