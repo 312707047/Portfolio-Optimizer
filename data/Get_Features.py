@@ -12,7 +12,7 @@ import pandas as pd
 from pandas_datareader import data as pdr
 import time
 import requests
-
+import datetime
 
 
 
@@ -155,8 +155,8 @@ Data Generating
 
 """ Crypto Data"""
 
-btc = GetCryptoData('2015-01-01', '2022-01-01', 'USDT_BTC').MakeOutPut()
-eth = GetCryptoData('2015-01-01', '2022-01-01', 'USDT_ETH').MakeOutPut()
+btc = GetCryptoData('2015-01-01', str(datetime.date.today()+ datetime.timedelta(days=1)), 'USDT_BTC').MakeOutPut()
+eth = GetCryptoData('2015-01-01', str(datetime.date.today()+ datetime.timedelta(days=1)), 'USDT_ETH').MakeOutPut()
 
 ##Make crypto dataset
 crypto_datas = pd.concat([btc,eth]).sort_values(['date'])
@@ -164,7 +164,7 @@ crypto_datas = pd.concat([btc,eth]).sort_values(['date'])
 
 """ Stocks Data """
 need_stock_list = ['SPY', 'IVV', 'VTI', 'VOO', 'QQQ', 'USDT-USD']
-stocks_datas = GetStockData('2015-01-01', '2021-12-31', need_stock_list).MakeOutPut()
+stocks_datas = GetStockData('2015-01-02', str(datetime.date.today()), need_stock_list).MakeOutPut()
 
 
 
