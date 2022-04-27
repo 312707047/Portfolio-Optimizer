@@ -89,19 +89,6 @@ class TradingEnv(gym.Env):
         self.steps = steps
         self.reset()
     
-    
-    def MDD(self):
-         dr=self.close_prices.pct_change(1)
-         r=dr.add(1).cumprod()
-         dd=r.div(r.cummax()).sub(1)
-         mdd=dd.min()
-         end=dd.idxmin()
-         start=r.loc[:end[0]].idxmax()
-         days=end-start
-         
-         return mdd[:], start[:], end[:], days[:]
-    
-    
     def _data_preprocessing(self, df):
         '''preprocess the price data into log return'''
         return (np.log(df) - np.log(df.shift(1))).dropna()
@@ -131,7 +118,7 @@ class TradingEnv(gym.Env):
         # w1 = np.insert(w1, 0, np.clip(1 - w1.sum(), a_min=0, a_max=1))
         w1 = w1 / w1.sum()
         
-        # calculate the reward
+        # 1. Calculate agent reward
         t = self.start_date_index + self.step_number
         y1 = self.gain[t]
         w0 = self.weights
@@ -141,48 +128,45 @@ class TradingEnv(gym.Env):
         p1 = p0 * (1 - mu1) * np.dot(y1, w1)
         p1 = np.clip(p1, 0, np.inf)
         rho1 = p1 / p0 - 1
-        reward = np.log((p1+EPS)/(p0+EPS))
+        agent_return = np.log((p1+EPS)/(p0+EPS))
 
-        #   2. Calculate return of same-weighted portfolio
+        # 2. Calculate return of same-weighted portfolio
+        s_w0 = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
+        s_p0 = self.same_weighted_portfolio_value
+        s_dw1 = (y1 * s_w0) / (np.dot(y1, s_w0)+EPS)
+        s_mu1 = self.commission * (np.abs(s_dw1 - s_w0)).sum()
+        s_p1 = s_p0 * (1 - s_mu1) * np.dot(y1, s_w0)
+        s_p1 = np.clip(s_p1, 0, np.inf)
+        same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
+        
+        reward = (agent_return - same_weighted_return)
         
         #tickers = ["ETH", "BTC", "USDT-USD", "SPY", "IVV", "QQQ", "VOO", "VTI"]       
-        same_weighted = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        same_weighted_returns = []
-        same_weighted_volatility = []
-        same_weighted_sharpe_ratio = []
-
+        # same_weighted = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
+        # same_weighted_returns = []
+        # same_weighted_volatility = []
+        # same_weighted_sharpe_ratio = []
         
         #算到那個Step的same ewight return
-        daily_returns = self._data_preprocessing(self.close_prices[:t])
-        mean_daily_returns = daily_returns.mean().values
-        uw_returns = np.dot(mean_daily_returns, same_weighted)
+        # daily_returns = self._data_preprocessing(self.close_prices[:t])
+        # mean_daily_returns = daily_returns.mean().values
+        # uw_returns = np.dot(mean_daily_returns, same_weighted)
         
-        uw_vol = uw_returns.std()
-        uw_sharpe_ratio = ((uw_returns/ uw_vol))
+        # uw_vol = uw_returns.std()
+        # uw_sharpe_ratio = ((uw_returns/ uw_vol))
         
-        same_weighted_returns.append(uw_returns)
-        same_weighted_volatility.append(uw_vol)
-        same_weighted_sharpe_ratio.append(uw_sharpe_ratio)
+        # same_weighted_returns.append(uw_returns)
+        # same_weighted_volatility.append(uw_vol)
+        # same_weighted_sharpe_ratio.append(uw_sharpe_ratio)
 
-        same_weighted_portfolio = {'Returns': same_weighted_returns,
-                                   'Volatility': same_weighted_volatility,
-                                   'Sharpe Ratio': same_weighted_sharpe_ratio}
-
-        
-        
+        # same_weighted_portfolio = {'Returns': same_weighted_returns,
+        #                            'Volatility': same_weighted_volatility,
+        #                            'Sharpe Ratio': same_weighted_sharpe_ratio}
         #差距
         #diff = same_weighted_portfolio['Returns'] - reward
         
-        #   3. Calculate MDD
-        
-       
-        data1 = pd.DataFrame(self.MDD(self.close_prices)[0], columns=["Mdd"])
-        data2 = pd.DataFrame(self.MDD(self.close_prices)[3], columns=["Days"])
-        Data = pd.concat([data1, data2], axis = 1)
-        #max drawdown dataframe
-        
-             
-        ###############################################
+        # 3. Calculate MDD
+
         
         # save weights and portfolio value for next iteration
         self.weights = w1
@@ -231,11 +215,22 @@ class TradingEnv(gym.Env):
                 'steps': self.step_number, "market_value": market_value}
         self.info_list.append(info)
         
-        # ckeck done
+        # 4. Check limitation and done
         done = False
         if (self.step_number >= self.steps) or (p1 <= 0):
-            done = True    
+            done = True
         
+        # Limitation 1: None of the asset should have higher ration than 65%
+        for i in w1:
+            if i > 0.65:
+                done = True
+                reward = -10
+        
+        # Limitation 2: Total ratio of cryptocurrency should not above 10%
+        if sum(w1[:3]) > 0.1:
+            done = True
+            reward = -10
+
         return observation, reward, done, info
     
     def reset(self):
@@ -244,7 +239,11 @@ class TradingEnv(gym.Env):
         self.weights = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
         # self.weights = np.insert(np.zeros(self.tickers_num), 0, 1.0)
         self.portfolio_value = 1.0
+        self.same_weighted_portfolio_value = 1.0
         self.step_number = 0
+        
+        # DD & MDD
+        self.mdd_limit = -0.25
         
         self.steps = min(self.steps, self.dates_num - self.rolling_window - 1)
         
