@@ -3,6 +3,9 @@ import os
 import numpy as np
 import pandas as pd
 
+
+
+#%%
 EPS = 1e-8
 
 class TradingEnv(gym.Env):
@@ -80,6 +83,19 @@ class TradingEnv(gym.Env):
         self.steps = steps
         self.reset()
     
+    
+    def MDD(self):
+         dr=self.close_prices.pct_change(1)
+         r=dr.add(1).cumprod()
+         dd=r.div(r.cummax()).sub(1)
+         mdd=dd.min()
+         end=dd.idxmin()
+         start=r.loc[:end[0]].idxmax()
+         days=end-start
+         
+         return mdd[:], start[:], end[:], days[:]
+    
+    
     def _data_preprocessing(self, df):
         '''preprocess the price data into log return'''
         return (np.log(df) - np.log(df.shift(1))).dropna()
@@ -106,41 +122,43 @@ class TradingEnv(gym.Env):
 
         #   2. Calculate return of same-weighted portfolio
         
-        #   tickers = ["ETH", "BTC", "USDT-USD", "SPY", "IVV", "QQQ", "VOO", "VTI"]       
-        # same_weighted = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        # same_weighted_returns = []
-        # same_weighted_volatility = []
-        # same_weighted_sharpe_ratio = []
+        #tickers = ["ETH", "BTC", "USDT-USD", "SPY", "IVV", "QQQ", "VOO", "VTI"]       
+        same_weighted = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
+        same_weighted_returns = []
+        same_weighted_volatility = []
+        same_weighted_sharpe_ratio = []
 
-        # returns = np.dot(same_weighted, reward.mean() * 250)
-        # volatility = np.sqrt(np.dot(same_weighted.T, np.dot(reward.cov() * 250, same_weighted)))
-        # sharpe = returns / volatility
-        # same_weighted_returns.append(returns)
-        # same_weighted_volatility.append(volatility)
-        # same_weighted_sharpe_ratio.append(sharpe)
+        
+        #算到那個Step的same ewight return
+        daily_returns = self._data_preprocessing(self.close_prices[:t])
+        mean_daily_returns = daily_returns.mean().values
+        uw_returns = np.dot(mean_daily_returns, same_weighted)
+        
+        uw_vol = uw_returns.std()
+        uw_sharpe_ratio = ((uw_returns/ uw_vol))
+        
+        same_weighted_returns.append(uw_returns)
+        same_weighted_volatility.append(uw_vol)
+        same_weighted_sharpe_ratio.append(uw_sharpe_ratio)
 
-        # same_weighted_portfolio = {'Returns': same_weighted_returns,
-        #                            'Volatility': same_weighted_volatility,
-        #                            'Sharpe Ratio': same_weighted_sharpe_ratio}
-       
+        same_weighted_portfolio = {'Returns': same_weighted_returns,
+                                   'Volatility': same_weighted_volatility,
+                                   'Sharpe Ratio': same_weighted_sharpe_ratio}
+
+        
+        
+        #差距
+        #diff = same_weighted_portfolio['Returns'] - reward
+        
         #   3. Calculate MDD
         
-        # def MDD(close_prices):
-        #     dr=close_prices.pct_change(1)
-        #     r=dr.add(1).cumprod()
-        #     dd=r.div(r.cummax()).sub(1)
-        #     mdd=dd.min()
-        #     end=dd.idxmin()
-        #     start=r.loc[:end[0]].idxmax()
-        #     days=end-start
-        #     return mdd[:], start[:], end[:], days[:]
+       
+        data1 = pd.DataFrame(self.MDD(self.close_prices)[0], columns=["Mdd"])
+        data2 = pd.DataFrame(self.MDD(self.close_prices)[3], columns=["Days"])
+        Data = pd.concat([data1, data2], axis = 1)
+        #max drawdown dataframe
         
-        # data1 = pd.DataFrame(MDD(close_prices)[0], columns=["Mdd"])
-        # data2 = pd.DataFrame(MDD(close_prices)[3], columns=["Days"])
-        # Data = pd.concat([data1, data2], axis = 1)
-        # Data       #max drawdown dataframe
-        
-        
+             
         ###############################################
         
         # save weights and portfolio value for next iteration
