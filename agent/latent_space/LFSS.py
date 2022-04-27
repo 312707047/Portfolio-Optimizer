@@ -129,7 +129,7 @@ class PretrainedAEModel:
         '''
         this will denoise the observation
         Arg:
-            observation: state space from trading environment, shape(3*8*60)
+            observation: state space from trading environment, shape(3*8*60) (Before kalmanfilter)
         '''
         self.model.load_state_dict(torch.load(self.model_path))
         model = self.model
