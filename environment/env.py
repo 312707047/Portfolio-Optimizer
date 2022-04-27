@@ -141,7 +141,7 @@ class TradingEnv(gym.Env):
         s_p1 = np.clip(s_p1, 0, np.inf)
         same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
-        reward = (agent_return - same_weighted_return)
+        reward = (agent_return - same_weighted_return) - 0.05 * max(w1)
         
         # save weights and portfolio value for next iteration
         self.weights = w1
