@@ -46,14 +46,23 @@ class TD3_Actor(nn.Module):
         
     
     def forward(self, observation):
-        ### TypeError: tuple indices must be integers or slices, not str
-        port = torch.tensor(observation['portfolio'], dtype=torch.float32, device=self.device)
-        cov = torch.tensor(observation['covariance'], dtype=torch.float32, device=self.device)
-        action = torch.tensor(observation['action'], dtype=torch.float32, device=self.device)
-        
-        port = torch.relu(self.conv_port(self.ae.predict(port)))
+        ### TypeError: string indices must be integers
+        try:
+            port = torch.tensor(list(map(lambda x: x['portfolio'], observation)), dtype=torch.float32, device=self.device)
+            cov = torch.tensor(list(map(lambda x: x['covariance'], observation)), dtype=torch.float32, device=self.device)
+            action = torch.tensor(list(map(lambda x: x['action'], observation)), dtype=torch.float32, device=self.device)
+        except TypeError:
+            port = torch.tensor(observation['portfolio'], dtype=torch.float32, device=self.device)
+            cov = torch.tensor(observation['covariance'], dtype=torch.float32, device=self.device)
+            action = torch.tensor(observation['action'], dtype=torch.float32, device=self.device)
+            
+        port = self.ae.predict(port)
+        port = torch.relu(self.conv_port(port))
         cov = torch.relu(self.conv_cov(cov))
-        m = torch.concat([port, cov], dim=0) # shape(3, 8, 8)
+        if len(cov.shape) == 3:
+            m = torch.concat([port, cov], dim=0) # shape(3, 8, 8)
+        else:
+            m = torch.concat([port, cov], dim=1)
         m = torch.relu(self.conv_mix(m)) # shape(20, 8, 1)
         action = torch.unsqueeze(torch.unsqueeze(action, dim=1), dim=0) # shape(1, 8, 1)
         all = torch.concat([m, action], dim=0) # shape(21, 8, 1)
@@ -83,9 +92,9 @@ class TD3_Critic(nn.Module):
         self.linear2 = nn.Linear(16, 1)
     
     def forward(self, observation, act):
-        port = torch.tensor(observation['portfolio'], dtype=torch.float32, device=self.device)
-        cov = torch.tensor(observation['covariance'], dtype=torch.float32, device=self.device)
-        action = torch.tensor(observation['action'], dtype=torch.float32, device=self.device)
+        port = torch.tensor(list(map(lambda x: x['portfolio'], observation)), dtype=torch.float32, device=self.device)
+        cov = torch.tensor(list(map(lambda x: x['covariance'], observation)), dtype=torch.float32, device=self.device)
+        action = torch.tensor(list(map(lambda x: x['action'], observation)), dtype=torch.float32, device=self.device)
         
         # Q1
         q1_port = torch.relu(self.conv_port1(self.ae.predict(port)))

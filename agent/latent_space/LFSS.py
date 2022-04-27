@@ -137,7 +137,8 @@ class PretrainedAEModel:
         self.model.load_state_dict(torch.load(self.model_path))
         model = self.model
         model = model.encoder.to(self.device)
-        observation = torch.unsqueeze(observation, dim=0)
+        if len(observation.shape) < 4:
+            observation = torch.unsqueeze(observation, dim=0)
         # observation = torch.tensor(observation, dtype=torch.float, device=self.device)
         
         self.model.eval()

@@ -78,14 +78,13 @@ class TD3:
         if len(self.replay_memory) < self.BATCH_SIZE:
             return
         
-        samples = random.sample(self.replay_memory, self.BATCH_SIZE)
-        s0, a0, r1, s1, done = zip(*samples)
-                
-        # s0 = torch.tensor(s0, dtype=torch.float, device=self.device)
-        a0 = torch.tensor(a0, dtype=torch.float, device=self.device)
-        r1 = torch.tensor(r1, dtype=torch.float, device=self.device).view(self.BATCH_SIZE,-1)
-        # s1 = torch.tensor(s1, dtype=torch.float, device=self.device)
-        done = torch.tensor(done, dtype=torch.float, device=self.device)
+        batch = random.sample(self.replay_memory, self.BATCH_SIZE)
+        s0, a0, r1, s1, done = zip(*batch)
+        # s0 = torch.tensor(s0, dtype=torch.float32, device=self.device)
+        a0 = torch.tensor(a0, dtype=torch.float32, device=self.device)
+        r1 = torch.tensor(r1, dtype=torch.float32, device=self.device).view(self.BATCH_SIZE,-1)
+        # s1 = torch.tensor(s1, dtype=torch.float32, device=self.device)
+        done = torch.tensor(done, dtype=torch.float32, device=self.device)
         
         self._update_Q(s0, a0, r1, s1, done)
         
