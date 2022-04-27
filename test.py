@@ -35,7 +35,6 @@ class TimeSeriesDataset(data.Dataset):
         
         return self.X[index]
 
-
 class PretrainedAEModel:
     '''This class will pretrained the Autoencoder for the agent'''
     def __init__(self,
@@ -60,7 +59,7 @@ class PretrainedAEModel:
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
         self.criterion = nn.MSELoss()
         
-        self.model_path = 'agent/latent_space/Autoencoder.ckpt'
+        self.model_path = 'agent/latent_space/Autoencoder_test.ckpt'
         
     def _data_preprocessing(self, df):
         '''preprocess the price data into log return'''
@@ -144,3 +143,9 @@ class PretrainedAEModel:
         denoised_obs = torch.squeeze(denoised_obs, dim=0) # shape(3*8*30)
         
         return denoised_obs
+
+
+if __name__ == "__main__":
+    device = torch.device('cuda')
+    ae = PretrainedAEModel(device=device)
+    ae.train()

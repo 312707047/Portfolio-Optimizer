@@ -3,7 +3,7 @@ from agent.TD3_agent import TD3
 
 import torch
 
-env = TradingEnv()
+env = TradingEnv('data', observation_features='All')
 
 
 params = {
@@ -13,7 +13,7 @@ params = {
     'CRITIC_LR':0.001,
     'ACTOR_LR':0.001,
     'TAU': 0.05,
-    'BATCH_SIZE':256,
+    'BATCH_SIZE':16,
     'MEMORY_SIZE': 100000,
     'EPISODES': 1000,
     'POLICY_NOISE': 0.2,
@@ -23,4 +23,4 @@ params = {
 }
 
 agent = TD3(**params)
-agent.train(noise='OUNoise')
+agent.train(noise='Gaussian')

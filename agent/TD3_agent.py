@@ -9,7 +9,7 @@ import copy
 
 from collections import deque
 from agent.model import TD3_Actor, TD3_Critic
-from agent.latent_space.LFSS import PretrainedAEModel
+# from agent.latent_space.LFSS import PretrainedAEModel
 from utils import  OUNoise
 
 
@@ -19,16 +19,16 @@ class TD3:
         for key, value in kwargs.items():
             setattr(self, key, value)
         
-        self.s_dim = self.env.observation_space.shape[0]
-        self.a_dim = self.env.action_space.shape[0]
-        self.max_action = self.env.action_space.high.shape[0]
+        # self.s_dim = self.env.observation_space.shape[0]
+        # self.a_dim = self.env.action_space.shape[0]
+        # self.max_action = self.env.action_space.high.shape[0]
         
         # initialize network
-        self.actor = TD3_Actor(self.s_dim, 256, self.a_dim, self.max_action).to(self.device)
+        self.actor = TD3_Actor(device=self.device)
         self.actor_target = copy.deepcopy(self.actor)
         self.actor_optimizer = optim.Adam(self.actor.parameters(), lr=self.ACTOR_LR)
         
-        self.critic = TD3_Critic(self.s_dim+self.a_dim, 256, self.a_dim).to(self.device)
+        self.critic = TD3_Critic(device=self.device)
         self.critic_target = copy.deepcopy(self.critic)
         self.critic_optimizer = optim.Adam(self.critic.parameters(), lr=self.CRITIC_LR)
         
@@ -40,7 +40,9 @@ class TD3:
             target_param.data.copy_(target_param.data*(1.0-self.TAU)+param.data*self.TAU)
     
     def _choose_action(self, s0):
-        s0 = torch.tensor(s0, dtype=torch.float32, device=self.device).unsqueeze(0)
+        # s0 = torch.tensor(s0, dtype=torch.float32, device=self.device).unsqueeze(0)
+        test =  self.actor(s0)
+        print(test)
         a0 =  self.actor(s0).squeeze(0).cpu().detach().numpy()
         return a0
     
