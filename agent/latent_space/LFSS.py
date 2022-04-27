@@ -11,12 +11,13 @@ from sklearn.preprocessing import MinMaxScaler
 from torch.utils import data
 
 class TimeSeriesDataset(data.Dataset):
-    def __init__(self, data):
+    def __init__(self, data, device):
         '''
         Args:
             data: three-dimensional array
         '''
         self.X = data
+        self.device = device
         self.kf = KalmanFilter(transition_matrices = [1],
                                observation_matrices = [1],
                                initial_state_mean = 1,
@@ -32,8 +33,9 @@ class TimeSeriesDataset(data.Dataset):
             for j in range(len(self.X[index][i])):
                 a, _ = self.kf.filter(self.X[index][i][j])
                 self.X[index][i][j] = np.squeeze(a)
-        
-        return self.X[index]
+                
+        X = torch.tensor(self.X[index], dtype=torch.float, device=self.device)
+        return X
 
 
 class PretrainedAEModel:
@@ -51,11 +53,12 @@ class PretrainedAEModel:
         close = self._data_preprocessing(pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True))
         df = np.concatenate([high, low, close], axis=1) # shape()
         
-        dataset = TimeSeriesDataset(df)
+        
+        dataset = TimeSeriesDataset(df, self.device)
         self.dataloader = data.DataLoader(dataset, batch_size=64, num_workers=6)
 
         # model for training Autoencoder
-        self.model = Autoencoder()
+        self.model = Autoencoder(self.device)
         self.model.to(self.device)
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
         self.criterion = nn.MSELoss()

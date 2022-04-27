@@ -59,13 +59,14 @@ class Decoder(nn.Module):
 
 
 class Autoencoder(nn.Module):
-    def __init__(self):
+    def __init__(self, device):
         super(Autoencoder, self).__init__()
         self.encoder = Encoder()
         self.decoder = Decoder()
-    
+        self.device = device
+        
     def forward(self, x):
-        x = self.encoder(x)
-        x = self.decoder(x)
+        x = self.encoder(x).to(self.device)
+        x = self.decoder(x).to(self.device)
         
         return x
