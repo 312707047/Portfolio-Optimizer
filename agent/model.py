@@ -46,11 +46,12 @@ class TD3_Actor(nn.Module):
         
     
     def forward(self, observation):
+        ### TypeError: tuple indices must be integers or slices, not str
         port = torch.tensor(observation['portfolio'], dtype=torch.float32, device=self.device)
         cov = torch.tensor(observation['covariance'], dtype=torch.float32, device=self.device)
         action = torch.tensor(observation['action'], dtype=torch.float32, device=self.device)
         
-        port = torch.relu(self.conv_port(self.ae.predict(port).to(self.device)))
+        port = torch.relu(self.conv_port(self.ae.predict(port)))
         cov = torch.relu(self.conv_cov(cov))
         m = torch.concat([port, cov], dim=0) # shape(3, 8, 8)
         m = torch.relu(self.conv_mix(m)) # shape(20, 8, 1)
@@ -87,7 +88,7 @@ class TD3_Critic(nn.Module):
         action = torch.tensor(observation['action'], dtype=torch.float32, device=self.device)
         
         # Q1
-        q1_port = torch.relu(self.conv_port1(self.ae.predict(port).to(self.device)))
+        q1_port = torch.relu(self.conv_port1(self.ae.predict(port)))
         q1_cov = torch.relu(self.conv_cov1(cov))
         q1_m = torch.concat([q1_port, q1_cov], dim=0) # shape(3, 8, 8)
         q1_m = torch.relu(self.conv_mix1(q1_m)) # shape(20, 8, 1)
