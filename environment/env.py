@@ -4,6 +4,8 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from pykalman import KalmanFilter
+import datetime as dt
+from datetime import datetime
 
 EPS = 1e-8
 
@@ -119,7 +121,11 @@ class TradingEnv(gym.Env):
         w1 = w1 / w1.sum()
         
         # 1. Calculate agent reward
-        t = self.start_date_index + self.step_number
+        
+        t_start = datetime.strptime(self.start_date_index, '%Y-%m-%d') 
+        t_plus = t_start+dt.timedelta(days = self.step_number)
+        
+        t = str(t_plus)[:10]
         y1 = self.gain[t]
         w0 = self.weights
         p0 = self.portfolio_value
