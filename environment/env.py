@@ -111,7 +111,8 @@ class TradingEnv(gym.Env):
         for i in range(array.shape[0]):
             scaler = MinMaxScaler()
             array[i, :, :] = scaler.fit_transform(array[i, :, :])
-            return array
+            
+        return array
     
     def _kalman(self, array):
         '''filter the noise of (3, 8, 60) array'''
