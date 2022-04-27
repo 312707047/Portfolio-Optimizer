@@ -2,10 +2,9 @@ import gym
 import os
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+from pykalman import KalmanFilter
 
-
-
-#%%
 EPS = 1e-8
 
 class TradingEnv(gym.Env):
@@ -33,15 +32,22 @@ class TradingEnv(gym.Env):
         self.data_path = data_path
         self.info_list = []
         
+        self.kf = KalmanFilter(transition_matrices = [1],
+                               observation_matrices = [1],
+                               initial_state_mean = 1,
+                               initial_state_covariance = 1.5,
+                               observation_covariance = 1.5,
+                               transition_covariance = 1/30)
+        
         # read data
         self.close_prices = self._data_preprocessing(pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True))
-        self.close_obs = np.expand_dims(self.close_prices.T, 0)
+        self.close_obs = np.expand_dims(self.close_prices, 0) #shape(1, 1042, 8)
         if observation_features != 'Close':
             self.high_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'High.csv'), index_col=0, parse_dates=True))
             self.low_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'Low.csv'), index_col=0, parse_dates=True))
             
-            self.high_obs = np.expand_dims(self.high_prices.T, 0)
-            self.low_obs = np.expand_dims(self.low_prices.T, 0)
+            self.high_obs = np.expand_dims(self.high_prices, 0)
+            self.low_obs = np.expand_dims(self.low_prices, 0)
             
         self.tickers = self.close_prices.columns.to_list()
         self.tickers_num = len(self.tickers)
@@ -100,6 +106,22 @@ class TradingEnv(gym.Env):
         '''preprocess the price data into log return'''
         return (np.log(df) - np.log(df.shift(1))).dropna()
     
+    def _scaler(self, array):
+        '''scale 3D array, shape(n, 60, 8) with MinMaxScaler'''
+        for i in range(array.shape[0]):
+            scaler = MinMaxScaler()
+            array[i, :, :] = scaler.fit_transform(array[i, :, :])
+            return array
+    
+    def _kalman(self, array):
+        '''filter the noise of (3, 8, 60) array'''
+        for i in range(len(array)):
+            for j in range(len(array[i])):
+                a, _ = self.kf.filter(array[i][j])
+                array[i][j] = np.squeeze(a)
+        
+        return array
+
     def step(self, action):
         
         self.step_number += 1
@@ -169,23 +191,31 @@ class TradingEnv(gym.Env):
         t0 = t - self.rolling_window + 1
         
         if self.observation_features == 'Close':
-            observation = {'portfolio': self.close_obs[:, :, t0:t+1],
+            portfolio = self.close_obs[:, t0:t+1, :]
+            portfolio = self._kalman(np.transpose(portfolio, [0, 2, 1]))
+            
+            observation = {'portfolio': portfolio,
                            'action': self.weights}
         
         elif self.observation_features == 'Three':
-            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0)
-            observation = {'portfolio': portfolio[:, :, t0:t+1],
+            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 1042, 8)
+            portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
+            portfolio = self._kalman(np.transpose(portfolio, [0, 2, 1]))
+            
+            observation = {'portfolio': portfolio,
                            'action': self.weights}
         
         elif self.observation_features == 'All':
-            high_cov = np.expand_dims(np.cov(self.high_obs[0]), axis=0)[:, :, t0:t+1]
-            low_cov = np.expand_dims(np.cov(self.low_obs[0]), axis=0)[:, :, t0:t+1]
-            close_cov = np.expand_dims(np.cov(self.close_obs[0]), axis=0)[:, :, t0:t+1]
-            
-            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 8, 60)
+            high_cov = np.expand_dims(np.cov(self.high_obs[:, t0:t+1, :][0].T), axis=0)
+            low_cov = np.expand_dims(np.cov(self.low_obs[:, t0:t+1, :][0].T), axis=0)
+            close_cov = np.expand_dims(np.cov(self.close_obs[:, t0:t+1, :][0].T), axis=0)
             covariance = np.concatenate([high_cov, low_cov, close_cov], axis=0) # shape(3, 8, 8)
             
-            observation = {'portfolio':portfolio[:, :, t0:t+1],
+            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 1042, 8)
+            portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
+            portfolio = self._kalman(np.transpose(portfolio, [0, 2, 1]))
+            
+            observation = {'portfolio':portfolio,
                            'action': self.weights,
                            'covariance':covariance}
         
@@ -228,28 +258,32 @@ class TradingEnv(gym.Env):
         t0 = t - self.rolling_window + 1
         
         # Observation in different situations
-        if (self.observation_features == 'Close'):
+        if self.observation_features == 'Close':
+            portfolio = self.close_obs[:, t0:t+1, :]
+            portfolio = self._kalman(np.transpose(portfolio, [0, 2, 1]))
             
-            portfolio = self.close_obs
-            observation = {'portfolio': portfolio[:, :, t0:t+1],
+            observation = {'portfolio': portfolio,
                            'action': self.weights}
         
-        elif (self.observation_features == 'Three'):
+        elif self.observation_features == 'Three':
+            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 1042, 8)
+            portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
+            portfolio = self._kalman(np.transpose(portfolio, [0, 2, 1]))
             
-            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) #shape(3, 8, 815)
-            observation = {'portfolio': portfolio[:, :, t0:t+1],
+            observation = {'portfolio': portfolio,
                            'action': self.weights}
         
         elif self.observation_features == 'All':
-            
-            high_cov = np.expand_dims(np.cov(self.high_obs[0]), axis=0)[:, :, t0:t+1]
-            low_cov = np.expand_dims(np.cov(self.low_obs[0]), axis=0)[:, :, t0:t+1]
-            close_cov = np.expand_dims(np.cov(self.close_obs[0]), axis=0)[:, :, t0:t+1]
-            
-            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 8, 60)
+            high_cov = np.expand_dims(np.cov(self.high_obs[:, t0:t+1, :][0].T), axis=0)
+            low_cov = np.expand_dims(np.cov(self.low_obs[:, t0:t+1, :][0].T), axis=0)
+            close_cov = np.expand_dims(np.cov(self.close_obs[:, t0:t+1, :][0].T), axis=0)
             covariance = np.concatenate([high_cov, low_cov, close_cov], axis=0) # shape(3, 8, 8)
             
-            observation = {'portfolio':portfolio[:, :, t0:t+1],
+            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 1042, 8)
+            portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
+            portfolio = self._kalman(np.transpose(portfolio, [0, 2, 1]))
+            
+            observation = {'portfolio':portfolio,
                            'action': self.weights,
                            'covariance':covariance}
         
