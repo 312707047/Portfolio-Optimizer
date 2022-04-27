@@ -131,15 +131,15 @@ class TradingEnv(gym.Env):
         agent_return = np.log((p1+EPS)/(p0+EPS))
 
         # 2. Calculate return of same-weighted portfolio
-        s_w = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        s_returns = self._data_preprocessing(self.close_prices.loc[:t]).sum().values
-        same_weighted_return = np.dot(s_returns, s_w)
-        #s_p0 = self.same_weighted_portfolio_value
-        #s_dw1 = (y1 * s_w0) / (np.dot(y1, s_w0)+EPS)
-        #s_mu1 = self.commission * (np.abs(s_dw1 - s_w0)).sum()
-        #s_p1 = s_p0 * (1 - s_mu1) * np.dot(y1, s_w0)
-        #s_p1 = np.clip(s_p1, 0, np.inf)
-        #same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
+        s_w0 = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
+        # s_returns = self._data_preprocessing(self.close_prices.loc[:t]).sum().values
+        # same_weighted_return = np.dot(s_returns, s_w)
+        s_p0 = self.same_weighted_portfolio_value
+        s_dw1 = (y1 * s_w0) / (np.dot(y1, s_w0)+EPS)
+        s_mu1 = self.commission * (np.abs(s_dw1 - s_w0)).sum()
+        s_p1 = s_p0 * (1 - s_mu1) * np.dot(y1, s_w0)
+        s_p1 = np.clip(s_p1, 0, np.inf)
+        same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
         reward = (agent_return - same_weighted_return)
         
@@ -148,33 +148,9 @@ class TradingEnv(gym.Env):
         self.portfolio_value = p1
         self.same_weighted_portfolio_value = same_weighted_return
         
-        #tickers = ["ETH", "BTC", "USDT-USD", "SPY", "IVV", "QQQ", "VOO", "VTI"]       
-        # same_weighted = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        # same_weighted_returns = []
-        # same_weighted_volatility = []
-        # same_weighted_sharpe_ratio = []
-        
-        #算到那個Step的same ewight return
-        # daily_returns = self._data_preprocessing(self.close_prices[:t])
-        # mean_daily_returns = daily_returns.mean().values
-        # uw_returns = np.dot(mean_daily_returns, same_weighted)
-        
-        # uw_vol = uw_returns.std()
-        # uw_sharpe_ratio = ((uw_returns/ uw_vol))
-        
-        # same_weighted_returns.append(uw_returns)
-        # same_weighted_volatility.append(uw_vol)
-        # same_weighted_sharpe_ratio.append(uw_sharpe_ratio)
-
-        # same_weighted_portfolio = {'Returns': same_weighted_returns,
-        #                            'Volatility': same_weighted_volatility,
-        #                            'Sharpe Ratio': same_weighted_sharpe_ratio}
-        #差距
-        #diff = same_weighted_portfolio['Returns'] - reward
-        
         # 3. Calculate MDD
-
-        
+        self.portfolio_value_list.append(p1)
+        DD = min(self.portfolio_value_list) / max(self.portfolio_value_list) - 1
         
         
         # observe the next state
@@ -235,6 +211,13 @@ class TradingEnv(gym.Env):
         if sum(w1[:3]) > 0.1:
             done = True
             reward = -10
+        
+        # Reward shaping: MDD
+        if min(self.DD) > DD:
+            reward += -1
+        
+        if DD < 0:
+            self.DD.append(DD)
 
         return observation, reward, done, info
     
@@ -247,8 +230,9 @@ class TradingEnv(gym.Env):
         self.same_weighted_portfolio_value = 1.0
         self.step_number = 0
         
-        # DD
-        self.DD = [self.portfolio_value]
+        # Calculate MDD
+        self.portfolio_value_list = [self.portfolio_value]
+        self.DD = []
         
         self.steps = min(self.steps, self.dates_num - self.rolling_window - 1)
         
