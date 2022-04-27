@@ -41,8 +41,6 @@ class TD3:
     
     def _choose_action(self, s0):
         # s0 = torch.tensor(s0, dtype=torch.float32, device=self.device).unsqueeze(0)
-        test =  self.actor(s0)
-        print(test)
         a0 =  self.actor(s0).squeeze(0).cpu().detach().numpy()
         return a0
     
@@ -83,10 +81,10 @@ class TD3:
         samples = random.sample(self.replay_memory, self.BATCH_SIZE)
         s0, a0, r1, s1, done = zip(*samples)
                 
-        s0 = torch.tensor(s0, dtype=torch.float, device=self.device)
+        # s0 = torch.tensor(s0, dtype=torch.float, device=self.device)
         a0 = torch.tensor(a0, dtype=torch.float, device=self.device)
         r1 = torch.tensor(r1, dtype=torch.float, device=self.device).view(self.BATCH_SIZE,-1)
-        s1 = torch.tensor(s1, dtype=torch.float, device=self.device)
+        # s1 = torch.tensor(s1, dtype=torch.float, device=self.device)
         done = torch.tensor(done, dtype=torch.float, device=self.device)
         
         self._update_Q(s0, a0, r1, s1, done)

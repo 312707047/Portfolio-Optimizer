@@ -8,7 +8,7 @@ env = TradingEnv('data', observation_features='All')
 
 params = {
     'env': env,
-    'device': torch.device('cuda' if torch.cuda.is_available() else 'cpu'),
+    'device': torch.device('cpu'),
     'GAMMA':0.96,
     'CRITIC_LR':0.001,
     'ACTOR_LR':0.001,
