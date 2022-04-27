@@ -131,13 +131,16 @@ class TradingEnv(gym.Env):
         agent_return = np.log((p1+EPS)/(p0+EPS))
 
         # 2. Calculate return of same-weighted portfolio
-        s_w0 = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        s_p0 = self.same_weighted_portfolio_value
-        s_dw1 = (y1 * s_w0) / (np.dot(y1, s_w0)+EPS)
-        s_mu1 = self.commission * (np.abs(s_dw1 - s_w0)).sum()
-        s_p1 = s_p0 * (1 - s_mu1) * np.dot(y1, s_w0)
-        s_p1 = np.clip(s_p1, 0, np.inf)
-        same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
+        s_w = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
+        s_returns = self._data_preprocessing(self.close_prices[:t]).sum().values
+        same_weighted_return = np.dot(s_returns, s_w)
+        #s_p0 = self.same_weighted_portfolio_value
+        #s_dw1 = (y1 * s_w0) / (np.dot(y1, s_w0)+EPS)
+        #s_mu1 = self.commission * (np.abs(s_dw1 - s_w0)).sum()
+        #s_p1 = s_p0 * (1 - s_mu1) * np.dot(y1, s_w0)
+        #s_p1 = np.clip(s_p1, 0, np.inf)
+        #same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
+        
         
         reward = (agent_return - same_weighted_return)
         
