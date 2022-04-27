@@ -132,7 +132,7 @@ class TradingEnv(gym.Env):
 
         # 2. Calculate return of same-weighted portfolio
         s_w = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        s_returns = self._data_preprocessing(self.close_prices[:t]).sum().values
+        s_returns = self._data_preprocessing(self.close_prices.loc[:t]).sum().values
         same_weighted_return = np.dot(s_returns, s_w)
         #s_p0 = self.same_weighted_portfolio_value
         #s_dw1 = (y1 * s_w0) / (np.dot(y1, s_w0)+EPS)
