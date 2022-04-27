@@ -141,8 +141,12 @@ class TradingEnv(gym.Env):
         #s_p1 = np.clip(s_p1, 0, np.inf)
         #same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
-        
         reward = (agent_return - same_weighted_return)
+        
+        # save weights and portfolio value for next iteration
+        self.weights = w1
+        self.portfolio_value = p1
+        self.same_weighted_portfolio_value = same_weighted_return
         
         #tickers = ["ETH", "BTC", "USDT-USD", "SPY", "IVV", "QQQ", "VOO", "VTI"]       
         # same_weighted = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
@@ -171,9 +175,7 @@ class TradingEnv(gym.Env):
         # 3. Calculate MDD
 
         
-        # save weights and portfolio value for next iteration
-        self.weights = w1
-        self.portfolio_value = p1
+        
         
         # observe the next state
         t0 = t - self.rolling_window + 1
@@ -245,8 +247,8 @@ class TradingEnv(gym.Env):
         self.same_weighted_portfolio_value = 1.0
         self.step_number = 0
         
-        # DD & MDD
-        self.mdd_limit = -0.25
+        # DD
+        self.DD = [self.portfolio_value]
         
         self.steps = min(self.steps, self.dates_num - self.rolling_window - 1)
         
