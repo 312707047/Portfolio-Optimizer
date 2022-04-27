@@ -132,26 +132,15 @@ class PretrainedAEModel:
             observation: state space from trading environment, shape(3*8*60)
         '''
         self.model.load_state_dict(torch.load(self.model_path))
-        self.model = self.model.encoder
-        observation = self._scaler(observation)
+        model = self.model
+        model = model.encoder.to(self.device)
         observation = np.expand_dims(observation, axis=0)
         observation = torch.tensor(observation, dtype=torch.float, device=self.device)
         
-        ############## To Do ##############
-        # apply KalmanFilter on observation
-        ###################################
-        
         self.model.eval()
         with torch.no_grad():
-            denoised_obs = self.model(observation)
+            denoised_obs = model(observation)
         
         denoised_obs = torch.squeeze(denoised_obs, dim=0) # shape(3*8*30)
         
         return denoised_obs
-
-
-class LFSS:
-    '''LFSS module for the agent'''
-    def __init__(self, data_path=None, rolling_window=60, F=None, B=None, H=None, Q=None, R=None, P=None, x0=None):
-        self.model = PretrainedAEModel(data_path, rolling_window, F, B, H, Q, R, P, x0)
-        pass
