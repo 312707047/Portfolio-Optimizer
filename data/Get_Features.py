@@ -173,11 +173,12 @@ stocks_datas = GetStockData('2015-01-02', str(datetime.date.today()), need_stock
 total_assets = ['SPY', 'IVV', 'VTI', 'VOO', 'QQQ', 'BTC', 'ETH', 'USDT-USD']
 
 ###Get LHC features
-High  = Features(crypto_datas, stocks_datas, total_assets, 'high').GetFeatures()
-Low = Features(crypto_datas, stocks_datas, total_assets, 'low').GetFeatures()
-Close = Features(crypto_datas, stocks_datas, total_assets, 'close').GetFeatures()
+High  = Features(crypto_datas, stocks_datas, total_assets, 'high').StoreData(r'./digh.csv')
+Low = Features(crypto_datas, stocks_datas, total_assets, 'low').StoreData(r'./Low.csv')
+Close = Features(crypto_datas, stocks_datas, total_assets, 'close').StoreData(r'./Close.csv')
 
 
+#%%
 
 
 
