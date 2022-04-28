@@ -126,6 +126,7 @@ class TradingEnv(gym.Env):
         # 1. Calculate agent reward
         t = self.start_date_index + self.step_number
         y1 = self.gain[t]
+        
         w0 = self.weights
         p0 = self.portfolio_value
         dw1 = (y1 * w0) / (np.dot(y1, w0)+EPS)
@@ -137,21 +138,21 @@ class TradingEnv(gym.Env):
 
         # 2. Calculate return of same-weighted portfolio
         s_w0 = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        s_w0 = s_w0 / s_w0.sum()
+        s_w1 = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
         s_p0 = self.same_weighted_portfolio_value
         s_dw1 = (y1 * s_w0) / (np.dot(y1, s_w0)+EPS)
-        s_mu1 = self.commission * (np.abs(s_dw1 - s_w0)).sum()
-        s_p1 = s_p0 * (1 - s_mu1) * np.dot(y1, s_w0)
+        s_mu1 = self.commission * (np.abs(s_dw1 - s_w1)).sum()
+        s_p1 = s_p0 * (1 - s_mu1) * np.dot(y1, s_w1)
         s_p1 = np.clip(s_p1, 0, np.inf)
         same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
         reward = (agent_return - same_weighted_return) - 0.5 * max(w1)
-        # reward = agent_return - same_weighted_return
+        # reward = (p1 - s_p1) / s_p1
         
         # save weights and portfolio value for next iteration
         self.weights = w1
         self.portfolio_value = p1
-        self.same_weighted_portfolio_value = same_weighted_return
+        self.same_weighted_portfolio_value = s_p1
         
         # 3. Calculate MDD
         self.portfolio_value_list.append(p1)
