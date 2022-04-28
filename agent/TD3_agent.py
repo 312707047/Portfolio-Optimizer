@@ -27,11 +27,11 @@ class TD3:
         self.csv = 'output/portfolio-management.csv'
         
         # initialize network
-        self.actor = TD3_Actor(device=self.device)
+        self.actor = TD3_Actor(device=self.device).to(self.device)
         self.actor_target = copy.deepcopy(self.actor)
         self.actor_optimizer = optim.Adam(self.actor.parameters(), lr=self.ACTOR_LR)
         
-        self.critic = TD3_Critic(device=self.device)
+        self.critic = TD3_Critic(device=self.device).to(self.device)
         self.critic_target = copy.deepcopy(self.critic)
         self.critic_optimizer = optim.Adam(self.critic.parameters(), lr=self.CRITIC_LR)
         
@@ -43,7 +43,7 @@ class TD3:
         formatter = logging.Formatter(r'"%(asctime)s",%(message)s')
         self.logger = logging.getLogger("portfolio-optimizer")
         self.logger.setLevel(logging.INFO)
-        fh = logging.FileHandler(f"G:/Code/Python/GitHub/Portfolio-Optimizer/output/Records.csv")
+        fh = logging.FileHandler(f"output/Records.csv")
         fh.setFormatter(formatter)
         self.logger.addHandler(fh)
     
@@ -96,7 +96,6 @@ class TD3:
         a0 = torch.tensor(a0, dtype=torch.float32, device=self.device)
         r1 = torch.tensor(r1, dtype=torch.float32, device=self.device).view(self.BATCH_SIZE,-1)
         done = torch.tensor(done, dtype=torch.float32, device=self.device)
-        
         self._update_Q(s0, a0, r1, s1, done)
         
         if self.itr % self.POLICY_DELAY == 0:

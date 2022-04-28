@@ -38,14 +38,13 @@ class Critic(nn.Module):
 class TD3_Actor(nn.Module):
     def __init__(self, device) -> None:
         super(TD3_Actor, self).__init__()
-        self.conv_port = nn.Conv2d(3, 2, (1, 53))
+        self.conv_port = nn.Conv2d(3, 2, (1, 23))
         self.conv_cov = nn.Conv2d(3, 1, (1, 1))
         self.conv_mix = nn.Conv2d(3, 20, (1, 8))
         self.conv_out = nn.Conv2d(21, 1, 1)
         self.device = device
-        self.ae = Autoencoder()
+        self.ae = Autoencoder().to(self.device)
         self.ae.load_state_dict(torch.load('agent/latent_space/Autoencoder.ckpt'))
-        self.ae = self.ae.encoder
         
     
     def forward(self, observation):
@@ -58,11 +57,11 @@ class TD3_Actor(nn.Module):
             cov = torch.tensor(observation['covariance'], dtype=torch.float32, device=self.device)
             action = torch.tensor(observation['action'], dtype=torch.float32, device=self.device)
         
+        port = port.view((-1, 3, 8, 60))
         cov = cov.view((-1, 3, 8, 8))
         action = action.view((-1, 1, 8, 1)) # shape(1, 1, 8, 1)
-        port = port.view((-1, 3, 8, 60))
         
-        # port = self.ae(port)
+        port = self.ae.encoder(port)
         port = torch.relu(self.conv_port(port))
         cov = torch.relu(self.conv_cov(cov))
         m = torch.concat([port, cov], dim=1)
@@ -77,19 +76,18 @@ class TD3_Critic(nn.Module):
     def __init__(self, device):
         super(TD3_Critic, self).__init__()
         self.device = device
-        self.ae = Autoencoder()
+        self.ae = Autoencoder().to(self.device)
         self.ae.load_state_dict(torch.load('agent/latent_space/Autoencoder.ckpt'))
-        self.ae = self.ae.encoder.to(self.device)
         
         # Q1
-        self.conv_port1 = nn.Conv2d(3, 2, (1, 53))
+        self.conv_port1 = nn.Conv2d(3, 2, (1, 23))
         self.conv_cov1 = nn.Conv2d(3, 1, (1, 1))
         self.conv_mix1 = nn.Conv2d(3, 20, (1, 8))
         self.conv_out1 = nn.Conv2d(22, 1, 1)
         self.linear1 = nn.Linear(8, 1)
         
         # Q2
-        self.conv_port2 = nn.Conv2d(3, 2, (1, 53))
+        self.conv_port2 = nn.Conv2d(3, 2, (1, 23))
         self.conv_cov2 = nn.Conv2d(3, 1, (1, 1))
         self.conv_mix2 = nn.Conv2d(3, 20, (1, 8))
         self.conv_out2 = nn.Conv2d(22, 1, 1)
@@ -100,14 +98,14 @@ class TD3_Critic(nn.Module):
         cov = torch.tensor(list(map(lambda x: x['covariance'], observation)), dtype=torch.float32, device=self.device)
         action = torch.tensor(list(map(lambda x: x['action'], observation)), dtype=torch.float32, device=self.device)
         
+        port = port.view((-1, 3, 8, 60))
         cov = cov.view((-1, 3, 8, 8))
         action = action.view((-1, 1, 8, 1)) # shape(1, 1, 8, 1)
-        port = port.view((-1, 3, 8, 60))
         act = act.view((-1, 1, 8, 1))
         
         # Q1
-        # q1_port = self.ae(port)
-        q1_port = torch.relu(self.conv_port1(port))
+        q1_port = self.ae.encoder(port)
+        q1_port = torch.relu(self.conv_port1(q1_port))
         q1_cov = torch.relu(self.conv_cov1(cov))
         q1_m = torch.concat([q1_port, q1_cov], dim=1)
         q1_m = torch.relu(self.conv_mix1(q1_m)) # shape(1, 20, 8, 1)
@@ -116,8 +114,8 @@ class TD3_Critic(nn.Module):
         q1 = self.linear1(q1_all)
         
         # Q2
-        # q2_port = self.ae(port)
-        q2_port = torch.relu(self.conv_port2(port))
+        q2_port = self.ae.encoder(port)
+        q2_port = torch.relu(self.conv_port2(q2_port))
         q2_cov = torch.relu(self.conv_cov2(cov))
         q2_m = torch.concat([q2_port, q2_cov], dim=1)
         q2_m = torch.relu(self.conv_mix2(q2_m)) # shape(1, 20, 8, 1)
