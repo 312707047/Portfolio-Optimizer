@@ -42,7 +42,8 @@ class TradingEnv(gym.Env):
                                transition_covariance = 1/30)
         
         # read data
-        self.close_prices = self._data_preprocessing(pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True))
+        self.raw_price = pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True)
+        self.close_prices = self._data_preprocessing(self.raw_price)
         self.close_obs = np.expand_dims(self.close_prices, 0) #shape(1, 1042, 8)
         if observation_features != 'Close':
             self.high_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'High.csv'), index_col=0, parse_dates=True))
@@ -55,8 +56,9 @@ class TradingEnv(gym.Env):
         self.tickers_num = len(self.tickers)
         self.dates = self.close_prices.index.values[1:]
         self.dates_num = self.dates.shape[0]
+        # if cash is needed
         # self.gain = np.hstack((np.ones((self.close_prices.shape[0]-1, 1)), self.close_prices.values[1:] / self.close_prices.values[:-1]))
-        self.gain = self.close_prices.values[1:] / self.close_prices.values[:-1]
+        self.gain = self.raw_price.values[1:] / self.raw_price.values[:-1]
         
         self.info = []
         self.step_number = 0
@@ -116,6 +118,7 @@ class TradingEnv(gym.Env):
         
         self.step_number += 1
         
+        # if cash is neede
         # w1 = np.clip(action, a_min=0, a_max=1)
         # w1 = np.insert(w1, 0, np.clip(1 - w1.sum(), a_min=0, a_max=1))
         w1 = action / action.sum()
@@ -134,8 +137,7 @@ class TradingEnv(gym.Env):
 
         # 2. Calculate return of same-weighted portfolio
         s_w0 = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        # s_returns = self._data_preprocessing(self.close_prices.loc[:t]).sum().values
-        # same_weighted_return = np.dot(s_returns, s_w)
+        s_w0 = s_w0 / s_w0.sum()
         s_p0 = self.same_weighted_portfolio_value
         s_dw1 = (y1 * s_w0) / (np.dot(y1, s_w0)+EPS)
         s_mu1 = self.commission * (np.abs(s_dw1 - s_w0)).sum()
@@ -143,8 +145,8 @@ class TradingEnv(gym.Env):
         s_p1 = np.clip(s_p1, 0, np.inf)
         same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
-        # reward = (agent_return - same_weighted_return) - 0.0005 * max(w1)
-        reward = agent_return
+        reward = (agent_return - same_weighted_return) - 0.5 * max(w1)
+        # reward = agent_return - same_weighted_return
         
         # save weights and portfolio value for next iteration
         self.weights = w1
@@ -195,31 +197,25 @@ class TradingEnv(gym.Env):
             # pd.DataFrame(self.info_list).sort_values(by=['date']).to_csv(self.csv, index=False)
         
         # Limitation 1: None of the asset should have higher ration than 65%
-        for i in w1[3:]:
-            if i >= 0.65:
-                done = True
-                reward -= 1
-            else:
-                reward += 0.2
+        # for i in w1[3:]:
+        #     if i >= 0.65:
+        #         done = True
+        #         reward -= 0.5
 
         # Limitation 2: Total ratio of cryptocurrency should not above 10%
-        if sum(w1[:3]) > 0.1:
-            done = True
-            reward -= 1
-        
-        for i in w1[:3]:
-            if i <= 0.04:
-                reward += 0.2
+        # if sum(w1[:3]) > 0.1:
+        #     done = True
+        #     reward -= 0.5
         
         # Reward shaping: MDD
-        # try:
-        #     if min(self.DD) > DD:
-        #         reward += -1
-        # except ValueError:
-        #     pass
+        try:
+            if min(self.DD) > DD:
+                reward -= 0.5
+        except ValueError:
+            pass
         
-        # if DD < 0:
-        #     self.DD.append(DD)
+        if DD < 0:
+            self.DD.append(DD)
         
         # info
         r = y1.mean()
