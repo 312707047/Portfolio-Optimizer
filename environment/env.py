@@ -146,7 +146,7 @@ class TradingEnv(gym.Env):
         s_p1 = np.clip(s_p1, 0, np.inf)
         same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
-        reward = (agent_return - same_weighted_return) - 0.5 * max(w1)
+        reward = (agent_return - same_weighted_return) - 0.03 * max(w1)
         # reward = (p1 - s_p1) / s_p1
         
         # save weights and portfolio value for next iteration
@@ -198,10 +198,10 @@ class TradingEnv(gym.Env):
             # pd.DataFrame(self.info_list).sort_values(by=['date']).to_csv(self.csv, index=False)
         
         # Limitation 1: None of the asset should have higher ration than 65%
-        # for i in w1[3:]:
-        #     if i >= 0.65:
-        #         done = True
-        #         reward -= 0.5
+        for i in w1[3:]:
+            if i >= 0.65:
+                done = True
+                reward -= 0.5
 
         # Limitation 2: Total ratio of cryptocurrency should not above 10%
         # if sum(w1[:3]) > 0.1:
@@ -211,12 +211,16 @@ class TradingEnv(gym.Env):
         # Reward shaping: MDD
         try:
             if min(self.DD) > DD:
-                reward -= 0.5
+                reward -= 0.2
         except ValueError:
             pass
         
         if DD < 0:
             self.DD.append(DD)
+        
+        if p1 <= 0.5:
+            reward -=1
+            done = True
         
         # info
         r = y1.mean()

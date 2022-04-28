@@ -3,13 +3,13 @@ from agent.TD3_agent import TD3
 
 import torch
 
-env = TradingEnv('data', observation_features='All', start_date_index=0)
+env = TradingEnv('data', observation_features='All', steps=750, start_date_index=0)
 
 
 params = {
     'env': env,
     'device': torch.device('cpu'),
-    'GAMMA':0.99,
+    'GAMMA':0.96,
     'CRITIC_LR':0.001,
     'ACTOR_LR':0.0001,
     'TAU_ACTOR': 0.001, # 0.05
@@ -18,9 +18,9 @@ params = {
     'MEMORY_SIZE': 100000,
     'EPISODES': 1500,
     'POLICY_NOISE': 0.2,
-    'NOISE_CLIP': 0.5,
+    'NOISE_CLIP': 0.1,
     'POLICY_DELAY': 3,
-    'EXPLORATION_NOISE':0.5
+    'EXPLORATION_NOISE':0.05
 }
 
 agent = TD3(**params)
