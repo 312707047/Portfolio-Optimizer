@@ -94,6 +94,12 @@ class TD3:
             self._soft_update(self.critic_target, self.critic)
             self.itr = 0
     
+    def save_model(self, episode):
+        torch.save(self.actor.state_dict(), f'agent/save_model/actor_{episode}.ckpt')
+        torch.save(self.actor_target.state_dict(), f'agent/save_model/actor_target_{episode}.ckpt')
+        torch.save(self.critic.state_dict(), f'agent/save_model/critic_{episode}.ckpt')
+        torch.save(self.critic_target.state_dict(), f'agent/save_model/critic_target_{episode}.ckpt')
+    
     def train(self, noise='Gaussian'):
         ou_noise = OUNoise(self.env.action_space)
         for episode in range(self.EPISODES):
@@ -119,5 +125,6 @@ class TD3:
                 
                 if done:
                     break
-            
-            print(episode, ': ', episode_reward)
+            if episode % 100 == 0:  
+                print(f'model save at: {episode}')
+                self.save_model(episode)
