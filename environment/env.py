@@ -204,9 +204,9 @@ class TradingEnv(gym.Env):
                 reward -= 0.5
 
         # Limitation 2: Total ratio of cryptocurrency should not above 10%
-        # if sum(w1[:3]) > 0.1:
-        #     done = True
-        #     reward -= 0.5
+        if sum(w1[:3]) > 0.1:
+            done = True
+            reward -= 0.5
         
         # Reward shaping: MDD
         try:
