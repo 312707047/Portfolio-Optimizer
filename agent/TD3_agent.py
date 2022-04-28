@@ -52,7 +52,6 @@ class TD3:
             target_param.data.copy_(target_param.data*(1.0-tau)+param.data*tau)
     
     def _choose_action(self, s0):
-        # s0 = torch.tensor(s0, dtype=torch.float32, device=self.device).unsqueeze(0)
         a0 =  self.actor(s0).squeeze(0).cpu().detach().numpy()
         return a0
     
@@ -90,7 +89,9 @@ class TD3:
         if len(self.replay_memory) < self.BATCH_SIZE:
             return
         
-        batch = random.sample(self.replay_memory, self.BATCH_SIZE)
+        rand_num = random.randint(0, len(self.replay_memory)-self.BATCH_SIZE)
+        batch = list(itertools.islice(self.replay_memory, rand_num, rand_num+self.BATCH_SIZE))
+        # batch = random.sample(self.replay_memory, self.BATCH_SIZE)
         s0, a0, r1, s1, done = zip(*batch)
         # s0 = torch.tensor(s0, dtype=torch.float32, device=self.device)
         a0 = torch.tensor(a0, dtype=torch.float32, device=self.device)

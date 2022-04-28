@@ -127,6 +127,12 @@ class PretrainedAEModel:
                 print(f'Total Training Epochs: {epoch}')
                 torch.save(self.model.state_dict(), self.model_path)
                 break
+            
+            if epoch+1 >= 100:
+                print('-------------Finish pretraining the model!-------------')
+                print(f'Total Training Epochs: {epoch}')
+                torch.save(self.model.state_dict(), self.model_path)
+                break
     
     def predict(self, observation):
         '''
