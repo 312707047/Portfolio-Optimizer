@@ -35,7 +35,7 @@ class TD3:
         self.critic_target = copy.deepcopy(self.critic)
         self.critic_optimizer = optim.Adam(self.critic.parameters(), lr=self.CRITIC_LR)
         
-        # self._log_init()
+        self._log_init()
         self.replay_memory = deque(maxlen=self.MEMORY_SIZE)
         self.itr = 0
     
@@ -136,7 +136,7 @@ class TD3:
                 if done:
                     break
             
-            # self.logger.info(f"{episode},{step},{episode_reward:.1f}")
+            self.logger.info(f"{episode},{step},{episode_reward:.1f}")
                 
             if episode+1 % 100 == 0:  
                 print(f'model save at: {episode}')

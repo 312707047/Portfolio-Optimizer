@@ -232,7 +232,7 @@ class TradingEnv(gym.Env):
                 "weights_mean": w1.mean(), "weights_std": w1.std(), "cost": mu1, 'date': self.dates[t],
                 'steps': self.step_number, "market_value": market_value}
         self.info_list.append(info)
-        # print(f'pv: {p1} | swpv:{self.same_weighted_portfolio_value} | reward: {reward} | action: {w1}')
+        print(f'pv: {p1} | swpv:{self.same_weighted_portfolio_value} | reward: {reward} | action: {w1}')
 
         return observation, reward, done, info
     
