@@ -145,6 +145,6 @@ class PretrainedAEModel:
         with torch.no_grad():
             denoised_obs = model(observation)
         
-        denoised_obs = torch.squeeze(denoised_obs, dim=0) # shape(3*8*30)
+        # denoised_obs = torch.squeeze(denoised_obs, dim=0) # shape(3*8*30)
         
         return denoised_obs

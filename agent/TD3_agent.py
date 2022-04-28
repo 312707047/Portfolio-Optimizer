@@ -21,7 +21,7 @@ class TD3:
         
         # self.s_dim = self.env.observation_space.shape[0]
         # self.a_dim = self.env.action_space.shape[0]
-        # self.max_action = self.env.action_space.high.shape[0]
+        self.max_action = self.env.action_space.high.shape[0]
         
         # initialize network
         self.actor = TD3_Actor(device=self.device)
