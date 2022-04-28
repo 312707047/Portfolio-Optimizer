@@ -74,7 +74,7 @@ class PretrainedAEModel:
                  device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')):
         
         dataset = TimeSeriesDataset(data_path)
-        self.dataloader = data.DataLoader(dataset, batch_size=256, num_workers=4)
+        self.dataloader = data.DataLoader(dataset, batch_size=32, num_workers=4)
         self.device = device
         self.model = Autoencoder().to(self.device)
         self.criterion = nn.MSELoss()

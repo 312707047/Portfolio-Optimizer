@@ -10,16 +10,16 @@ params = {
     'env': env,
     'device': torch.device('cpu'),
     'GAMMA':0.99,
-    'CRITIC_LR':0.003,
-    'ACTOR_LR':0.001,
-    'TAU_ACTOR': 0.05, # 0.05
-    'TAU_CRITIC': 0.05,
+    'CRITIC_LR':0.001,
+    'ACTOR_LR':0.0001,
+    'TAU_ACTOR': 0.001, # 0.05
+    'TAU_CRITIC': 0.001,
     'BATCH_SIZE':64,
     'MEMORY_SIZE': 100000,
-    'EPISODES': 1000,
+    'EPISODES': 1500,
     'POLICY_NOISE': 0.2,
     'NOISE_CLIP': 0.5,
-    'POLICY_DELAY': 2,
+    'POLICY_DELAY': 3,
     'EXPLORATION_NOISE':0.5
 }
 

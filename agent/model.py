@@ -64,7 +64,7 @@ class TD3_Actor(nn.Module):
             port = torch.unsqueeze(port, dim=0)
         
         port = self.ae(port)
-        port = torch.relu(self.conv_port(port))
+        port = torch.relu(self.conv_port(port.detach()))
         cov = torch.relu(self.conv_cov(cov))
         m = torch.concat([port, cov], dim=1)
         m = torch.relu(self.conv_mix(m)) # shape(1, 20, 8, 1)
@@ -109,7 +109,7 @@ class TD3_Critic(nn.Module):
             port = torch.unsqueeze(port, dim=0)
         
         q1_port = self.ae(port)
-        q1_port = torch.relu(self.conv_port1(q1_port))
+        q1_port = torch.relu(self.conv_port1(q1_port.detach()))
         q1_cov = torch.relu(self.conv_cov1(cov))
         q1_m = torch.concat([q1_port, q1_cov], dim=1)
         q1_m = torch.relu(self.conv_mix1(q1_m)) # shape(1, 20, 8, 1)
@@ -122,7 +122,7 @@ class TD3_Critic(nn.Module):
         
         # Q2
         q2_port = self.ae(port)
-        q2_port = torch.relu(self.conv_port2(q2_port))
+        q2_port = torch.relu(self.conv_port2(q2_port.detach()))
         q2_cov = torch.relu(self.conv_cov2(cov))
         q2_m = torch.concat([q2_port, q2_cov], dim=1)
         q2_m = torch.relu(self.conv_mix2(q2_m)) # shape(1, 20, 8, 1)
