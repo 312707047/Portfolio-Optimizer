@@ -33,7 +33,6 @@ class TradingEnv(gym.Env):
         self.observation_features = observation_features
         self.data_path = data_path
         self.info_list = []
-        self.csv = 'output/portfolio-management.csv'
         
         self.kf = KalmanFilter(transition_matrices = [1],
                                observation_matrices = [1],
@@ -188,6 +187,33 @@ class TradingEnv(gym.Env):
                            'action': self.weights,
                            'covariance':covariance}
         
+        # 4. Check limitation and done
+        done = False
+        if (self.step_number >= self.steps) or (p1 <= 0):
+            done = True
+            # pd.DataFrame(self.info_list).sort_values(by=['date']).to_csv(self.csv, index=False)
+        
+        # Limitation 1: None of the asset should have higher ration than 65%
+        for i in w1:
+            if i > 0.65:
+                done = True
+                reward = -10
+
+        # Limitation 2: Total ratio of cryptocurrency should not above 10%
+        if sum(w1[:3]) > 0.1:
+            done = True
+            reward = -10
+        
+        # Reward shaping: MDD
+        try:
+            if min(self.DD) > DD:
+                reward += -1
+        except ValueError:
+            pass
+        
+        if DD < 0:
+            self.DD.append(DD)
+        
         # info
         r = y1.mean()
         if self.step_number == 1:
@@ -198,33 +224,6 @@ class TradingEnv(gym.Env):
                 "weights_mean": w1.mean(), "weights_std": w1.std(), "cost": mu1, 'date': self.dates[t],
                 'steps': self.step_number, "market_value": market_value}
         self.info_list.append(info)
-        
-        # 4. Check limitation and done
-        done = False
-        if (self.step_number >= self.steps) or (p1 <= 0):
-            done = True
-            pd.DataFrame(self.info_list).sort_values(by=['date']).to_csv(self.csv, index=False)
-        
-        # Limitation 1: None of the asset should have higher ration than 65%
-        # for i in w1:
-        #     if i > 0.65:
-        #         done = True
-        #         reward = -10
-
-        # Limitation 2: Total ratio of cryptocurrency should not above 10%
-        # if sum(w1[:3]) > 0.1:
-        #     done = True
-        #     reward = -10
-        
-        # Reward shaping: MDD
-        # try:
-        #     if min(self.DD) > DD:
-        #         reward += -1
-        # except ValueError:
-        #     pass
-        
-        # if DD < 0:
-        #     self.DD.append(DD)    
 
         return observation, reward, done, info
     

@@ -1,4 +1,6 @@
 import numpy as np
+import pandas as pd
+import logging
 import random
 import torch
 import torch.nn as nn
@@ -22,6 +24,7 @@ class TD3:
         # self.s_dim = self.env.observation_space.shape[0]
         # self.a_dim = self.env.action_space.shape[0]
         self.max_action = self.env.action_space.high.shape[0]
+        self.csv = 'output/portfolio-management.csv'
         
         # initialize network
         self.actor = TD3_Actor(device=self.device)
@@ -32,12 +35,21 @@ class TD3:
         self.critic_target = copy.deepcopy(self.critic)
         self.critic_optimizer = optim.Adam(self.critic.parameters(), lr=self.CRITIC_LR)
         
+        self._log_init()
         self.replay_memory = deque(maxlen=self.MEMORY_SIZE)
         self.itr = 0
     
-    def _soft_update(self, net_target, net):
+    def _log_init(self):
+        formatter = logging.Formatter(r'"%(asctime)s",%(message)s')
+        self.logger = logging.getLogger("portfolio-optimizer")
+        self.logger.setLevel(logging.INFO)
+        fh = logging.FileHandler(f"G:/Code/Python/GitHub/Portfolio-Optimizer/output/Records.csv")
+        fh.setFormatter(formatter)
+        self.logger.addHandler(fh)
+    
+    def _soft_update(self, net_target, net, tau):
         for target_param, param in zip(net_target.parameters(), net.parameters()):
-            target_param.data.copy_(target_param.data*(1.0-self.TAU)+param.data*self.TAU)
+            target_param.data.copy_(target_param.data*(1.0-tau)+param.data*tau)
     
     def _choose_action(self, s0):
         # s0 = torch.tensor(s0, dtype=torch.float32, device=self.device).unsqueeze(0)
@@ -90,15 +102,15 @@ class TD3:
         
         if self.itr % self.POLICY_DELAY == 0:
             self._update_policy(s0)
-            self._soft_update(self.actor_target, self.actor)
-            self._soft_update(self.critic_target, self.critic)
+            self._soft_update(self.actor_target, self.actor, self.TAU_ACTOR)
+            self._soft_update(self.critic_target, self.critic, self.TAU_CRITIC)
             self.itr = 0
     
     def save_model(self, episode):
-        torch.save(self.actor.state_dict(), f'agent/save_model/actor_{episode}.ckpt')
-        torch.save(self.actor_target.state_dict(), f'agent/save_model/actor_target_{episode}.ckpt')
-        torch.save(self.critic.state_dict(), f'agent/save_model/critic_{episode}.ckpt')
-        torch.save(self.critic_target.state_dict(), f'agent/save_model/critic_target_{episode}.ckpt')
+        torch.save(self.actor.state_dict(), f'agent/saved_model/actor_{episode}.ckpt')
+        torch.save(self.actor_target.state_dict(), f'agent/saved_model/actor_target_{episode}.ckpt')
+        torch.save(self.critic.state_dict(), f'agent/saved_model/critic_{episode}.ckpt')
+        torch.save(self.critic_target.state_dict(), f'agent/saved_model/critic_target_{episode}.ckpt')
     
     def train(self, noise='Gaussian'):
         ou_noise = OUNoise(self.env.action_space)
@@ -121,10 +133,13 @@ class TD3:
                 
                 episode_reward += r1
                 s0 = s1
-                self._optimize()
+                self._optimize()   
                 
                 if done:
                     break
-            if episode % 100 == 0:  
+            
+            self.logger.info(f"{episode},{step},{episode_reward:.1f}")
+                
+            if episode+1 % 100 == 0:  
                 print(f'model save at: {episode}')
                 self.save_model(episode)
