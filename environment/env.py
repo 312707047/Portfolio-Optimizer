@@ -200,13 +200,13 @@ class TradingEnv(gym.Env):
         # Limitation 1: None of the asset should have higher ration than 65%
         for i in w1[3:]:
             if i >= 0.65:
-                done = True
-                reward -= 0.5
+                # done = True
+                reward -= 0.8
 
         # Limitation 2: Total ratio of cryptocurrency should not above 10%
         if sum(w1[:3]) > 0.1:
-            done = True
-            reward -= 0.5
+            # done = True
+            reward -= 0.8
         
         # Reward shaping: MDD
         try:
@@ -232,7 +232,7 @@ class TradingEnv(gym.Env):
                 "weights_mean": w1.mean(), "weights_std": w1.std(), "cost": mu1, 'date': self.dates[t],
                 'steps': self.step_number, "market_value": market_value}
         self.info_list.append(info)
-        print(f'pv: {p1} | swpv:{self.same_weighted_portfolio_value} | reward: {reward} | action: {w1}')
+        # print(f'pv: {p1} | swpv:{self.same_weighted_portfolio_value} | reward: {reward} | action: {w1}')
 
         return observation, reward, done, info
     
