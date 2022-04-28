@@ -116,9 +116,9 @@ class TradingEnv(gym.Env):
         
         self.step_number += 1
         
-        w1 = np.clip(action, a_min=0, a_max=1)
+        # w1 = np.clip(action, a_min=0, a_max=1)
         # w1 = np.insert(w1, 0, np.clip(1 - w1.sum(), a_min=0, a_max=1))
-        w1 = w1 / w1.sum()
+        w1 = action / action.sum()
         
         # 1. Calculate agent reward
         t = self.start_date_index + self.step_number
@@ -143,7 +143,8 @@ class TradingEnv(gym.Env):
         s_p1 = np.clip(s_p1, 0, np.inf)
         same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
-        reward = (agent_return - same_weighted_return) - 0.05 * max(w1)
+        # reward = (agent_return - same_weighted_return) - 0.0005 * max(w1)
+        reward = agent_return
         
         # save weights and portfolio value for next iteration
         self.weights = w1
@@ -194,15 +195,21 @@ class TradingEnv(gym.Env):
             # pd.DataFrame(self.info_list).sort_values(by=['date']).to_csv(self.csv, index=False)
         
         # Limitation 1: None of the asset should have higher ration than 65%
-        for i in w1:
-            if i > 0.65:
+        for i in w1[3:]:
+            if i >= 0.65:
                 done = True
-                reward = -10
+                reward -= 1
+            else:
+                reward += 0.2
 
         # Limitation 2: Total ratio of cryptocurrency should not above 10%
-        # if sum(w1[:3]) > 0.1:
-        #     done = True
-        #     reward = -20
+        if sum(w1[:3]) > 0.1:
+            done = True
+            reward -= 1
+        
+        for i in w1[:3]:
+            if i <= 0.04:
+                reward += 0.2
         
         # Reward shaping: MDD
         # try:
@@ -220,10 +227,11 @@ class TradingEnv(gym.Env):
             market_value = r
         else:
             market_value = self.info_list[-1]["market_value"] * r 
-        info = {"reward": reward, "log_return": reward, "portfolio_value": p1, "return": r, "rate_of_return": rho1,
+        info = {"reward": reward, "portfolio_value": p1, "return": r, "rate_of_return": rho1,
                 "weights_mean": w1.mean(), "weights_std": w1.std(), "cost": mu1, 'date': self.dates[t],
                 'steps': self.step_number, "market_value": market_value}
         self.info_list.append(info)
+        print(f'pv: {p1} | swpv:{self.same_weighted_portfolio_value} | reward: {reward} | action: {w1}')
 
         return observation, reward, done, info
     
