@@ -147,7 +147,6 @@ class TradingEnv(gym.Env):
         same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
         reward = (agent_return - same_weighted_return) - 0.03 * max(w1)
-        # reward = (p1 - s_p1) / s_p1
         
         # save weights and portfolio value for next iteration
         self.weights = w1
@@ -195,7 +194,17 @@ class TradingEnv(gym.Env):
         done = False
         if (self.step_number >= self.steps) or (p1 <= 0):
             done = True
-            # pd.DataFrame(self.info_list).sort_values(by=['date']).to_csv(self.csv, index=False)
+        
+        # Limitation 1: crypto asset should not over 10%
+        if w1[:3].sum() > 0.1:
+            reward -=1
+            done = True
+        
+        # Limitation 2: All the asset should not over 65%
+        for i in w1:
+            if i > 0.65:
+                reward -=1
+                done = True
         
         # Reward shaping: MDD
         try:
