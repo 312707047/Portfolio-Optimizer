@@ -9,7 +9,7 @@ env = TradingEnv('data', observation_features='All', steps=750, start_date_index
 params = {
     'env': env,
     'device': torch.device('cuda'),
-    'GAMMA':0.96,
+    'GAMMA':0.99,
     'CRITIC_LR':0.001,
     'ACTOR_LR':0.0001,
     'TAU_ACTOR': 0.001, # 0.05
@@ -22,6 +22,9 @@ params = {
     'POLICY_DELAY': 3,
     'EXPLORATION_NOISE':0.07
 }
+
+
+########### training stage 1 ###########
 
 agent = TD3(**params)
 agent.train(noise='Gaussian')

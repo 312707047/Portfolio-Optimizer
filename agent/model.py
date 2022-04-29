@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-from agent.latent_space.LFSS import PretrainedAEModel
 from agent.latent_space.Denoise import Autoencoder
 
 
@@ -36,15 +35,16 @@ class Critic(nn.Module):
 
 
 class TD3_Actor(nn.Module):
-    def __init__(self, device) -> None:
+    def __init__(self, device):
         super(TD3_Actor, self).__init__()
         self.conv_port = nn.Conv2d(3, 2, (1, 23))
         self.conv_cov = nn.Conv2d(3, 1, (1, 1))
         self.conv_mix = nn.Conv2d(3, 20, (1, 8))
         self.conv_out = nn.Conv2d(21, 1, 1)
         self.device = device
-        self.ae = Autoencoder().to(self.device)
+        self.ae = Autoencoder()
         self.ae.load_state_dict(torch.load('agent/latent_space/Autoencoder.ckpt'))
+        self.ae.eval()
         
     
     def forward(self, observation):
@@ -76,8 +76,9 @@ class TD3_Critic(nn.Module):
     def __init__(self, device):
         super(TD3_Critic, self).__init__()
         self.device = device
-        self.ae = Autoencoder().to(self.device)
+        self.ae = Autoencoder()
         self.ae.load_state_dict(torch.load('agent/latent_space/Autoencoder.ckpt'))
+        self.ae.eval()
         
         # Q1
         self.conv_port1 = nn.Conv2d(3, 2, (1, 23))

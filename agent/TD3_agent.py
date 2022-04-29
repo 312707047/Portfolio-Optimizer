@@ -104,11 +104,17 @@ class TD3:
             self._soft_update(self.critic_target, self.critic, self.TAU_CRITIC)
             self.itr = 0
     
-    def save_model(self, episode):
-        torch.save(self.actor.state_dict(), f'agent/saved_model/actor_{episode}.ckpt')
-        torch.save(self.actor_target.state_dict(), f'agent/saved_model/actor_target_{episode}.ckpt')
-        torch.save(self.critic.state_dict(), f'agent/saved_model/critic_{episode}.ckpt')
-        torch.save(self.critic_target.state_dict(), f'agent/saved_model/critic_target_{episode}.ckpt')
+    def save_model(self):
+        torch.save(self.actor.state_dict(), 'agent/saved_model/actor.ckpt')
+        torch.save(self.actor_target.state_dict(), 'agent/saved_model/actor_target.ckpt')
+        torch.save(self.critic.state_dict(), 'agent/saved_model/critic.ckpt')
+        torch.save(self.critic_target.state_dict(), 'agent/saved_model/critic_target.ckpt')
+    
+    def load_model(self):
+        self.actor.load_state_dict(torch.load('agent/saved_model/actor.ckpt'))
+        self.actor_target.load_state_dict(torch.load('agent/saved_model/actor_target.ckpt'))
+        self.critic.load_state_dict(torch.load('agent/saved_model/critic.ckpt'))
+        self.critic_target.load_state_dict(torch.load('agent/saved_model/critic_target.ckpt'))
     
     def train(self, noise='Gaussian'):
         ou_noise = OUNoise(self.env.action_space)
@@ -138,6 +144,5 @@ class TD3:
             
             self.logger.info(f"{episode},{step},{episode_reward:.1f}")
                 
-            if episode+1 % 100 == 0:  
-                print(f'model save at: {episode}')
-                self.save_model(episode)
+        print(f'Training Done! save model')
+        self.save_model()
