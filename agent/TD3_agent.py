@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import os
 import logging
 import random
 import torch
@@ -20,7 +21,7 @@ class TD3:
         for key, value in kwargs.items():
             setattr(self, key, value)
         
-        self.exploration_noise = LinearAnneal(self.EXPLORATION_NOISE, self.EXPLORATION_NOISE_END, 150000)
+        self.exploration_noise = LinearAnneal(self.EXPLORATION_NOISE, self.EXPLORATION_NOISE_END, self.EPISODES*150)
         
         # self.s_dim = self.env.observation_space.shape[0]
         # self.a_dim = self.env.action_space.shape[0]
@@ -105,17 +106,23 @@ class TD3:
             self._soft_update(self.critic_target, self.critic, self.TAU_CRITIC)
             self.itr = 0
     
-    def save_model(self):
-        torch.save(self.actor.state_dict(), 'agent/saved_model/actor.ckpt')
-        torch.save(self.actor_target.state_dict(), 'agent/saved_model/actor_target.ckpt')
-        torch.save(self.critic.state_dict(), 'agent/saved_model/critic.ckpt')
-        torch.save(self.critic_target.state_dict(), 'agent/saved_model/critic_target.ckpt')
+    def save_model(self, model_path='agent/saved_model/'):
+        torch.save(self.actor.state_dict(), os.path.join(model_path, 'actor.ckpt'))
+        torch.save(self.actor_target.state_dict(), os.path.join(model_path, 'actor_target.ckpt'))
+        torch.save(self.critic.state_dict(), os.path.join(model_path, 'critic.ckpt'))
+        torch.save(self.critic_target.state_dict(), os.path.join(model_path, 'critic_target.ckpt'))
     
-    def load_model(self):
-        self.actor.load_state_dict(torch.load('agent/saved_model/actor.ckpt'))
-        self.actor_target.load_state_dict(torch.load('agent/saved_model/actor_target.ckpt'))
-        self.critic.load_state_dict(torch.load('agent/saved_model/critic.ckpt'))
-        self.critic_target.load_state_dict(torch.load('agent/saved_model/critic_target.ckpt'))
+    def load_model(self, model_path='agent/saved_model/'):
+        self.actor.load_state_dict(torch.load(os.path.join(model_path, 'actor.ckpt')))
+        self.actor_target.load_state_dict(torch.load(os.path.join(model_path, 'actor_target.ckpt')))
+        self.critic.load_state_dict(torch.load(os.path.join(model_path,'critic.ckpt')))
+        self.critic_target.load_state_dict(torch.load(os.path.join(model_path,'critic_target.ckpt')))
+    
+    def set_eval(self):
+        self.actor.eval()
+        self.actor_target.eval()
+        self.critic.eval()
+        self.critic_target.eval()
     
     def train(self, noise='Gaussian'):
         ou_noise = OUNoise(self.env.action_space)
@@ -147,3 +154,16 @@ class TD3:
                 
         print(f'Training Done! save model')
         self.save_model()
+    
+    def test(self, env, model_path='agent/saved_model/'):
+        self.load_model(model_path)
+        self.set_eval()
+        state = env.reset()
+        while True:
+            with torch.no_grad():
+                action = self._choose_action(state)
+            next_state, _, done, info = env.step(action)
+            
+            if done:
+                break
+            state = next_state
