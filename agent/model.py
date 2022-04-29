@@ -91,6 +91,7 @@ class TD3_Critic(nn.Module):
         self.conv_mix1 = nn.Conv2d(3, 20, (1, 8))
         self.conv_out1 = nn.Conv2d(22, 1, 1)
         self.linear1 = nn.Linear(8, 1)
+        # self.linear1_out = nn.Linear(4, 1)
         
         # Q2
         self.conv_port2 = nn.Conv2d(3, 2, (1, 23))
@@ -98,6 +99,7 @@ class TD3_Critic(nn.Module):
         self.conv_mix2 = nn.Conv2d(3, 20, (1, 8))
         self.conv_out2 = nn.Conv2d(22, 1, 1)
         self.linear2 = nn.Linear(8, 1)
+        # self.linear2_out = nn.Linear(4, 1)
     
     def forward(self, observation, act):
         port = torch.tensor(list(map(lambda x: x['portfolio'], observation)), dtype=torch.float32, device=self.device)
@@ -118,6 +120,7 @@ class TD3_Critic(nn.Module):
         q1_all = torch.concat([q1_m, action, act], dim=1) # shape(1, 22, 8, 1)
         q1_all = self.conv_out1(q1_all).view((-1, 8))
         q1 = self.linear1(q1_all)
+        # q1 = self.linear1_out(q1)
         
         # Q2
         q2_port = self.ae.encoder(port)
@@ -128,5 +131,6 @@ class TD3_Critic(nn.Module):
         q2_all = torch.concat([q2_m, action, act], dim=1) # shape(1, 22, 8, 1)
         q2_all = self.conv_out2(q2_all).view((-1, 8))
         q2 = self.linear1(q2_all)
+        # q2 = self.linear2_out(q2)
         
         return q1, q2

@@ -32,7 +32,6 @@ class TradingEnv(gym.Env):
         self.commission = commission
         self.observation_features = observation_features
         self.data_path = data_path
-        self.info_list = []
         
         self.kf = KalmanFilter(transition_matrices = [1],
                                observation_matrices = [1],
@@ -146,7 +145,7 @@ class TradingEnv(gym.Env):
         s_p1 = np.clip(s_p1, 0, np.inf)
         same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
-        reward = (agent_return - same_weighted_return) - 0.03 * max(w1)
+        reward = (agent_return - same_weighted_return) * 1000 #- 0.3 * max(w1)
         
         # save weights and portfolio value for next iteration
         self.weights = w1
@@ -154,8 +153,8 @@ class TradingEnv(gym.Env):
         self.same_weighted_portfolio_value = s_p1
         
         # 3. Calculate MDD
-        self.portfolio_value_list.append(p1)
-        DD = min(self.portfolio_value_list) / max(self.portfolio_value_list) - 1
+        # self.portfolio_value_list.append(p1)
+        # DD = min(self.portfolio_value_list) / max(self.portfolio_value_list) - 1
         
         
         # observe the next state
@@ -192,32 +191,32 @@ class TradingEnv(gym.Env):
         
         # 4. Check limitation and done
         done = False
-        if (self.step_number >= self.steps) or (p1 <= 0):
+        if self.step_number >= self.steps:
             done = True
         
         # Limitation 1: crypto asset should not over 10%
-        if w1[:3].sum() > 0.1:
-            reward -=1
-            done = True
+        # if w1[:3].sum() > 0.1:
+        #     reward -=0.04
+        #     done = True
         
         # Limitation 2: All the asset should not over 65%
-        for i in w1:
-            if i > 0.65:
-                reward -=1
-                done = True
+        # for i in w1:
+        #     if i > 0.65:
+        #         reward -=0.04
+        #         done = True
         
         # Reward shaping: MDD
-        try:
-            if min(self.DD) > DD:
-                reward -= 0.2
-        except ValueError:
-            pass
+        # try:
+        #     if min(self.DD) > DD:
+        #         reward -= 0.2
+        # except ValueError:
+        #     pass
         
-        if DD < 0:
-            self.DD.append(DD)
+        # if DD < 0:
+        #     self.DD.append(DD)
         
         if p1 <= 0.5:
-            reward -=1
+            reward -=200
             done = True
         
         # info
@@ -236,7 +235,7 @@ class TradingEnv(gym.Env):
     
     def reset(self):
         
-        self.info = []
+        self.info_list = []
         self.weights = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
         # self.weights = np.insert(np.zeros(self.tickers_num), 0, 1.0)
         self.portfolio_value = 1.0

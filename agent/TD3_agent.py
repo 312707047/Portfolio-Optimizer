@@ -131,7 +131,6 @@ class TD3:
             episode_reward = 0
             done = False
             for step in itertools.count():
-                # self.env.render()
                 a0 = self._choose_action(s0)
                 
                 if noise == 'Gaussian':
@@ -155,14 +154,25 @@ class TD3:
         print(f'Training Done! save model')
         self.save_model()
     
-    def test(self, env, model_path='agent/saved_model/'):
+    def pretrain(self, pretrain_step):
+        with torch.no_grad():
+            state = self.env.reset()
+            for i in range(pretrain_step):
+                action = self._choose_action(state)
+                next_state, reward, done, _ = self.env.step(action)
+                self._update_memory(state, action, reward, next_state, done)
+                state = next_state
+                if done:
+                    break
+    
+    def test(self, model_path='agent/saved_model/'):
         self.load_model(model_path)
         self.set_eval()
-        state = env.reset()
+        state = self.env.reset()
         while True:
             with torch.no_grad():
                 action = self._choose_action(state)
-            next_state, _, done, info = env.step(action)
+            next_state, _, done, info = self.env.step(action)
             
             if done:
                 break
