@@ -12,7 +12,7 @@ import copy
 from collections import deque
 from agent.model import TD3_Actor, TD3_Critic
 # from agent.latent_space.LFSS import PretrainedAEModel
-from utils import  OUNoise
+from utils import  OUNoise, LinearAnneal
 
 
 class TD3:
@@ -20,6 +20,8 @@ class TD3:
         
         for key, value in kwargs.items():
             setattr(self, key, value)
+        
+        self.exploration_noise = LinearAnneal(self.EXPLORATION_NOISE, self.EXPLORATION_NOISE_END, 37500)
         
         # self.s_dim = self.env.observation_space.shape[0]
         # self.a_dim = self.env.action_space.shape[0]
@@ -127,7 +129,7 @@ class TD3:
                 a0 = self._choose_action(s0)
                 
                 if noise == 'Gaussian':
-                    a0 += np.random.normal(0, self.EXPLORATION_NOISE, size=self.env.action_space.shape[0])
+                    a0 += np.random.normal(0, self.exploration_noise.anneal(), size=self.env.action_space.shape[0])
                     a0 = a0.clip(self.env.action_space.low, self.env.action_space.high)
                 elif noise == 'OUNoise':
                     a0 = ou_noise.get_action(a0, step)

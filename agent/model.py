@@ -67,9 +67,14 @@ class TD3_Actor(nn.Module):
         m = torch.concat([port, cov], dim=1)
         m = torch.relu(self.conv_mix(m)) # shape(1, 20, 8, 1)
         all = torch.concat([m, action], dim=1) # shape(1, 21, 8, 1)
-        all = torch.softmax(self.conv_out(all), dim=1)
+        all = self.conv_out(all).squeeze()
         
-        return all.squeeze()
+        # Limitation for Crypto-asset
+        crypto_asset = torch.softmax(all[:3], dim=0) * 0.1
+        other_asset = torch.softmax(all[3:]*0.1, dim=0) * 0.9
+        asset_ratio = torch.concat([crypto_asset, other_asset])
+        
+        return asset_ratio
         
 
 class TD3_Critic(nn.Module):

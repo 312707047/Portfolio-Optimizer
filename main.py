@@ -20,7 +20,8 @@ params = {
     'POLICY_NOISE': 0.2,
     'NOISE_CLIP': 0.1,
     'POLICY_DELAY': 3,
-    'EXPLORATION_NOISE':0.07
+    'EXPLORATION_NOISE':0.05,
+    'EXPLORATION_NOISE_END':0.1
 }
 
 
