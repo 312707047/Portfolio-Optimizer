@@ -11,7 +11,6 @@ import copy
 
 from collections import deque
 from agent.model import TD3_Actor, TD3_Critic
-# from agent.latent_space.LFSS import PretrainedAEModel
 from utils import  OUNoise, LinearAnneal
 
 
@@ -21,7 +20,7 @@ class TD3:
         for key, value in kwargs.items():
             setattr(self, key, value)
         
-        self.exploration_noise = LinearAnneal(self.EXPLORATION_NOISE, self.EXPLORATION_NOISE_END, 37500)
+        self.exploration_noise = LinearAnneal(self.EXPLORATION_NOISE, self.EXPLORATION_NOISE_END, 150000)
         
         # self.s_dim = self.env.observation_space.shape[0]
         # self.a_dim = self.env.action_space.shape[0]
