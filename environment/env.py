@@ -120,7 +120,8 @@ class TradingEnv(gym.Env):
         # if cash is needed
         # w1 = np.clip(action, a_min=0, a_max=1)
         # w1 = np.insert(w1, 0, np.clip(1 - w1.sum(), a_min=0, a_max=1))
-        w1 = action / action.sum()
+        # w1 = action / action.sum()
+        w1 = action
         
         # 1. Calculate agent reward
         t = self.start_date_index + self.step_number
