@@ -11,9 +11,9 @@ params = {
     'device': torch.device('cuda'),
     'GAMMA':0.99,
     'CRITIC_LR':0.001,
-    'ACTOR_LR':0.0005,
-    'TAU_ACTOR': 0.02, # 0.05
-    'TAU_CRITIC': 0.025,
+    'ACTOR_LR':0.0001,
+    'TAU_ACTOR': 0.05, # 0.05
+    'TAU_CRITIC': 0.05,
     'BATCH_SIZE':64,
     'MEMORY_SIZE': 100000,
     'EPISODES': 1000,

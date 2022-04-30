@@ -230,14 +230,15 @@ class TradingEnv(gym.Env):
                 "weights_mean": w1.mean(), "weights_std": w1.std(), "cost": mu1, 'date': self.dates[t],
                 'steps': self.step_number, "market_value": market_value}
         self.info_list.append(info)
-        print(f'pv: {p1:.5f} | swpv: {s_p1:.5f} | reward: {reward:.3f} | noisy action: {np.around(w1, decimals=4)}')
+        # print(f'pv: {p1:.5f} | swpv: {s_p1:.5f} | reward: {reward:.3f} | noisy action: {np.around(w1, decimals=4)}')
 
         return observation, reward, done, info
     
     def reset(self):
         
         self.info_list = []
-        self.weights = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
+        # self.weights = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
+        self.weights = np.array([0, 0, 0, 0, 0, 0, 0, 1])
         # self.weights = np.insert(np.zeros(self.tickers_num), 0, 1.0)
         self.portfolio_value = 1.0
         self.same_weighted_portfolio_value = 1.0

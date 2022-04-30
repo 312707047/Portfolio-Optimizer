@@ -40,7 +40,7 @@ class TD3_Actor(nn.Module):
         self.conv_port = nn.Conv2d(3, 2, (1, 23))
         self.conv_cov = nn.Conv2d(3, 1, (1, 1))
         self.conv_mix = nn.Conv2d(3, 20, (1, 8))
-        self.conv_out = nn.Conv2d(21, 1, 1)
+        self.conv_out = nn.Conv2d(20, 1, 1)
         self.device = device
         self.ae = Autoencoder()
         self.ae.load_state_dict(torch.load('agent/latent_space/Autoencoder.ckpt'))
@@ -60,14 +60,13 @@ class TD3_Actor(nn.Module):
         port = port.view((-1, 3, 8, 60))
         cov = cov.view((-1, 3, 8, 8))
         action = action.view((-1, 1, 8, 1)) # shape(1, 1, 8, 1)
-        
         port = self.ae.encoder(port)
         port = torch.relu(self.conv_port(port))
         cov = torch.relu(self.conv_cov(cov))
         m = torch.concat([port, cov], dim=1)
         m = torch.relu(self.conv_mix(m)) # shape(1, 20, 8, 1)
-        all = torch.concat([m, action], dim=1) # shape(1, 21, 8, 1)
-        all = self.conv_out(all).squeeze()
+        # all = torch.concat([m, action], dim=1) # shape(1, 21, 8, 1)
+        all = self.conv_out(m).squeeze()
         
         # Limitation for Crypto-asset
         crypto_asset = torch.softmax(all[:3], dim=0) * 0.1
