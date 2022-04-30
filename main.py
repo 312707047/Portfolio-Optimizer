@@ -3,7 +3,7 @@ from agent.TD3_agent import TD3
 
 import torch
 
-env = TradingEnv('data', observation_features='All', steps=750, start_date_index=0)
+env = TradingEnv('data', observation_features='All', commission=0.000025, steps=750, start_date_index=0)
 
 
 params = {
@@ -11,9 +11,9 @@ params = {
     'device': torch.device('cuda'),
     'GAMMA':0.99,
     'CRITIC_LR':0.001,
-    'ACTOR_LR':0.00015,
-    'TAU_ACTOR': 0.025, # 0.05
-    'TAU_CRITIC': 0.001,
+    'ACTOR_LR':0.0005,
+    'TAU_ACTOR': 0.02, # 0.05
+    'TAU_CRITIC': 0.025,
     'BATCH_SIZE':64,
     'MEMORY_SIZE': 100000,
     'EPISODES': 1000,

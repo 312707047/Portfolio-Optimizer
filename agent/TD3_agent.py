@@ -25,7 +25,7 @@ class TD3:
         
         # self.s_dim = self.env.observation_space.shape[0]
         # self.a_dim = self.env.action_space.shape[0]
-        self.max_action = self.env.action_space.high.shape[0]
+        # self.max_action = self.env.action_space.high.shape[0]
         self.csv = 'output/portfolio-management.csv'
         
         # initialize network
@@ -66,7 +66,7 @@ class TD3:
             noise = self.POLICY_NOISE * torch.rand_like(a0).to(self.device)
             noise = noise.clamp(-self.NOISE_CLIP, self.NOISE_CLIP)
             a1 = self.actor_target(s1) + noise
-            a1 = a1.clamp(-self.max_action, self.max_action)
+            a1 = a1.clamp(0, 1)
             
             target_Q1, target_Q2 = self.critic_target(s1, a1)
             target_Q = torch.min(target_Q1, target_Q2)
@@ -126,19 +126,21 @@ class TD3:
     
     def train(self, noise='Gaussian'):
         ou_noise = OUNoise(self.env.action_space)
+        episode_reward_list = []
         for episode in range(self.EPISODES):
             s0 = self.env.reset()
             episode_reward = 0
             done = False
             for step in itertools.count():
                 a0 = self._choose_action(s0)
-                
+                # print('action before noise:', a0)
                 if noise == 'Gaussian':
                     a0 += np.random.normal(0, self.exploration_noise.anneal(), size=self.env.action_space.shape[0])
                     a0 = a0.clip(self.env.action_space.low, self.env.action_space.high)
                 elif noise == 'OUNoise':
                     a0 = ou_noise.get_action(a0, step)
-                    
+                
+                # print('action after noise:', a0)
                 s1, r1, done, _ = self.env.step(a0)
                 self._update_memory(s0, a0, r1, s1, done)
                 
@@ -149,7 +151,11 @@ class TD3:
                 if done:
                     break
             
+            episode_reward_list.append(episode_reward)
             self.logger.info(f"{episode},{step},{episode_reward:.1f}")
+            
+            if episode_reward >= max(episode_reward_list):
+                self.save_model('agent/saved_model/first_stage')
                 
         print(f'Training Done! save model')
         self.save_model()

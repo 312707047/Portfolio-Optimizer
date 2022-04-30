@@ -64,7 +64,7 @@ class TradingEnv(gym.Env):
         
         # Observation space and action space
         self.action_space = gym.spaces.Box(
-            0, 1, shape=(self.tickers_num,), dtype=np.float32)  # include cash
+            0, 0.65, shape=(self.tickers_num,), dtype=np.float32)  # limitation of the asset ratio
         
         if observation_features == 'Close':
             
@@ -121,7 +121,7 @@ class TradingEnv(gym.Env):
         # w1 = np.clip(action, a_min=0, a_max=1)
         # w1 = np.insert(w1, 0, np.clip(1 - w1.sum(), a_min=0, a_max=1))
         # w1 = action / action.sum()
-        w1 = action
+        w1 = action / action.sum()
         
         # 1. Calculate agent reward
         t = self.start_date_index + self.step_number
@@ -230,7 +230,7 @@ class TradingEnv(gym.Env):
                 "weights_mean": w1.mean(), "weights_std": w1.std(), "cost": mu1, 'date': self.dates[t],
                 'steps': self.step_number, "market_value": market_value}
         self.info_list.append(info)
-        print(f'pv: {p1} | swpv:{self.same_weighted_portfolio_value} | reward: {reward} | action: {w1}')
+        print(f'pv: {p1:.5f} | swpv: {s_p1:.5f} | reward: {reward:.3f} | noisy action: {np.around(w1, decimals=4)}')
 
         return observation, reward, done, info
     
