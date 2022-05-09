@@ -120,8 +120,7 @@ class TradingEnv(gym.Env):
         # if cash is needed
         # w1 = np.clip(action, a_min=0, a_max=1)
         # w1 = np.insert(w1, 0, np.clip(1 - w1.sum(), a_min=0, a_max=1))
-        # w1 = action / action.sum()
-        w1 = action / action.sum()
+        w1 = action
         
         # 1. Calculate agent reward
         t = self.start_date_index + self.step_number
@@ -195,17 +194,6 @@ class TradingEnv(gym.Env):
         if self.step_number >= self.steps:
             done = True
         
-        # Limitation 1: crypto asset should not over 10%
-        # if w1[:3].sum() > 0.1:
-        #     reward -=0.04
-        #     done = True
-        
-        # Limitation 2: All the asset should not over 65%
-        # for i in w1:
-        #     if i > 0.65:
-        #         reward -=0.04
-        #         done = True
-        
         # Reward shaping: MDD
         # try:
         #     if min(self.DD) > DD:
@@ -226,9 +214,9 @@ class TradingEnv(gym.Env):
             market_value = r
         else:
             market_value = self.info_list[-1]["market_value"] * r 
-        info = {"reward": reward, "portfolio_value": p1, "return": r, "rate_of_return": rho1,
-                "weights_mean": w1.mean(), "weights_std": w1.std(), "cost": mu1, 'date': self.dates[t],
-                'steps': self.step_number, "market_value": market_value}
+        info = {"reward": round(reward, 3), "portfolio_value": round(p1, 5), "return": round(r, 3), "rate_of_return": round(rho1, 3),
+                "weights_mean": round(w1.mean(), 3), "weights_std": round(w1.std(), 3), "cost": round(mu1, 5), 'date': np.datetime_as_string(self.dates[t])[:10],
+                'steps': self.step_number, "market_value": round(market_value, 3)}
         self.info_list.append(info)
         # print(f'pv: {p1:.5f} | swpv: {s_p1:.5f} | reward: {reward:.3f} | noisy action: {np.around(w1, decimals=4)}')
 

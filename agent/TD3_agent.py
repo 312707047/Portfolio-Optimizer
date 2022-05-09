@@ -10,6 +10,7 @@ import torch.nn.functional as F
 import itertools
 import copy
 
+from scipy.special import softmax
 from collections import deque
 from agent.model import TD3_Actor, TD3_Critic
 from utils import  OUNoise, LinearAnneal
@@ -29,11 +30,11 @@ class TD3:
         self.csv = 'output/portfolio-management.csv'
         
         # initialize network
-        self.actor = TD3_Actor(device=self.device).to(self.device)
+        self.actor = TD3_Actor(device=self.device, model_type=self.env.observation_features).to(self.device)
         self.actor_target = copy.deepcopy(self.actor)
         self.actor_optimizer = optim.Adam(self.actor.parameters(), lr=self.ACTOR_LR)
         
-        self.critic = TD3_Critic(device=self.device).to(self.device)
+        self.critic = TD3_Critic(device=self.device, model_type=self.env.observation_features).to(self.device)
         self.critic_target = copy.deepcopy(self.critic)
         self.critic_optimizer = optim.Adam(self.critic.parameters(), lr=self.CRITIC_LR)
         
@@ -124,7 +125,7 @@ class TD3:
         self.critic.eval()
         self.critic_target.eval()
     
-    def train(self, noise='Gaussian'):
+    def train(self, noise=None):
         ou_noise = OUNoise(self.env.action_space)
         episode_reward_list = []
         for episode in range(self.EPISODES):
@@ -139,11 +140,14 @@ class TD3:
                     a0 = a0.clip(self.env.action_space.low, self.env.action_space.high)
                 elif noise == 'OUNoise':
                     a0 = ou_noise.get_action(a0, step)
+                else:
+                    pass
+                a0 = np.concatenate([softmax(a0[:3], axis=0)*0.1, softmax(a0[3:], axis=0)*0.9])
                 
                 # print('action after noise:', a0)
-                s1, r1, done, _ = self.env.step(a0)
+                s1, r1, done, info = self.env.step(a0)
                 self._update_memory(s0, a0, r1, s1, done)
-                
+                print(info )
                 episode_reward += r1
                 s0 = s1
                 self._optimize()   
