@@ -42,3 +42,36 @@ class LinearAnneal:
         if self.p > self.end_val:
             self.p -= self.decay_rate
         return self.p
+
+
+def output_recorder(model_type, output, layer_name, path='output_records'):
+    if output.shape[0] != 1:
+        return
+    
+    if not os.path.isdir(os.path.join(path, model_type)):
+        os.mkdir(os.path.join(path, model_type))
+    
+    if not os.path.isdir(os.path.join(path, model_type, layer_name)):
+        os.mkdir(os.path.join(path, model_type, layer_name))
+    
+    num_data = output.shape[1]
+    for i in range(num_data):
+        df = pd.DataFrame(np.array(output[0][i].squeeze().detach().cpu())).T
+        
+        if os.path.isfile(os.path.join(path, model_type, layer_name)+'\\'+f'output_{i}.csv') == True:
+            df.to_csv(os.path.join(path, model_type, layer_name)+'\\'+f'output_{i}.csv', mode='a', index=False, header=False)
+        else:
+            df.to_csv(os.path.join(path, model_type, layer_name)+'\\'+f'output_{i}.csv', index=False)
+
+
+def weight_recorder(model_type, layer, layer_name, path='weight_records'):
+    
+    # if not os.path.isdir(os.path.join(path, layer_name)):
+    #     os.mkdir(os.path.join(path, layer_name))
+    
+    df = pd.DataFrame(np.array(layer.weight.data.squeeze().detach().cpu())).T
+    
+    if os.path.isfile(path+'\\'+f'{layer_name}_weight.csv') == True:
+        df.to_csv(os.path.join(path, layer_name)+'\\'+f'output_.csv', mode='a', index=False, header=False)
+    else:
+        df.to_csv(os.path.join(path, layer_name)+'\\'+f'output_.csv', index=False)

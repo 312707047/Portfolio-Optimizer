@@ -55,7 +55,8 @@ class TD3:
             target_param.data.copy_(target_param.data*(1.0-tau)+param.data*tau)
     
     def _choose_action(self, s0):
-        a0 =  self.actor(s0).squeeze(0).cpu().detach().numpy()
+        with torch.no_grad():
+            a0 =  self.actor(s0).squeeze(0).cpu().detach().numpy()
         return a0
     
     def _update_memory(self, *transitions):
@@ -147,7 +148,8 @@ class TD3:
                 # print('action after noise:', a0)
                 s1, r1, done, info = self.env.step(a0)
                 self._update_memory(s0, a0, r1, s1, done)
-                print(info )
+                if self.print_info:
+                    print(info)
                 episode_reward += r1
                 s0 = s1
                 self._optimize()   

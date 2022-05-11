@@ -205,7 +205,7 @@ class TradingEnv(gym.Env):
         #     self.DD.append(DD)
         
         if p1 <= 0.5:
-            reward -=200
+            reward -=1
             done = True
         
         # info
@@ -218,7 +218,6 @@ class TradingEnv(gym.Env):
                 "weights_mean": round(w1.mean(), 3), "weights_std": round(w1.std(), 3), "cost": round(mu1, 5), 'date': np.datetime_as_string(self.dates[t])[:10],
                 'steps': self.step_number, "market_value": round(market_value, 3)}
         self.info_list.append(info)
-        # print(f'pv: {p1:.5f} | swpv: {s_p1:.5f} | reward: {reward:.3f} | noisy action: {np.around(w1, decimals=4)}')
 
         return observation, reward, done, info
     

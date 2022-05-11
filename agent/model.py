@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from agent.latent_space.Denoise import Autoencoder
+from utils import output_recorder
 
 
 class Actor(nn.Module):
@@ -86,7 +87,7 @@ class TD3_Actor(nn.Module):
             m = torch.concat([port, cov], dim=1)
             m = torch.relu(self.conv_mix(m)) # shape(1, 20, 8, 1)
             all = torch.concat([m, action], dim=1) # shape(1, 21, 8, 1)
-            all = self.conv_out(all).squeeze()
+            all = self.conv_out(all)
         
         elif self.model_type == 'Three':
             
@@ -95,23 +96,26 @@ class TD3_Actor(nn.Module):
             port = torch.relu(self.conv_port(port))
             m = torch.relu(self.conv_mix(port)) # shape(1, 20, 8, 1)
             all = torch.concat([m, action], dim=1) # shape(1, 21, 8, 1)
-            all = self.conv_out(all).squeeze()
+            all = self.conv_out(all)
             
         elif self.model_type == 'Close':
             
             port = port.view((-1, 1, 8, 60))
             
             port = torch.relu(self.conv_port(port))
+            output_recorder(self.model_type, port, 'conv_port')
             m = torch.relu(self.conv_mix(port)) # shape(1, 20, 8, 1)
+            output_recorder(self.model_type, m, 'conv_mix')
             all = torch.concat([m, action], dim=1) # shape(1, 21, 8, 1)
-            all = self.conv_out(all).squeeze()
+            all = self.conv_out(all)
+            output_recorder(self.model_type, all, 'conv_out')
             
         # Limitation for Crypto-asset
         # crypto_asset = torch.softmax(all[:3], dim=0) * 0.1
         # other_asset = torch.softmax(all[3:]*0.1, dim=0) * 0.9
         # asset_ratio = torch.concat([crypto_asset, other_asset])
         
-        return torch.tanh(all)
+        return torch.tanh(all.squeeze())
         
 
 class TD3_Critic(nn.Module):
