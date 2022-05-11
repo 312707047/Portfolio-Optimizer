@@ -18,7 +18,7 @@ class TimeSeriesDataset(data.Dataset):
         
         self.kf = KalmanFilter(transition_matrices = [1],
                                observation_matrices = [1],
-                               initial_state_mean = 1,
+                               initial_state_mean = 0,
                                initial_state_covariance = 1.5,
                                observation_covariance = 1.5,
                                transition_covariance = 1/30)

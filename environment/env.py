@@ -15,7 +15,8 @@ class TradingEnv(gym.Env):
                  commission=0.01,
                  steps=200,
                  start_date_index=None,
-                 observation_features='Close'):
+                 observation_features='Close',
+                 use_kalman=False):
         '''
         Args:
             data_path: folder containing history data
@@ -32,10 +33,11 @@ class TradingEnv(gym.Env):
         self.commission = commission
         self.observation_features = observation_features
         self.data_path = data_path
+        self.use_kalman = use_kalman
         
         self.kf = KalmanFilter(transition_matrices = [1],
                                observation_matrices = [1],
-                               initial_state_mean = 1,
+                               initial_state_mean = 0,
                                initial_state_covariance = 1.5,
                                observation_covariance = 1.5,
                                transition_covariance = 1/30)
@@ -105,11 +107,13 @@ class TradingEnv(gym.Env):
         return array
     
     def _kalman(self, array):
-        '''filter the noise of (3, 8, 60) array'''
-        for i in range(len(array)):
-            for j in range(len(array[i])):
-                a, _ = self.kf.filter(array[i][j])
-                array[i][j] = np.squeeze(a)
+        
+        if self.use_kalman:
+            '''filter the noise of (3, 8, 60) array'''
+            for i in range(len(array)):
+                for j in range(len(array[i])):
+                    a, _ = self.kf.filter(array[i][j])
+                    array[i][j] = np.squeeze(a)
         
         return array
 
@@ -214,7 +218,7 @@ class TradingEnv(gym.Env):
             market_value = r
         else:
             market_value = self.info_list[-1]["market_value"] * r 
-        info = {"reward": round(reward, 3), "portfolio_value": round(p1, 5), "return": round(r, 3), "rate_of_return": round(rho1, 3),
+        info = {"reward": round(reward, 3), "portfolio_value": round(p1, 5), "return": round(r, 3), "weights": round(w1, 3),
                 "weights_mean": round(w1.mean(), 3), "weights_std": round(w1.std(), 3), "cost": round(mu1, 5), 'date': np.datetime_as_string(self.dates[t])[:10],
                 'steps': self.step_number, "market_value": round(market_value, 3)}
         self.info_list.append(info)

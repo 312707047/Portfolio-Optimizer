@@ -48,6 +48,9 @@ def output_recorder(model_type, output, layer_name, path='output_records'):
     if output.shape[0] != 1:
         return
     
+    if not os.path.isdir(path):
+        os.mkdir(path)
+    
     if not os.path.isdir(os.path.join(path, model_type)):
         os.mkdir(os.path.join(path, model_type))
     

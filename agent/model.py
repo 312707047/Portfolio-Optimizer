@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from agent.latent_space.Denoise import Autoencoder
 from utils import output_recorder
 
@@ -57,9 +58,9 @@ class TD3_Actor(nn.Module):
             self.conv_out = nn.Conv2d(21, 1, 1)
         
         elif self.model_type == 'Close':
-            self.conv_port = nn.Conv2d(1, 2, (1, 58))
-            self.conv_mix = nn.Conv2d(2, 20, (1, 3))
-            self.conv_out = nn.Conv2d(21, 1, 1)
+            self.conv_port = nn.Conv2d(1, 1, (1, 58))
+            self.conv_mix = nn.Conv2d(1, 5, (1, 3))
+            self.conv_out = nn.Conv2d(6, 1, 1)
     
     def forward(self, observation):
         
@@ -102,9 +103,9 @@ class TD3_Actor(nn.Module):
             
             port = port.view((-1, 1, 8, 60))
             
-            port = torch.relu(self.conv_port(port))
+            port = F.leaky_relu(self.conv_port(port))
             output_recorder(self.model_type, port, 'conv_port')
-            m = torch.relu(self.conv_mix(port)) # shape(1, 20, 8, 1)
+            m = F.leaky_relu(self.conv_mix(port)) # shape(1, 20, 8, 1)
             output_recorder(self.model_type, m, 'conv_mix')
             all = torch.concat([m, action], dim=1) # shape(1, 21, 8, 1)
             all = self.conv_out(all)
@@ -160,15 +161,15 @@ class TD3_Critic(nn.Module):
         elif self.model_type == 'Close':
             
             # Q1
-            self.conv_port1 = nn.Conv2d(1, 2, (1, 58))
-            self.conv_mix1 = nn.Conv2d(2, 23, (1, 3))
-            self.conv_out1 = nn.Conv2d(25, 1, 1)
+            self.conv_port1 = nn.Conv2d(1, 1, (1, 58))
+            self.conv_mix1 = nn.Conv2d(1, 10, (1, 3))
+            self.conv_out1 = nn.Conv2d(12, 1, 1)
             self.linear1 = nn.Linear(8, 1)
             
             # Q2
-            self.conv_port2 = nn.Conv2d(1, 2, (1, 58))
-            self.conv_mix2 = nn.Conv2d(2, 23, (1, 3))
-            self.conv_out2 = nn.Conv2d(25, 1, 1)
+            self.conv_port2 = nn.Conv2d(1, 1, (1, 58))
+            self.conv_mix2 = nn.Conv2d(1, 10, (1, 3))
+            self.conv_out2 = nn.Conv2d(12, 1, 1)
             self.linear2 = nn.Linear(8, 1)
     
     def forward(self, observation, act):
@@ -185,12 +186,12 @@ class TD3_Critic(nn.Module):
         
             # Q1
             q1_port = self.ae.encoder(port)
-            q1_port = torch.relu(self.conv_port1(q1_port))
-            q1_cov = torch.relu(self.conv_cov1(cov))
+            q1_port = F.leaky_relu(self.conv_port1(q1_port))
+            q1_cov = F.leaky_relu(self.conv_cov1(cov))
             q1_m = torch.concat([q1_port, q1_cov], dim=1)
-            q1_m = torch.relu(self.conv_mix1(q1_m)) # shape(1, 20, 8, 1)
+            q1_m = F.leaky_relu(self.conv_mix1(q1_m)) # shape(1, 20, 8, 1)
             q1_all = torch.concat([q1_m, action, act], dim=1) # shape(1, 22, 8, 1)
-            q1_all = self.conv_out1(q1_all).view((-1, 8))
+            q1_all = F.leaky_relu(self.conv_out1(q1_all)).view((-1, 8))
             q1 = self.linear1(q1_all)
             
             # Q2
@@ -200,7 +201,7 @@ class TD3_Critic(nn.Module):
             q2_m = torch.concat([q2_port, q2_cov], dim=1)
             q2_m = torch.relu(self.conv_mix2(q2_m)) # shape(1, 20, 8, 1)
             q2_all = torch.concat([q2_m, action, act], dim=1) # shape(1, 22, 8, 1)
-            q2_all = self.conv_out2(q2_all).view((-1, 8))
+            q2_all = F.leaky_relu(self.conv_out2(q2_all)).view((-1, 8))
             q2 = self.linear1(q2_all)
         
         elif self.model_type == 'Three':
@@ -208,17 +209,17 @@ class TD3_Critic(nn.Module):
             port = port.view((-1, 3, 8, 60))
             
             # Q1
-            q1_port = torch.relu(self.conv_port1(port))
-            q1_m = torch.relu(self.conv_mix1(q1_port)) # shape(1, 23, 8, 1)
+            q1_port = F.leaky_relu(self.conv_port1(port))
+            q1_m = F.leaky_relu(self.conv_mix1(q1_port)) # shape(1, 23, 8, 1)
             q1_all = torch.concat([q1_m, action, act], dim=1) # shape(1, 25, 8, 1)
-            q1_all = self.conv_out1(q1_all).view((-1, 8))
+            q1_all = F.leaky_relu(self.conv_out1(q1_all)).view((-1, 8))
             q1 = self.linear1(q1_all)
             
             # Q2
-            q2_port = torch.relu(self.conv_port2(port))
-            q2_m = torch.relu(self.conv_mix2(q2_port)) # shape(1, 23, 8, 1)
+            q2_port = F.leaky_relu(self.conv_port2(port))
+            q2_m = F.leaky_relu(self.conv_mix2(q2_port)) # shape(1, 23, 8, 1)
             q2_all = torch.concat([q2_m, action, act], dim=1) # shape(1, 25, 8, 1)
-            q2_all = self.conv_out2(q2_all).view((-1, 8))
+            q2_all = F.leaky_relu(self.conv_out2(q2_all)).view((-1, 8))
             q2 = self.linear1(q2_all)
         
         elif self.model_type == 'Close':
@@ -226,17 +227,17 @@ class TD3_Critic(nn.Module):
             port = port.view((-1, 1, 8, 60))
             
             # Q1
-            q1_port = torch.relu(self.conv_port1(port))
-            q1_m = torch.relu(self.conv_mix1(q1_port)) # shape(1, 23, 8, 1)
+            q1_port = F.leaky_relu(self.conv_port1(port))
+            q1_m = F.leaky_relu(self.conv_mix1(q1_port)) # shape(1, 23, 8, 1)
             q1_all = torch.concat([q1_m, action, act], dim=1) # shape(1, 25, 8, 1)
-            q1_all = self.conv_out1(q1_all).view((-1, 8))
+            q1_all = F.leaky_relu(self.conv_out1(q1_all)).view((-1, 8))
             q1 = self.linear1(q1_all)
             
             # Q2
-            q2_port = torch.relu(self.conv_port2(port))
-            q2_m = torch.relu(self.conv_mix2(q2_port)) # shape(1, 23, 8, 1)
+            q2_port = F.leaky_relu(self.conv_port2(port))
+            q2_m = F.leaky_relu(self.conv_mix2(q2_port)) # shape(1, 23, 8, 1)
             q2_all = torch.concat([q2_m, action, act], dim=1) # shape(1, 25, 8, 1)
-            q2_all = self.conv_out2(q2_all).view((-1, 8))
+            q2_all = F.leaky_relu(self.conv_out2(q2_all)).view((-1, 8))
             q2 = self.linear1(q2_all)
             
         return q1, q2

@@ -162,9 +162,6 @@ class TD3:
             
             if episode_reward >= max(episode_reward_list):
                 self.save_model('agent/saved_model/first_stage')
-                
-        print(f'Training Done! save model')
-        self.save_model()
     
     def pretrain(self, pretrain_step):
         with torch.no_grad():

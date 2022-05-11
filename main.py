@@ -3,7 +3,7 @@ from agent.TD3_agent import TD3
 
 import torch
 
-env = TradingEnv('data', observation_features='Close', commission=0.01, steps=750, start_date_index=0)
+env = TradingEnv('data', observation_features='Close', commission=0.01, steps=750, start_date_index=0, use_kalman=False)
 
 
 params = {
@@ -11,7 +11,7 @@ params = {
     'device': torch.device('cuda'),
     'GAMMA':0.96,
     'CRITIC_LR':0.001,
-    'ACTOR_LR':0.0001,
+    'ACTOR_LR':0.0005,
     'TAU_ACTOR': 0.05, # 0.05
     'TAU_CRITIC': 0.05,
     'BATCH_SIZE':64,
@@ -22,7 +22,7 @@ params = {
     'POLICY_DELAY': 3,
     'EXPLORATION_NOISE':0.005,
     'EXPLORATION_NOISE_END':0.0005,
-    'print_info': False
+    'print_info': True
 }
 
 
