@@ -218,7 +218,7 @@ class TradingEnv(gym.Env):
             market_value = r
         else:
             market_value = self.info_list[-1]["market_value"] * r 
-        info = {"reward": round(reward, 3), "portfolio_value": round(p1, 5), "return": round(r, 3), "weights": round(w1, 3),
+        info = {"reward": round(reward, 3), "portfolio_value": round(p1, 5), "return": round(r, 3), "weights": np.around(w1, decimals=3),
                 "weights_mean": round(w1.mean(), 3), "weights_std": round(w1.std(), 3), "cost": round(mu1, 5), 'date': np.datetime_as_string(self.dates[t])[:10],
                 'steps': self.step_number, "market_value": round(market_value, 3)}
         self.info_list.append(info)
