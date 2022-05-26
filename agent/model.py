@@ -45,7 +45,8 @@ class TD3_Actor(nn.Module):
         if self.model_type == 'All':
             self.ae = Autoencoder()
             self.ae.load_state_dict(torch.load('agent/latent_space/Autoencoder.ckpt'))
-            self.ae.eval()
+            for params in self.ae.parameters():
+                params.requires_grad = False
 
             self.conv_port = nn.Conv2d(3, 2, (1, 23))
             self.conv_cov = nn.Conv2d(3, 1, (1, 1))
@@ -64,21 +65,33 @@ class TD3_Actor(nn.Module):
     
     def forward(self, observation):
         
+        # try:
+        #     port = torch.tensor(list(map(lambda x: x['portfolio'], observation)), dtype=torch.float32, device=self.device)
+        #     action = torch.tensor(list(map(lambda x: x['action'], observation)), dtype=torch.float32, device=self.device)
+        # except TypeError:
+        #     port = torch.tensor(observation['portfolio'], dtype=torch.float32, device=self.device)
+        #     action = torch.tensor(observation['action'], dtype=torch.float32, device=self.device)
+        
         try:
-            port = torch.tensor(list(map(lambda x: x['portfolio'], observation)), dtype=torch.float32, device=self.device)
-            action = torch.tensor(list(map(lambda x: x['action'], observation)), dtype=torch.float32, device=self.device)
+            port = torch.tensor(list(map(lambda x: x[0], observation)), dtype=torch.float32, device=self.device)
+            action = torch.tensor(list(map(lambda x: x[1], observation)), dtype=torch.float32, device=self.device)
         except TypeError:
-            port = torch.tensor(observation['portfolio'], dtype=torch.float32, device=self.device)
-            action = torch.tensor(observation['action'], dtype=torch.float32, device=self.device)
+            port = torch.tensor(observation[0], dtype=torch.float32, device=self.device)
+            action = torch.tensor(observation[1], dtype=torch.float32, device=self.device)
         
         action = action.view((-1, 1, 8, 1))
         
         if self.model_type == 'All':
+            # try:
+            #     cov = torch.tensor(list(map(lambda x: x['covariance'], observation)), dtype=torch.float32, device=self.device)
+            # except TypeError:
+            #     cov = torch.tensor(observation['covariance'], dtype=torch.float32, device=self.device)
+            
             try:
-                cov = torch.tensor(list(map(lambda x: x['covariance'], observation)), dtype=torch.float32, device=self.device)
+                cov = torch.tensor(list(map(lambda x: x[2], observation)), dtype=torch.float32, device=self.device)
             except TypeError:
-                cov = torch.tensor(observation['covariance'], dtype=torch.float32, device=self.device)
-                
+                cov = torch.tensor(observation[2], dtype=torch.float32, device=self.device)
+            
             port = port.view((-1, 3, 8, 60))
             cov = cov.view((-1, 3, 8, 8))
             
@@ -133,7 +146,8 @@ class TD3_Critic(nn.Module):
         if self.model_type == 'All':
             self.ae = Autoencoder()
             self.ae.load_state_dict(torch.load('agent/latent_space/Autoencoder.ckpt'))
-            self.ae.eval()
+            for params in self.ae.parameters():
+                params.requires_grad = False
         
             # Q1
             self.conv_port1 = nn.Conv2d(3, 2, (1, 23))
@@ -178,14 +192,18 @@ class TD3_Critic(nn.Module):
             # self.linear2 = nn.Linear(8, 1)
     
     def forward(self, observation, act):
-        port = torch.tensor(list(map(lambda x: x['portfolio'], observation)), dtype=torch.float32, device=self.device)
-        action = torch.tensor(list(map(lambda x: x['action'], observation)), dtype=torch.float32, device=self.device)
+        # port = torch.tensor(list(map(lambda x: x['portfolio'], observation)), dtype=torch.float32, device=self.device)
+        # action = torch.tensor(list(map(lambda x: x['action'], observation)), dtype=torch.float32, device=self.device)
+        
+        port = torch.tensor(list(map(lambda x: x[0], observation)), dtype=torch.float32, device=self.device)
+        action = torch.tensor(list(map(lambda x: x[1], observation)), dtype=torch.float32, device=self.device)
         
         action = action.view((-1, 1, 8, 1)) # shape(1, 1, 8, 1)
         act = act.view((-1, 1, 8, 1))
         
         if self.model_type == 'All':
-            cov = torch.tensor(list(map(lambda x: x['covariance'], observation)), dtype=torch.float32, device=self.device)
+            # cov = torch.tensor(list(map(lambda x: x['covariance'], observation)), dtype=torch.float32, device=self.device)
+            cov = torch.tensor(list(map(lambda x: x[2], observation)), dtype=torch.float32, device=self.device)
             cov = cov.view((-1, 3, 8, 8))
             port = port.view((-1, 3, 8, 60))
         
