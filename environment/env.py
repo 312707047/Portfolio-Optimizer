@@ -4,8 +4,7 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from pykalman import KalmanFilter
-import datetime as dt
-from datetime import datetime
+
 
 EPS = 1e-8
 
@@ -14,9 +13,7 @@ class TradingEnv(gym.Env):
                  rolling_window=60,
                  commission=0.01,
                  steps=200,
-                 start_date_index=None,
-                 observation_features='Close',
-                 use_kalman=False):
+                 start_date_index=None):
         '''
         Args:
             data_path: folder containing history data
@@ -31,27 +28,18 @@ class TradingEnv(gym.Env):
         '''
         self.rolling_window = rolling_window
         self.commission = commission
-        self.observation_features = observation_features
         self.data_path = data_path
-        self.use_kalman = use_kalman
-        
-        self.kf = KalmanFilter(transition_matrices = [1],
-                               observation_matrices = [1],
-                               initial_state_mean = 0,
-                               initial_state_covariance = 1.5,
-                               observation_covariance = 1.5,
-                               transition_covariance = 1/30)
         
         # read data
         self.raw_price = pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True)
+        
         self.close_prices = self._data_preprocessing(self.raw_price)
+        self.high_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'High.csv'), index_col=0, parse_dates=True))
+        self.low_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'Low.csv'), index_col=0, parse_dates=True))
+        
         self.close_obs = np.expand_dims(self.close_prices, 0) #shape(1, 1042, 8)
-        if observation_features != 'Close':
-            self.high_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'High.csv'), index_col=0, parse_dates=True))
-            self.low_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'Low.csv'), index_col=0, parse_dates=True))
-            
-            self.high_obs = np.expand_dims(self.high_prices, 0)
-            self.low_obs = np.expand_dims(self.low_prices, 0)
+        self.high_obs = np.expand_dims(self.high_prices, 0)
+        self.low_obs = np.expand_dims(self.low_prices, 0)
             
         self.tickers = self.close_prices.columns.to_list()
         self.tickers_num = len(self.tickers)
@@ -67,41 +55,12 @@ class TradingEnv(gym.Env):
         # Observation space and action space
         self.action_space = gym.spaces.Box(
             0, 0.65, shape=(self.tickers_num,), dtype=np.float32)  # limitation of the asset ratio
-        
-        if observation_features == 'Close':
             
-            # spaces = {
-            #     'portfolio': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(1, self.tickers_num, rolling_window), dtype=np.float32),
-            #     'action': gym.spaces.Box(0, 1, shape=(self.tickers_num,), dtype=np.float32)
-            # }
-            
-            spaces = (gym.spaces.Box(low=-np.inf, high=np.inf, shape=(1, self.tickers_num, rolling_window), dtype=np.float32),
-                      gym.spaces.Box(0, 1, shape=(self.tickers_num,), dtype=np.float32))
-        
-        elif observation_features == 'Three':
-            
-            # spaces = {
-            #     'portfolio': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32),
-            #     'action': gym.spaces.Box(0, 1, shape=(self.tickers_num,), dtype=np.float32)
-            # }
-            
-            spaces = (gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32),
-                      gym.spaces.Box(0, 1, shape=(self.tickers_num,), dtype=np.float32))
-
-        elif observation_features == 'All':
-            
-            # spaces = {
-            #     'portfolio': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32),
-            #     'action': gym.spaces.Box(0, 1, shape=(self.tickers_num,), dtype=np.float32),
-            #     'covariance': gym.spaces.Box(low=-1.0, high=1.0, shape=(3, self.tickers_num, self.tickers_num), dtype=np.float32)
-            # }
-            
-            spaces = (gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32),
-                      gym.spaces.Box(0, 1, shape=(self.tickers_num,), dtype=np.float32),
-                      gym.spaces.Box(low=-1.0, high=1.0, shape=(3, self.tickers_num, self.tickers_num), dtype=np.float32))
+        spaces = {'observation': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32),
+                  'action': self.action_space}
             
         # self.observation_space = gym.spaces.Dict(spaces)
-        self.observation_space = gym.spaces.Tuple(spaces)
+        self.observation_space = gym.spaces.Dict(spaces)
         self.start_date_index = start_date_index
         self.steps = steps
         self.reset()
@@ -109,25 +68,6 @@ class TradingEnv(gym.Env):
     def _data_preprocessing(self, df):
         '''preprocess the price data into log return'''
         return (np.log(df) - np.log(df.shift(1))).dropna()
-    
-    def _scaler(self, array):
-        '''scale 3D array, shape(n, 60, 8) with MinMaxScaler'''
-        for i in range(array.shape[0]):
-            scaler = MinMaxScaler()
-            array[i, :, :] = scaler.fit_transform(array[i, :, :])
-            
-        return array
-    
-    def _kalman(self, array):
-        
-        if self.use_kalman:
-            '''filter the noise of (3, 8, 60) array'''
-            for i in range(len(array)):
-                for j in range(len(array[i])):
-                    a, _ = self.kf.filter(array[i][j])
-                    array[i][j] = np.squeeze(a)
-        
-        return array
 
     def step(self, action):
         
@@ -164,6 +104,15 @@ class TradingEnv(gym.Env):
         # calculate reward and scale reward between 1 and -1, and do reward shaping to avoid big weight
         reward = (agent_return - same_weighted_return) * 1000 #- 0.3 * max(w1)
         
+        # observe the next state
+        t0 = t - self.rolling_window + 1
+        
+        portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 1042, 8)
+        portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
+        portfolio = np.transpose(portfolio, [0, 2, 1])
+        
+        observation = {'observation': portfolio, 'action': self.weights}
+        
         # save weights and portfolio value for next iteration
         self.weights = w1
         self.portfolio_value = p1
@@ -174,43 +123,7 @@ class TradingEnv(gym.Env):
         # DD = min(self.portfolio_value_list) / max(self.portfolio_value_list) - 1
         
         
-        # observe the next state
-        t0 = t - self.rolling_window + 1
         
-        if self.observation_features == 'Close':
-            portfolio = self.close_obs[:, t0:t+1, :]
-            portfolio = self._kalman(np.transpose(portfolio, [0, 2, 1]))
-            
-            # observation = {'portfolio': portfolio,
-            #                'action': self.weights}
-
-            observation = (portfolio, self.weights)
-            
-        elif self.observation_features == 'Three':
-            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 1042, 8)
-            portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
-            portfolio = self._kalman(np.transpose(portfolio, [0, 2, 1]))
-            
-            # observation = {'portfolio': portfolio,
-            #                'action': self.weights}
-            
-            observation = (portfolio, self.weights)
-        
-        elif self.observation_features == 'All':
-            high_cov = np.expand_dims(np.cov(self.high_obs[:, t0:t+1, :][0].T), axis=0)
-            low_cov = np.expand_dims(np.cov(self.low_obs[:, t0:t+1, :][0].T), axis=0)
-            close_cov = np.expand_dims(np.cov(self.close_obs[:, t0:t+1, :][0].T), axis=0)
-            covariance = np.concatenate([high_cov, low_cov, close_cov], axis=0) # shape(3, 8, 8)
-            
-            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 1042, 8)
-            portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
-            portfolio = self._kalman(np.transpose(portfolio, [0, 2, 1]))
-            
-            # observation = {'portfolio':portfolio,
-            #                'action': self.weights,
-            #                'covariance':covariance}
-            
-            observation = (portfolio, self.weights, covariance)
         
         # 4. Check limitation and done
         done = False
@@ -248,7 +161,7 @@ class TradingEnv(gym.Env):
         
         self.info_list = []
         # self.weights = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        self.weights = np.array([0, 0, 0, 0, 0, 0, 0, 1])
+        self.weights = np.array([0, 0, 1, 0, 0, 0, 0, 0])
         # self.weights = np.insert(np.zeros(self.tickers_num), 0, 1.0)
         self.portfolio_value = 1.0
         self.same_weighted_portfolio_value = 1.0
@@ -261,8 +174,8 @@ class TradingEnv(gym.Env):
         self.steps = min(self.steps, self.dates_num - self.rolling_window - 1)
         
         if self.start_date_index is None:
-            self.start_date_index = np.random.random_integers(self.rolling_window-1,
-                                                              self.dates_num-self.steps-1)
+            self.start_date_index = np.random.randint(self.rolling_window-1,
+                                                      self.dates_num-self.steps-1)
         
         else:
             self.start_date_index = np.clip(self.start_date_index, a_min=self.rolling_window-1, a_max=self.dates_num-self.steps-1)
@@ -270,40 +183,10 @@ class TradingEnv(gym.Env):
         t = self.start_date_index + self.step_number
         t0 = t - self.rolling_window + 1
         
-        # Observation in different situations
-        if self.observation_features == 'Close':
-            portfolio = self.close_obs[:, t0:t+1, :]
-            portfolio = self._kalman(np.transpose(portfolio, [0, 2, 1]))
-            
-            # observation = {'portfolio': portfolio,
-            #                'action': self.weights}
-            
-            observation = (portfolio, self.weights)
-        
-        elif self.observation_features == 'Three':
-            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 1042, 8)
-            portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
-            portfolio = self._kalman(np.transpose(portfolio, [0, 2, 1]))
-            
-            # observation = {'portfolio': portfolio,
-            #                'action': self.weights}
-            
-            observation = (portfolio, self.weights)
-        
-        elif self.observation_features == 'All':
-            high_cov = np.expand_dims(np.cov(self.high_obs[:, t0:t+1, :][0].T), axis=0)
-            low_cov = np.expand_dims(np.cov(self.low_obs[:, t0:t+1, :][0].T), axis=0)
-            close_cov = np.expand_dims(np.cov(self.close_obs[:, t0:t+1, :][0].T), axis=0)
-            covariance = np.concatenate([high_cov, low_cov, close_cov], axis=0) # shape(3, 8, 8)
-            
-            portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 1042, 8)
-            portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
-            portfolio = self._kalman(np.transpose(portfolio, [0, 2, 1]))
-            
-            # observation = {'portfolio':portfolio,
-            #                'action': self.weights,
-            #                'covariance':covariance}
+        portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 1042, 8)
+        portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
+        portfolio = np.transpose(portfolio, [0, 2, 1])
 
-            observation = (portfolio, self.weights, covariance)
+        observation = {'observation': portfolio, 'action': self.weights}
             
         return observation

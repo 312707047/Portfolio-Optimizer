@@ -67,6 +67,15 @@ def output_recorder(model_type, output, layer_name, path='output_records'):
             df.to_csv(os.path.join(path, model_type, layer_name)+'\\'+f'output_{i}.csv', index=False)
 
 
+def calculate_cov(batch):
+    cov = torch.zeros((batch.shape[0], batch.shape[1], batch.shape[2], batch.shape[2]))
+    for i in range(batch.shape[0]):
+        for j in range(batch.shape[1]):
+            cov[i][j] = torch.cov(batch[i][j])
+    
+    return cov
+
+
 def weight_recorder(model_type, layer, layer_name, path='weight_records'):
     
     # if not os.path.isdir(os.path.join(path, layer_name)):

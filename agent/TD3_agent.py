@@ -1,19 +1,18 @@
 import numpy as np
-import pandas as pd
 import os
 import logging
 import random
 import torch
-import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import itertools
 import copy
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
 
-from scipy.special import softmax
 from collections import deque
-from agent.model import TD3_Actor, TD3_Critic
-from utils import  OUNoise, LinearAnneal
+from networks.model import TD3_Actor, TD3_Critic
+from utils import  LinearAnneal
 
 
 class TD3:
@@ -30,11 +29,11 @@ class TD3:
         self.csv = 'output/portfolio-management.csv'
         
         # initialize network
-        self.actor = TD3_Actor(device=self.device, model_type=self.env.observation_features).to(self.device)
+        self.actor = TD3_Actor(device=self.device).to(self.device)
         self.actor_target = copy.deepcopy(self.actor)
         self.actor_optimizer = optim.Adam(self.actor.parameters(), lr=self.ACTOR_LR)
         
-        self.critic = TD3_Critic(device=self.device, model_type=self.env.observation_features).to(self.device)
+        self.critic = TD3_Critic(device=self.device).to(self.device)
         self.critic_target = copy.deepcopy(self.critic)
         self.critic_optimizer = optim.Adam(self.critic.parameters(), lr=self.CRITIC_LR)
         
@@ -66,17 +65,18 @@ class TD3:
         with torch.no_grad():
             # noise = torch.ones_like(a0).data.normal_(0, self.POLICY_NOISE).to(self.device)
             noise = self.POLICY_NOISE * torch.rand_like(a0).to(self.device)
-            noise = noise.clamp(-self.NOISE_CLIP, self.NOISE_CLIP)
+            noise = noise.clip(-self.NOISE_CLIP, self.NOISE_CLIP)
             a1 = self.actor_target(s1) + noise
-            a1 = a1.clamp(0, 1)
+            a1 = a1.clip(0, 1)
             
             target_Q1, target_Q2 = self.critic_target(s1, a1)
             target_Q = torch.min(target_Q1, target_Q2)
             target_Q = r1 + (1 - done) * self.GAMMA * target_Q.detach()
+            # (r1.shape=(64,1), target_Q.shape=(64, 64))
             # target_Q = r1 + self.GAMMA * target_Q.detach()
         
         # Optimize Critic
-        current_Q1, current_Q2 = self.critic(s0, a0)
+        current_Q1, current_Q2 = self.critic(s0, a0) # both shape(64)
         Q_loss = F.smooth_l1_loss(current_Q1, target_Q) + F.smooth_l1_loss(current_Q2, target_Q)
         self.critic_optimizer.zero_grad()
         Q_loss.backward()
@@ -97,8 +97,18 @@ class TD3:
         batch = list(itertools.islice(self.replay_memory, rand_num, rand_num+self.BATCH_SIZE))
         
         s0, a0, r1, s1, done = zip(*batch)
+        
+        s0_obs = torch.stack(tuple(map(lambda x: x['observation'], s0)))
+        s0_act = np.stack(tuple(map(lambda x: x['action'], s0)))
+        s0 = {'observation':s0_obs, 'action':s0_act}
+        
         a0 = torch.tensor(a0, dtype=torch.float32, device=self.device)
-        r1 = torch.tensor(r1, dtype=torch.float32, device=self.device).view(self.BATCH_SIZE,-1)
+        
+        s1_obs = torch.stack(tuple(map(lambda x: x['observation'], s1)))
+        s1_act = np.stack(tuple(map(lambda x: x['action'], s1)))
+        s1 = {'observation':s1_obs, 'action':s1_act}
+        
+        r1 = torch.tensor(r1, dtype=torch.float32, device=self.device).view(self.BATCH_SIZE)
         done = torch.tensor(done, dtype=torch.float32, device=self.device)
         self._update_Q(s0, a0, r1, s1, done)
         
@@ -108,26 +118,19 @@ class TD3:
             self._soft_update(self.critic_target, self.critic, self.TAU_CRITIC)
             self.itr = 0
     
-    def save_model(self, model_path='agent/saved_model/'):
+    def save_model(self, model_path='networks/saved_models/'):
         torch.save(self.actor.state_dict(), os.path.join(model_path, 'actor.ckpt'))
         torch.save(self.actor_target.state_dict(), os.path.join(model_path, 'actor_target.ckpt'))
         torch.save(self.critic.state_dict(), os.path.join(model_path, 'critic.ckpt'))
         torch.save(self.critic_target.state_dict(), os.path.join(model_path, 'critic_target.ckpt'))
     
-    def load_model(self, model_path='agent/saved_model/'):
+    def load_model(self, model_path='agent/saved_models/'):
         self.actor.load_state_dict(torch.load(os.path.join(model_path, 'actor.ckpt')))
         self.actor_target.load_state_dict(torch.load(os.path.join(model_path, 'actor_target.ckpt')))
         self.critic.load_state_dict(torch.load(os.path.join(model_path,'critic.ckpt')))
         self.critic_target.load_state_dict(torch.load(os.path.join(model_path,'critic_target.ckpt')))
     
-    def set_eval(self):
-        self.actor.eval()
-        self.actor_target.eval()
-        self.critic.eval()
-        self.critic_target.eval()
-    
-    def train(self, noise=None):
-        ou_noise = OUNoise(self.env.action_space)
+    def train(self):
         episode_reward_list = []
         for episode in range(self.EPISODES):
             s0 = self.env.reset()
@@ -136,14 +139,8 @@ class TD3:
             for step in itertools.count():
                 a0 = self._choose_action(s0)
                 # print('action before noise:', a0)
-                if noise == 'Gaussian':
-                    a0 += np.random.normal(0, self.exploration_noise.anneal(), size=self.env.action_space.shape[0])
-                    a0 = a0.clip(self.env.action_space.low, self.env.action_space.high)
-                elif noise == 'OUNoise':
-                    a0 = ou_noise.get_action(a0, step)
-                else:
-                    pass
-                a0 = np.concatenate([softmax(a0[:3], axis=0)*0.1, softmax(a0[3:], axis=0)*0.9])
+                
+                a0 += np.random.normal(0, self.exploration_noise.anneal(), size=self.env.action_space.shape[0])
                 
                 # print('action after noise:', a0)
                 s1, r1, done, info = self.env.step(a0)
@@ -161,7 +158,7 @@ class TD3:
             self.logger.info(f"{episode},{step},{episode_reward:.1f}")
             
             if episode_reward >= max(episode_reward_list):
-                self.save_model('agent/saved_model/first_stage')
+                self.save_model('networks/saved_models/first_stage')
     
     def pretrain(self, pretrain_step):
         with torch.no_grad():
