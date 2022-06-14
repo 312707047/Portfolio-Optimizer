@@ -6,13 +6,27 @@ from networks.Denoise import Autoencoder
 from pykalman import KalmanFilter
 from sklearn.preprocessing import MinMaxScaler
 from .env import TradingEnv
-from scipy.special import softmax
+# from scipy.special import softmax
 
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 EPS = 1e-8
 
+
+class TransposeSpace(gym.ObservationWrapper):
+    def __init__(self, env:TradingEnv):
+        super().__init__(env)
+
+        self.observation_space = gym.spaces.Dict({'observation': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, env.tickers_num, env.rolling_window), dtype=np.float32),
+                  'action': self.action_space})
+        
+    def observation(self, obs):
+        data = obs['observation'].transpose(0, 2, 1)
+        obs.update({'observation': data})
+        
+        return obs
+        
 
 class kalmanfilter(gym.ObservationWrapper):
     def __init__(self, env):
@@ -76,19 +90,19 @@ class Encoder(gym.ObservationWrapper):
         with torch.no_grad():
             data = self.encoder(data.view(-1, 3, 8, 60))
         
-        data = data.squeeze(0)
+        data = data.squeeze(0).detach().cpu().numpy()
         obs.update({'observation': data})
         
         return obs
     
 
-# def softmax(w, t=1.0):
-#     """softmax implemented in numpy."""
-#     log_eps = np.log(EPS)
-#     w = np.clip(w, log_eps, -log_eps)  # avoid inf/nan
-#     e = np.exp(np.array(w) / t)
-#     dist = e / np.sum(e)
-#     return dist
+def softmax(w, t=1.0):
+    """softmax implemented in numpy."""
+    log_eps = np.log(EPS)
+    w = np.clip(w, log_eps, -log_eps)  # avoid inf/nan
+    e = np.exp(np.array(w) / t)
+    dist = e / np.sum(e)
+    return dist
 
 
 class SoftmaxAction(gym.Wrapper):
@@ -98,20 +112,20 @@ class SoftmaxAction(gym.Wrapper):
         action = softmax(action)
         action = np.concatenate([action[:3]*0.1, action[3:]*0.9])
         action = action / action.sum()
-        print(action)
+        # print(action)
         return self.env.step(action)
 
 
-def env_wrapper(env, mmscaler=True, kf=True):
+def env_wrapper(env):
     
     env = SoftmaxAction(env)
+    env = TransposeSpace(env)
     
-    if mmscaler:
-        env = scaler(env)
-    
-    if kf:
-        env = kalmanfilter(env)
-    
-    env = Encoder(env)
+    # if mmscaler:
+    #     env = scaler(env)
+    # if kf:
+    #     env = kalmanfilter(env)
+    # if enc:
+    #     env = Encoder(env)
     
     return env

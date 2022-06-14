@@ -98,13 +98,13 @@ class TD3:
         
         s0, a0, r1, s1, done = zip(*batch)
         
-        s0_obs = torch.stack(tuple(map(lambda x: x['observation'], s0)))
+        s0_obs = np.stack(tuple(map(lambda x: x['observation'], s0)))
         s0_act = np.stack(tuple(map(lambda x: x['action'], s0)))
         s0 = {'observation':s0_obs, 'action':s0_act}
         
         a0 = torch.tensor(a0, dtype=torch.float32, device=self.device)
         
-        s1_obs = torch.stack(tuple(map(lambda x: x['observation'], s1)))
+        s1_obs = np.stack(tuple(map(lambda x: x['observation'], s1)))
         s1_act = np.stack(tuple(map(lambda x: x['action'], s1)))
         s1 = {'observation':s1_obs, 'action':s1_act}
         

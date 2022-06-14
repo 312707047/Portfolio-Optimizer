@@ -2,8 +2,6 @@ import gym
 import os
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import MinMaxScaler
-from pykalman import KalmanFilter
 
 
 EPS = 1e-8
@@ -31,11 +29,9 @@ class TradingEnv(gym.Env):
         self.data_path = data_path
         
         # read data
-        self.raw_price = pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True)
-        
-        self.close_prices = self._data_preprocessing(self.raw_price)
-        self.high_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'High.csv'), index_col=0, parse_dates=True))
-        self.low_prices = self._data_preprocessing(pd.read_csv(os.path.join(self.data_path, 'Low.csv'), index_col=0, parse_dates=True))
+        self.close_prices = pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True)
+        self.high_prices = pd.read_csv(os.path.join(self.data_path, 'High.csv'), index_col=0, parse_dates=True)
+        self.low_prices = pd.read_csv(os.path.join(self.data_path, 'Low.csv'), index_col=0, parse_dates=True)
         
         self.close_obs = np.expand_dims(self.close_prices, 0) #shape(1, 1042, 8)
         self.high_obs = np.expand_dims(self.high_prices, 0)
@@ -47,7 +43,7 @@ class TradingEnv(gym.Env):
         self.dates_num = self.dates.shape[0]
         # if cash is needed
         # self.gain = np.hstack((np.ones((self.close_prices.shape[0]-1, 1)), self.close_prices.values[1:] / self.close_prices.values[:-1]))
-        self.gain = self.raw_price.values[1:] / self.raw_price.values[:-1]
+        self.gain = self.close_prices.values[1:] / self.close_prices.values[:-1]
         
         self.info = []
         self.step_number = 0
@@ -56,7 +52,7 @@ class TradingEnv(gym.Env):
         self.action_space = gym.spaces.Box(
             0, 0.65, shape=(self.tickers_num,), dtype=np.float32)  # limitation of the asset ratio
             
-        spaces = {'observation': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, self.tickers_num, rolling_window), dtype=np.float32),
+        spaces = {'observation': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, rolling_window, self.tickers_num), dtype=np.float32),
                   'action': self.action_space}
             
         # self.observation_space = gym.spaces.Dict(spaces)
@@ -64,10 +60,6 @@ class TradingEnv(gym.Env):
         self.start_date_index = start_date_index
         self.steps = steps
         self.reset()
-    
-    def _data_preprocessing(self, df):
-        '''preprocess the price data into log return'''
-        return (np.log(df) - np.log(df.shift(1))).dropna()
 
     def step(self, action):
         
@@ -107,9 +99,9 @@ class TradingEnv(gym.Env):
         # observe the next state
         t0 = t - self.rolling_window + 1
         
-        portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 1042, 8)
+        portfolio = np.concatenate([self.close_obs, self.high_obs, self.low_obs], axis=0) # shape(3, 1042, 8)
         portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
-        portfolio = np.transpose(portfolio, [0, 2, 1])
+        portfolio /= portfolio[0, -1]
         
         observation = {'observation': portfolio, 'action': self.weights}
         
@@ -121,9 +113,6 @@ class TradingEnv(gym.Env):
         # 3. Calculate MDD
         # self.portfolio_value_list.append(p1)
         # DD = min(self.portfolio_value_list) / max(self.portfolio_value_list) - 1
-        
-        
-        
         
         # 4. Check limitation and done
         done = False
@@ -149,7 +138,8 @@ class TradingEnv(gym.Env):
         if self.step_number == 1:
             market_value = r
         else:
-            market_value = self.info_list[-1]["market_value"] * r 
+            market_value = self.info_list[-1]["market_value"] * r
+ 
         info = {"reward": round(reward, 3), "portfolio_value": round(p1, 5), "return": round(r, 3), "weights": np.around(w1, decimals=3),
                 "weights_mean": round(w1.mean(), 3), "weights_std": round(w1.std(), 3), "cost": round(mu1, 5), 'date': np.datetime_as_string(self.dates[t])[:10],
                 'steps': self.step_number, "market_value": round(market_value, 3)}
@@ -183,9 +173,9 @@ class TradingEnv(gym.Env):
         t = self.start_date_index + self.step_number
         t0 = t - self.rolling_window + 1
         
-        portfolio = np.concatenate([self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(3, 1042, 8)
+        portfolio = np.concatenate([self.close_obs, self.high_obs, self.low_obs], axis=0) # shape(3, 1042, 8)
         portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
-        portfolio = np.transpose(portfolio, [0, 2, 1])
+        portfolio /= portfolio[0, -1]
 
         observation = {'observation': portfolio, 'action': self.weights}
             
