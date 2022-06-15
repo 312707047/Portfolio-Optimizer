@@ -96,7 +96,7 @@ class TradingEnv(gym.Env):
         # same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
         # calculate reward and scale reward between 1 and -1, and do reward shaping to avoid big weight
-        reward = agent_return * 100 - (np.max(w1)*0.3)
+        reward = agent_return * 100 #- (np.max(w1)*0.3)
         # reward = (agent_return - same_weighted_return) * 1000 #- 0.3 * max(w1)
         
         # observe the next state
