@@ -45,7 +45,7 @@ class TD3:
         formatter = logging.Formatter(r'"%(asctime)s",%(message)s')
         self.logger = logging.getLogger("portfolio-optimizer")
         self.logger.setLevel(logging.INFO)
-        fh = logging.FileHandler(f"output/Records.csv")
+        fh = logging.FileHandler(f"output/Records.txt")
         fh.setFormatter(formatter)
         self.logger.addHandler(fh)
     
@@ -93,8 +93,13 @@ class TD3:
         if len(self.replay_memory) < self.BATCH_SIZE:
             return
         
-        rand_num = random.randint(0, len(self.replay_memory)-self.BATCH_SIZE)
-        batch = list(itertools.islice(self.replay_memory, rand_num, rand_num+self.BATCH_SIZE))
+        # Increase batch size by the number of data in the replay memory
+        k = 1 + len(self.replay_memory) / self.MEMORY_SIZE
+        batch_size = int(k * self.BATCH_SIZE)
+        
+        # Sample continuous data from the replay memory, not just random
+        rand_num = random.randint(0, len(self.replay_memory)-batch_size)
+        batch = list(itertools.islice(self.replay_memory, rand_num, rand_num+batch_size))
         
         s0, a0, r1, s1, done = zip(*batch)
         
@@ -108,7 +113,7 @@ class TD3:
         s1_act = np.stack(tuple(map(lambda x: x['action'], s1)))
         s1 = {'observation':s1_obs, 'action':s1_act}
         
-        r1 = torch.tensor(r1, dtype=torch.float32, device=self.device).view(self.BATCH_SIZE)
+        r1 = torch.tensor(r1, dtype=torch.float32, device=self.device).view(batch_size)
         done = torch.tensor(done, dtype=torch.float32, device=self.device)
         self._update_Q(s0, a0, r1, s1, done)
         
@@ -119,18 +124,21 @@ class TD3:
             self.itr = 0
     
     def save_model(self, model_path='networks/saved_models/'):
+        self.logger.info('Saving model...')
         torch.save(self.actor.state_dict(), os.path.join(model_path, 'actor.ckpt'))
         torch.save(self.actor_target.state_dict(), os.path.join(model_path, 'actor_target.ckpt'))
         torch.save(self.critic.state_dict(), os.path.join(model_path, 'critic.ckpt'))
         torch.save(self.critic_target.state_dict(), os.path.join(model_path, 'critic_target.ckpt'))
     
-    def load_model(self, model_path='agent/saved_models/'):
+    def load_model(self, model_path='networks/saved_models/'):
+        self.logger.info('Load model...')
         self.actor.load_state_dict(torch.load(os.path.join(model_path, 'actor.ckpt')))
         self.actor_target.load_state_dict(torch.load(os.path.join(model_path, 'actor_target.ckpt')))
         self.critic.load_state_dict(torch.load(os.path.join(model_path,'critic.ckpt')))
         self.critic_target.load_state_dict(torch.load(os.path.join(model_path,'critic_target.ckpt')))
     
     def train(self):
+        self.logger.info('Start training...')
         episode_reward_list = []
         for episode in range(self.EPISODES):
             s0 = self.env.reset()
@@ -153,27 +161,38 @@ class TD3:
                 
                 if done:
                     break
-            
+                
+            self.logger.info(f"Episode: {episode+1} | Total Reward: {episode_reward} | Portfolio Value: {info['portfolio_value']} | Market Value: {info['market_value']}")
             episode_reward_list.append(episode_reward)
-            self.logger.info(f"{episode},{step},{episode_reward:.1f}")
-            
+
             if episode_reward >= max(episode_reward_list):
-                self.save_model('networks/saved_models/first_stage')
+                self.save_model('networks/saved_models/another_stage')
     
     def pretrain(self, pretrain_step):
+        self.logger.info('Filling replay buffer...')
+        finish = False
+        n_steps = 0
         with torch.no_grad():
-            state = self.env.reset()
-            for i in range(pretrain_step):
-                action = self._choose_action(state)
-                next_state, reward, done, _ = self.env.step(action)
-                self._update_memory(state, action, reward, next_state, done)
-                state = next_state
-                if done:
-                    break
+            while not finish:
+                state = self.env.reset()
+                for _ in range(pretrain_step):
+                    action = np.random.random(8)
+                    next_state, reward, done, _ = self.env.step(action)
+                    self._update_memory(state, action, reward, next_state, done)
+                    state = next_state
+                    n_steps += 1
+                    
+                    if done:
+                        break
+                
+                if n_steps >= pretrain_step:
+                    self.logger.info('Filled replay buffer...')
+                    finish = True
+                    
     
     def test(self, model_path='agent/saved_model/'):
+        self.logger.info('Start testing...')
         self.load_model(model_path)
-        self.set_eval()
         state = self.env.reset()
         while True:
             with torch.no_grad():

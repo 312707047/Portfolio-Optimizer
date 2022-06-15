@@ -11,6 +11,7 @@ class TradingEnv(gym.Env):
                  rolling_window=60,
                  commission=0.01,
                  steps=200,
+                 augment=0.05,
                  start_date_index=None):
         '''
         Args:
@@ -27,6 +28,7 @@ class TradingEnv(gym.Env):
         self.rolling_window = rolling_window
         self.commission = commission
         self.data_path = data_path
+        self.augment = augment
         
         # read data
         self.close_prices = pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True)
@@ -84,31 +86,31 @@ class TradingEnv(gym.Env):
         agent_return = np.log((p1+EPS)/(p0+EPS))
 
         # 2. Calculate return of same-weighted portfolio
-        s_w0 = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        s_w1 = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        s_p0 = self.same_weighted_portfolio_value
-        s_dw1 = (y1 * s_w0) / (np.dot(y1, s_w0)+EPS)
-        s_mu1 = self.commission * (np.abs(s_dw1 - s_w1)).sum()
-        s_p1 = s_p0 * (1 - s_mu1) * np.dot(y1, s_w1)
-        s_p1 = np.clip(s_p1, 0, np.inf)
-        same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
+        # s_w0 = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
+        # s_w1 = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
+        # s_p0 = self.same_weighted_portfolio_value
+        # s_dw1 = (y1 * s_w0) / (np.dot(y1, s_w0)+EPS)
+        # s_mu1 = self.commission * (np.abs(s_dw1 - s_w1)).sum()
+        # s_p1 = s_p0 * (1 - s_mu1) * np.dot(y1, s_w1)
+        # s_p1 = np.clip(s_p1, 0, np.inf)
+        # same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
         # calculate reward and scale reward between 1 and -1, and do reward shaping to avoid big weight
-        reward = (agent_return - same_weighted_return) * 1000 #- 0.3 * max(w1)
+        reward = agent_return * 100 - (np.max(w1)*0.3)
+        # reward = (agent_return - same_weighted_return) * 1000 #- 0.3 * max(w1)
         
         # observe the next state
         t0 = t - self.rolling_window + 1
         
-        portfolio = np.concatenate([self.close_obs, self.high_obs, self.low_obs], axis=0) # shape(3, 1042, 8)
-        portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
-        portfolio /= portfolio[0, -1]
+        obs = self.portfolio[:, t0:t+1, :] # (3, 60, 8)
+        obs /= obs[0, -1]
         
-        observation = {'observation': portfolio, 'action': self.weights}
+        observation = {'observation': obs, 'action': self.weights}
         
         # save weights and portfolio value for next iteration
         self.weights = w1
         self.portfolio_value = p1
-        self.same_weighted_portfolio_value = s_p1
+        # self.same_weighted_portfolio_value = s_p1
         
         # 3. Calculate MDD
         # self.portfolio_value_list.append(p1)
@@ -140,7 +142,7 @@ class TradingEnv(gym.Env):
         else:
             market_value = self.info_list[-1]["market_value"] * r
  
-        info = {"reward": round(reward, 3), "portfolio_value": round(p1, 5), "return": round(r, 3), "weights": np.around(w1, decimals=3),
+        info = {"portfolio_value": round(p1, 5), "return": round(r, 3), "weights": np.around(w1, decimals=3),
                 "weights_mean": round(w1.mean(), 3), "weights_std": round(w1.std(), 3), "cost": round(mu1, 5), 'date': np.datetime_as_string(self.dates[t])[:10],
                 'steps': self.step_number, "market_value": round(market_value, 3)}
         self.info_list.append(info)
@@ -173,10 +175,14 @@ class TradingEnv(gym.Env):
         t = self.start_date_index + self.step_number
         t0 = t - self.rolling_window + 1
         
-        portfolio = np.concatenate([self.close_obs, self.high_obs, self.low_obs], axis=0) # shape(3, 1042, 8)
-        portfolio = portfolio[:, t0:t+1, :] # (3, 60, 8)
-        portfolio /= portfolio[0, -1]
+        self.portfolio = np.concatenate([self.close_obs, self.high_obs, self.low_obs], axis=0) # shape(3, 1042, 8)
+        
+        # add noise to the data to prevent overfitting
+        self.portfolio += np.random.normal(loc=0, scale=self.augment, size=self.portfolio.shape)
+        
+        obs = self.portfolio[:, t0:t+1, :] # (3, 60, 8)
+        obs /= obs[0, -1]
 
-        observation = {'observation': portfolio, 'action': self.weights}
+        observation = {'observation': obs, 'action': self.weights}
             
         return observation

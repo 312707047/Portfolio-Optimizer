@@ -1,0 +1,312 @@
+"2022-06-15 00:39:55,210",Filling replay buffer...
+"2022-06-15 00:40:08,872",Filled replay buffer...
+"2022-06-15 00:40:08,872",Start training...
+"2022-06-15 00:46:53,326",Episode: 1 | Total Reward: 19.234941857157846 | Portfolio Value: 1.21209 | Market Value: 2.97
+"2022-06-15 00:46:53,327",Saving model...
+"2022-06-15 00:53:17,732",Episode: 2 | Total Reward: 15.297446511380917 | Portfolio Value: 1.1653 | Market Value: 2.97
+"2022-06-15 00:59:40,923",Episode: 3 | Total Reward: 15.091114138140334 | Portfolio Value: 1.16289 | Market Value: 2.97
+"2022-06-15 01:06:05,614",Episode: 4 | Total Reward: 14.703337206785813 | Portfolio Value: 1.15839 | Market Value: 2.97
+"2022-06-15 01:12:33,151",Episode: 5 | Total Reward: 15.239948405177772 | Portfolio Value: 1.16463 | Market Value: 2.97
+"2022-06-15 01:19:02,820",Episode: 6 | Total Reward: 14.90789376242716 | Portfolio Value: 1.16076 | Market Value: 2.97
+"2022-06-15 01:25:36,735",Episode: 7 | Total Reward: 15.604780390916309 | Portfolio Value: 1.16888 | Market Value: 2.97
+"2022-06-15 01:32:10,092",Episode: 8 | Total Reward: 14.984826578165718 | Portfolio Value: 1.16166 | Market Value: 2.97
+"2022-06-15 01:38:44,083",Episode: 9 | Total Reward: 16.15393090743196 | Portfolio Value: 1.17532 | Market Value: 2.97
+"2022-06-15 01:45:19,091",Episode: 10 | Total Reward: 16.25351042313271 | Portfolio Value: 1.17649 | Market Value: 2.97
+"2022-06-15 01:51:58,196",Episode: 11 | Total Reward: 15.492817596291632 | Portfolio Value: 1.16757 | Market Value: 2.97
+"2022-06-15 01:58:38,195",Episode: 12 | Total Reward: 15.020075329616732 | Portfolio Value: 1.16207 | Market Value: 2.97
+"2022-06-15 02:05:19,186",Episode: 13 | Total Reward: 14.322866911589182 | Portfolio Value: 1.15399 | Market Value: 2.97
+"2022-06-15 02:12:01,519",Episode: 14 | Total Reward: 15.61447909449905 | Portfolio Value: 1.169 | Market Value: 2.97
+"2022-06-15 02:18:49,546",Episode: 15 | Total Reward: 15.290611415266518 | Portfolio Value: 1.16522 | Market Value: 2.97
+"2022-06-15 02:25:38,332",Episode: 16 | Total Reward: 14.524485088712568 | Portfolio Value: 1.15632 | Market Value: 2.97
+"2022-06-15 02:32:25,213",Episode: 17 | Total Reward: 14.810238984648045 | Portfolio Value: 1.15963 | Market Value: 2.97
+"2022-06-15 02:39:13,503",Episode: 18 | Total Reward: 14.349825264198456 | Portfolio Value: 1.1543 | Market Value: 2.97
+"2022-06-15 02:46:04,759",Episode: 19 | Total Reward: 14.999137178273902 | Portfolio Value: 1.16182 | Market Value: 2.97
+"2022-06-15 02:52:56,774",Episode: 20 | Total Reward: 14.921719528717993 | Portfolio Value: 1.16093 | Market Value: 2.97
+"2022-06-15 02:59:49,562",Episode: 21 | Total Reward: 14.016078354098108 | Portfolio Value: 1.15046 | Market Value: 2.97
+"2022-06-15 03:06:44,710",Episode: 22 | Total Reward: 14.580225986695963 | Portfolio Value: 1.15697 | Market Value: 2.97
+"2022-06-15 03:13:42,146",Episode: 23 | Total Reward: 15.999429112370043 | Portfolio Value: 1.1735 | Market Value: 2.97
+"2022-06-15 03:20:41,938",Episode: 24 | Total Reward: 14.599067583805777 | Portfolio Value: 1.15719 | Market Value: 2.97
+"2022-06-15 03:27:44,377",Episode: 25 | Total Reward: 15.205845057060523 | Portfolio Value: 1.16423 | Market Value: 2.97
+"2022-06-15 03:34:46,935",Episode: 26 | Total Reward: 14.506101085226392 | Portfolio Value: 1.15611 | Market Value: 2.97
+"2022-06-15 03:41:51,256",Episode: 27 | Total Reward: 15.275013524398117 | Portfolio Value: 1.16503 | Market Value: 2.97
+"2022-06-15 03:48:57,412",Episode: 28 | Total Reward: 16.095830478597765 | Portfolio Value: 1.17464 | Market Value: 2.97
+"2022-06-15 03:56:04,814",Episode: 29 | Total Reward: 15.181297737711894 | Portfolio Value: 1.16394 | Market Value: 2.97
+"2022-06-15 04:03:15,168",Episode: 30 | Total Reward: 14.372724312593427 | Portfolio Value: 1.15457 | Market Value: 2.97
+"2022-06-15 04:10:27,166",Episode: 31 | Total Reward: 17.064516110838806 | Portfolio Value: 1.18607 | Market Value: 2.97
+"2022-06-15 04:17:40,327",Episode: 32 | Total Reward: 14.487007399867691 | Portfolio Value: 1.15589 | Market Value: 2.97
+"2022-06-15 04:24:55,159",Episode: 33 | Total Reward: 15.503810695707898 | Portfolio Value: 1.1677 | Market Value: 2.97
+"2022-06-15 04:32:11,987",Episode: 34 | Total Reward: 15.393530927676192 | Portfolio Value: 1.16642 | Market Value: 2.97
+"2022-06-15 04:39:30,077",Episode: 35 | Total Reward: 14.430319785042037 | Portfolio Value: 1.15523 | Market Value: 2.97
+"2022-06-15 04:46:50,657",Episode: 36 | Total Reward: 14.809478392075347 | Portfolio Value: 1.15962 | Market Value: 2.97
+"2022-06-15 04:54:13,132",Episode: 37 | Total Reward: 15.536852540092916 | Portfolio Value: 1.16809 | Market Value: 2.97
+"2022-06-15 05:01:45,085",Episode: 38 | Total Reward: 14.598141757757377 | Portfolio Value: 1.15717 | Market Value: 2.97
+"2022-06-15 05:09:11,687",Episode: 39 | Total Reward: 13.569837548058436 | Portfolio Value: 1.14534 | Market Value: 2.97
+"2022-06-15 05:16:38,431",Episode: 40 | Total Reward: 15.538118955789257 | Portfolio Value: 1.1681 | Market Value: 2.97
+"2022-06-15 05:24:07,875",Episode: 41 | Total Reward: 15.612033573651692 | Portfolio Value: 1.16897 | Market Value: 2.97
+"2022-06-15 05:31:38,535",Episode: 42 | Total Reward: 14.175447886524438 | Portfolio Value: 1.15229 | Market Value: 2.97
+"2022-06-15 05:39:09,018",Episode: 43 | Total Reward: 15.32199035186267 | Portfolio Value: 1.16558 | Market Value: 2.97
+"2022-06-15 05:46:44,314",Episode: 44 | Total Reward: 14.732725747993921 | Portfolio Value: 1.15873 | Market Value: 2.97
+"2022-06-15 05:54:19,469",Episode: 45 | Total Reward: 15.573155230801916 | Portfolio Value: 1.16851 | Market Value: 2.97
+"2022-06-15 06:01:55,977",Episode: 46 | Total Reward: 15.14166314205417 | Portfolio Value: 1.16348 | Market Value: 2.97
+"2022-06-15 06:09:34,515",Episode: 47 | Total Reward: 14.786127631297207 | Portfolio Value: 1.15935 | Market Value: 2.97
+"2022-06-15 06:17:14,539",Episode: 48 | Total Reward: 14.890951290703779 | Portfolio Value: 1.16057 | Market Value: 2.97
+"2022-06-15 06:24:57,169",Episode: 49 | Total Reward: 14.750384862793988 | Portfolio Value: 1.15894 | Market Value: 2.97
+"2022-06-15 06:32:41,398",Episode: 50 | Total Reward: 15.054442469354276 | Portfolio Value: 1.16247 | Market Value: 2.97
+"2022-06-15 06:40:27,131",Episode: 51 | Total Reward: 15.171694081181341 | Portfolio Value: 1.16383 | Market Value: 2.97
+"2022-06-15 06:48:14,468",Episode: 52 | Total Reward: 15.261321893426896 | Portfolio Value: 1.16487 | Market Value: 2.97
+"2022-06-15 06:56:03,872",Episode: 53 | Total Reward: 15.760971930835472 | Portfolio Value: 1.17071 | Market Value: 2.97
+"2022-06-15 07:03:54,180",Episode: 54 | Total Reward: 16.47896955375971 | Portfolio Value: 1.17915 | Market Value: 2.97
+"2022-06-15 07:11:46,693",Episode: 55 | Total Reward: 15.046693043324558 | Portfolio Value: 1.16238 | Market Value: 2.97
+"2022-06-15 07:19:41,079",Episode: 56 | Total Reward: 15.007302875541052 | Portfolio Value: 1.16192 | Market Value: 2.97
+"2022-06-15 07:27:36,937",Episode: 57 | Total Reward: 14.728607849067009 | Portfolio Value: 1.15869 | Market Value: 2.97
+"2022-06-15 07:35:33,693",Episode: 58 | Total Reward: 15.056495770210725 | Portfolio Value: 1.16249 | Market Value: 2.97
+"2022-06-15 07:43:32,865",Episode: 59 | Total Reward: 16.01448253892475 | Portfolio Value: 1.17368 | Market Value: 2.97
+"2022-06-15 07:51:33,419",Episode: 60 | Total Reward: 14.90538580562237 | Portfolio Value: 1.16074 | Market Value: 2.97
+"2022-06-15 07:59:34,970",Episode: 61 | Total Reward: 15.718608622992868 | Portfolio Value: 1.17021 | Market Value: 2.97
+"2022-06-15 08:07:38,459",Episode: 62 | Total Reward: 14.554632148928771 | Portfolio Value: 1.15667 | Market Value: 2.97
+"2022-06-15 08:15:44,976",Episode: 63 | Total Reward: 15.01101458329417 | Portfolio Value: 1.16196 | Market Value: 2.97
+"2022-06-15 08:23:51,557",Episode: 64 | Total Reward: 16.06994445378421 | Portfolio Value: 1.17433 | Market Value: 2.97
+"2022-06-15 08:31:57,868",Episode: 65 | Total Reward: 14.569243636536068 | Portfolio Value: 1.15684 | Market Value: 2.97
+"2022-06-15 08:40:05,227",Episode: 66 | Total Reward: 15.708368215890097 | Portfolio Value: 1.17009 | Market Value: 2.97
+"2022-06-15 08:48:11,984",Episode: 67 | Total Reward: 15.07062263935336 | Portfolio Value: 1.16266 | Market Value: 2.97
+"2022-06-15 08:56:18,416",Episode: 68 | Total Reward: 15.398773687448347 | Portfolio Value: 1.16648 | Market Value: 2.97
+"2022-06-15 09:04:26,174",Episode: 69 | Total Reward: 14.76119222260438 | Portfolio Value: 1.15906 | Market Value: 2.97
+"2022-06-15 09:12:32,481",Episode: 70 | Total Reward: 15.231321592057766 | Portfolio Value: 1.16452 | Market Value: 2.97
+"2022-06-15 09:20:39,820",Episode: 71 | Total Reward: 13.906241101285145 | Portfolio Value: 1.1492 | Market Value: 2.97
+"2022-06-15 09:28:47,102",Episode: 72 | Total Reward: 14.140020263224178 | Portfolio Value: 1.15189 | Market Value: 2.97
+"2022-06-15 09:36:54,353",Episode: 73 | Total Reward: 15.783680629185806 | Portfolio Value: 1.17098 | Market Value: 2.97
+"2022-06-15 09:45:05,349",Episode: 74 | Total Reward: 15.064991660695448 | Portfolio Value: 1.16259 | Market Value: 2.97
+"2022-06-15 09:53:13,902",Episode: 75 | Total Reward: 15.09098614489219 | Portfolio Value: 1.16289 | Market Value: 2.97
+"2022-06-15 10:01:22,231",Episode: 76 | Total Reward: 15.492961938191096 | Portfolio Value: 1.16758 | Market Value: 2.97
+"2022-06-15 10:09:30,133",Episode: 77 | Total Reward: 14.528872575582868 | Portfolio Value: 1.15637 | Market Value: 2.97
+"2022-06-15 10:17:38,695",Episode: 78 | Total Reward: 14.884500261432082 | Portfolio Value: 1.16049 | Market Value: 2.97
+"2022-06-15 10:25:46,241",Episode: 79 | Total Reward: 14.43915641887643 | Portfolio Value: 1.15534 | Market Value: 2.97
+"2022-06-15 10:33:54,640",Episode: 80 | Total Reward: 16.106200346324595 | Portfolio Value: 1.17476 | Market Value: 2.97
+"2022-06-15 10:42:03,645",Episode: 81 | Total Reward: 15.921585273365562 | Portfolio Value: 1.17259 | Market Value: 2.97
+"2022-06-15 10:50:10,871",Episode: 82 | Total Reward: 14.959718820253212 | Portfolio Value: 1.16137 | Market Value: 2.97
+"2022-06-15 10:58:18,570",Episode: 83 | Total Reward: 13.963962494978745 | Portfolio Value: 1.14986 | Market Value: 2.97
+"2022-06-15 11:06:25,625",Episode: 84 | Total Reward: 15.205189661826571 | Portfolio Value: 1.16422 | Market Value: 2.97
+"2022-06-15 11:16:38,943",Filling replay buffer...
+"2022-06-15 11:16:56,242",Filled replay buffer...
+"2022-06-15 11:16:56,243",Load model...
+"2022-06-15 11:16:56,256",Start training...
+"2022-06-15 11:20:31,470",Episode: 1 | Total Reward: 23.994771841653044 | Portfolio Value: 1.27118 | Market Value: 3.486
+"2022-06-15 11:20:31,470",Saving model...
+"2022-06-15 11:23:53,746",Episode: 2 | Total Reward: 26.590280808922646 | Portfolio Value: 1.30461 | Market Value: 3.486
+"2022-06-15 11:23:53,746",Saving model...
+"2022-06-15 11:27:15,258",Episode: 3 | Total Reward: 29.181423420135307 | Portfolio Value: 1.33885 | Market Value: 3.486
+"2022-06-15 11:27:15,258",Saving model...
+"2022-06-15 11:30:38,878",Episode: 4 | Total Reward: 28.82536601496703 | Portfolio Value: 1.3341 | Market Value: 3.486
+"2022-06-15 11:34:04,382",Episode: 5 | Total Reward: 27.81313398558919 | Portfolio Value: 1.32066 | Market Value: 3.486
+"2022-06-15 11:37:35,171",Episode: 6 | Total Reward: 27.34944590447075 | Portfolio Value: 1.31455 | Market Value: 3.486
+"2022-06-15 11:41:07,130",Episode: 7 | Total Reward: 28.09143553924779 | Portfolio Value: 1.32434 | Market Value: 3.486
+"2022-06-15 11:44:37,692",Episode: 8 | Total Reward: 27.644202999603813 | Portfolio Value: 1.31843 | Market Value: 3.486
+"2022-06-15 11:48:03,584",Episode: 9 | Total Reward: 29.16217745063673 | Portfolio Value: 1.3386 | Market Value: 3.486
+"2022-06-15 11:51:31,558",Episode: 10 | Total Reward: 29.89378299312655 | Portfolio Value: 1.34843 | Market Value: 3.486
+"2022-06-15 11:51:31,558",Saving model...
+"2022-06-15 11:54:58,287",Episode: 11 | Total Reward: 29.68497693346932 | Portfolio Value: 1.34561 | Market Value: 3.486
+"2022-06-15 11:58:27,881",Episode: 12 | Total Reward: 30.001493542225084 | Portfolio Value: 1.34988 | Market Value: 3.486
+"2022-06-15 11:58:27,881",Saving model...
+"2022-06-15 12:01:59,727",Episode: 13 | Total Reward: 29.962117756588977 | Portfolio Value: 1.34935 | Market Value: 3.486
+"2022-06-15 12:05:31,859",Episode: 14 | Total Reward: 30.090794254115217 | Portfolio Value: 1.35108 | Market Value: 3.486
+"2022-06-15 12:05:31,860",Saving model...
+"2022-06-15 12:09:06,999",Episode: 15 | Total Reward: 30.974230344420764 | Portfolio Value: 1.36307 | Market Value: 3.486
+"2022-06-15 12:09:06,999",Saving model...
+"2022-06-15 12:12:41,178",Episode: 16 | Total Reward: 30.851650661150188 | Portfolio Value: 1.3614 | Market Value: 3.486
+"2022-06-15 12:16:16,955",Episode: 17 | Total Reward: 31.51109338346071 | Portfolio Value: 1.37041 | Market Value: 3.486
+"2022-06-15 12:16:16,956",Saving model...
+"2022-06-15 12:19:53,200",Episode: 18 | Total Reward: 31.606573257483202 | Portfolio Value: 1.37172 | Market Value: 3.486
+"2022-06-15 12:19:53,200",Saving model...
+"2022-06-15 12:23:30,573",Episode: 19 | Total Reward: 32.53498170053342 | Portfolio Value: 1.38451 | Market Value: 3.486
+"2022-06-15 12:23:30,574",Saving model...
+"2022-06-15 12:27:08,444",Episode: 20 | Total Reward: 32.08166097758413 | Portfolio Value: 1.37825 | Market Value: 3.486
+"2022-06-15 12:30:47,767",Episode: 21 | Total Reward: 30.77687238061076 | Portfolio Value: 1.36039 | Market Value: 3.486
+"2022-06-15 12:34:28,533",Episode: 22 | Total Reward: 31.092264922842766 | Portfolio Value: 1.36468 | Market Value: 3.486
+"2022-06-15 12:38:08,842",Episode: 23 | Total Reward: 31.246703504736498 | Portfolio Value: 1.36679 | Market Value: 3.486
+"2022-06-15 12:41:51,519",Episode: 24 | Total Reward: 32.23961398578311 | Portfolio Value: 1.38043 | Market Value: 3.486
+"2022-06-15 12:45:34,503",Episode: 25 | Total Reward: 32.57358421783059 | Portfolio Value: 1.38505 | Market Value: 3.486
+"2022-06-15 12:45:34,504",Saving model...
+"2022-06-15 12:49:20,024",Episode: 26 | Total Reward: 31.786268304243233 | Portfolio Value: 1.37419 | Market Value: 3.486
+"2022-06-15 12:53:05,853",Episode: 27 | Total Reward: 32.05606948769355 | Portfolio Value: 1.3779 | Market Value: 3.486
+"2022-06-15 12:56:52,110",Episode: 28 | Total Reward: 32.402822919411 | Portfolio Value: 1.38269 | Market Value: 3.486
+"2022-06-15 13:00:42,207",Episode: 29 | Total Reward: 33.36902954691859 | Portfolio Value: 1.39611 | Market Value: 3.486
+"2022-06-15 13:00:42,208",Saving model...
+"2022-06-15 13:04:34,630",Episode: 30 | Total Reward: 33.46438804294658 | Portfolio Value: 1.39744 | Market Value: 3.486
+"2022-06-15 13:04:34,630",Saving model...
+"2022-06-15 13:08:25,068",Episode: 31 | Total Reward: 32.67518718956104 | Portfolio Value: 1.38646 | Market Value: 3.486
+"2022-06-15 13:12:09,886",Episode: 32 | Total Reward: 34.17936441112956 | Portfolio Value: 1.40747 | Market Value: 3.486
+"2022-06-15 13:12:09,887",Saving model...
+"2022-06-15 13:15:54,861",Episode: 33 | Total Reward: 34.22271741205208 | Portfolio Value: 1.40808 | Market Value: 3.486
+"2022-06-15 13:15:54,861",Saving model...
+"2022-06-15 13:19:40,846",Episode: 34 | Total Reward: 33.13451760745905 | Portfolio Value: 1.39284 | Market Value: 3.486
+"2022-06-15 13:23:27,256",Episode: 35 | Total Reward: 34.63510685672744 | Portfolio Value: 1.4139 | Market Value: 3.486
+"2022-06-15 13:23:27,256",Saving model...
+"2022-06-15 13:27:15,511",Episode: 36 | Total Reward: 34.08597075199624 | Portfolio Value: 1.40616 | Market Value: 3.486
+"2022-06-15 13:31:03,359",Episode: 37 | Total Reward: 34.17074186628955 | Portfolio Value: 1.40735 | Market Value: 3.486
+"2022-06-15 13:34:53,599",Episode: 38 | Total Reward: 34.97651270795532 | Portfolio Value: 1.41873 | Market Value: 3.486
+"2022-06-15 13:34:53,599",Saving model...
+"2022-06-15 13:38:43,259",Episode: 39 | Total Reward: 33.60175688518758 | Portfolio Value: 1.39936 | Market Value: 3.486
+"2022-06-15 13:42:35,359",Episode: 40 | Total Reward: 34.55840790289321 | Portfolio Value: 1.41281 | Market Value: 3.486
+"2022-06-15 13:46:27,719",Episode: 41 | Total Reward: 35.55020649394067 | Portfolio Value: 1.4269 | Market Value: 3.486
+"2022-06-15 13:46:27,719",Saving model...
+"2022-06-15 13:50:21,834",Episode: 42 | Total Reward: 35.57597504787245 | Portfolio Value: 1.42726 | Market Value: 3.486
+"2022-06-15 13:50:21,834",Saving model...
+"2022-06-15 13:54:16,099",Episode: 43 | Total Reward: 35.97427738737561 | Portfolio Value: 1.43296 | Market Value: 3.486
+"2022-06-15 13:54:16,099",Saving model...
+"2022-06-15 13:58:12,021",Episode: 44 | Total Reward: 35.46970855756719 | Portfolio Value: 1.42575 | Market Value: 3.486
+"2022-06-15 14:02:11,986",Episode: 45 | Total Reward: 36.81071552330964 | Portfolio Value: 1.445 | Market Value: 3.486
+"2022-06-15 14:02:11,986",Saving model...
+"2022-06-15 14:06:21,184",Episode: 46 | Total Reward: 35.32070054092235 | Portfolio Value: 1.42363 | Market Value: 3.486
+"2022-06-15 14:10:27,097",Episode: 47 | Total Reward: 36.89926777536921 | Portfolio Value: 1.44628 | Market Value: 3.486
+"2022-06-15 14:10:27,097",Saving model...
+"2022-06-15 14:14:35,249",Episode: 48 | Total Reward: 36.85701078975901 | Portfolio Value: 1.44567 | Market Value: 3.486
+"2022-06-15 14:18:43,693",Episode: 49 | Total Reward: 37.04398689029637 | Portfolio Value: 1.44837 | Market Value: 3.486
+"2022-06-15 14:18:43,694",Saving model...
+"2022-06-15 14:22:52,876",Episode: 50 | Total Reward: 37.93716107083727 | Portfolio Value: 1.46137 | Market Value: 3.486
+"2022-06-15 14:22:52,876",Saving model...
+"2022-06-15 14:27:02,004",Episode: 51 | Total Reward: 37.623164889087015 | Portfolio Value: 1.45678 | Market Value: 3.486
+"2022-06-15 14:31:09,388",Episode: 52 | Total Reward: 38.17787713143902 | Portfolio Value: 1.46489 | Market Value: 3.486
+"2022-06-15 14:31:09,388",Saving model...
+"2022-06-15 14:35:22,162",Episode: 53 | Total Reward: 36.8237890634178 | Portfolio Value: 1.44519 | Market Value: 3.486
+"2022-06-15 14:39:36,349",Episode: 54 | Total Reward: 37.46426652912071 | Portfolio Value: 1.45447 | Market Value: 3.486
+"2022-06-15 14:43:48,367",Episode: 55 | Total Reward: 38.36777022606843 | Portfolio Value: 1.46767 | Market Value: 3.486
+"2022-06-15 14:43:48,367",Saving model...
+"2022-06-15 14:48:02,767",Episode: 56 | Total Reward: 38.7777851907712 | Portfolio Value: 1.4737 | Market Value: 3.486
+"2022-06-15 14:48:02,767",Saving model...
+"2022-06-15 14:52:15,327",Episode: 57 | Total Reward: 38.098666286815394 | Portfolio Value: 1.46373 | Market Value: 3.486
+"2022-06-15 14:56:27,318",Episode: 58 | Total Reward: 38.63141283585916 | Portfolio Value: 1.47155 | Market Value: 3.486
+"2022-06-15 15:00:44,113",Episode: 59 | Total Reward: 39.079153253109034 | Portfolio Value: 1.47815 | Market Value: 3.486
+"2022-06-15 15:00:44,113",Saving model...
+"2022-06-15 15:05:12,412",Episode: 60 | Total Reward: 39.13347710798999 | Portfolio Value: 1.47895 | Market Value: 3.486
+"2022-06-15 15:05:12,412",Saving model...
+"2022-06-15 15:09:33,648",Episode: 61 | Total Reward: 39.98092950787108 | Portfolio Value: 1.49154 | Market Value: 3.486
+"2022-06-15 15:09:33,648",Saving model...
+"2022-06-15 15:13:52,895",Episode: 62 | Total Reward: 40.1926909479578 | Portfolio Value: 1.4947 | Market Value: 3.486
+"2022-06-15 15:13:52,895",Saving model...
+"2022-06-15 15:18:11,900",Episode: 63 | Total Reward: 39.57997307867613 | Portfolio Value: 1.48557 | Market Value: 3.486
+"2022-06-15 15:22:35,697",Episode: 64 | Total Reward: 38.87077026042207 | Portfolio Value: 1.47507 | Market Value: 3.486
+"2022-06-15 15:27:00,330",Episode: 65 | Total Reward: 39.45511626555918 | Portfolio Value: 1.48372 | Market Value: 3.486
+"2022-06-15 15:31:29,727",Episode: 66 | Total Reward: 39.94813377262208 | Portfolio Value: 1.49105 | Market Value: 3.486
+"2022-06-15 15:35:59,608",Episode: 67 | Total Reward: 39.87045574193809 | Portfolio Value: 1.48989 | Market Value: 3.486
+"2022-06-15 15:40:24,049",Episode: 68 | Total Reward: 41.25524412638357 | Portfolio Value: 1.51067 | Market Value: 3.486
+"2022-06-15 15:40:24,049",Saving model...
+"2022-06-15 15:44:48,776",Episode: 69 | Total Reward: 41.2000286272613 | Portfolio Value: 1.50983 | Market Value: 3.486
+"2022-06-15 15:49:09,611",Episode: 70 | Total Reward: 40.870284126358385 | Portfolio Value: 1.50486 | Market Value: 3.486
+"2022-06-15 15:53:29,231",Episode: 71 | Total Reward: 40.48103836965586 | Portfolio Value: 1.49902 | Market Value: 3.486
+"2022-06-15 15:58:06,345",Episode: 72 | Total Reward: 41.525008915989105 | Portfolio Value: 1.51475 | Market Value: 3.486
+"2022-06-15 15:58:06,345",Saving model...
+"2022-06-15 16:03:14,049",Episode: 73 | Total Reward: 40.65335547019452 | Portfolio Value: 1.5016 | Market Value: 3.486
+"2022-06-15 16:08:20,124",Episode: 74 | Total Reward: 42.12783445094913 | Portfolio Value: 1.52391 | Market Value: 3.486
+"2022-06-15 16:08:20,125",Saving model...
+"2022-06-15 16:13:09,912",Episode: 75 | Total Reward: 41.57320568048812 | Portfolio Value: 1.51548 | Market Value: 3.486
+"2022-06-15 16:17:32,497",Episode: 76 | Total Reward: 42.17495999135464 | Portfolio Value: 1.52463 | Market Value: 3.486
+"2022-06-15 16:17:32,497",Saving model...
+"2022-06-15 16:21:52,821",Episode: 77 | Total Reward: 42.45115292991886 | Portfolio Value: 1.52884 | Market Value: 3.486
+"2022-06-15 16:21:52,821",Saving model...
+"2022-06-15 16:26:21,456",Episode: 78 | Total Reward: 42.49879004366325 | Portfolio Value: 1.52957 | Market Value: 3.486
+"2022-06-15 16:26:21,457",Saving model...
+"2022-06-15 16:30:40,503",Episode: 79 | Total Reward: 42.5795932847976 | Portfolio Value: 1.53081 | Market Value: 3.486
+"2022-06-15 16:30:40,503",Saving model...
+"2022-06-15 16:35:00,161",Episode: 80 | Total Reward: 42.87911703957209 | Portfolio Value: 1.5354 | Market Value: 3.486
+"2022-06-15 16:35:00,161",Saving model...
+"2022-06-15 16:39:24,545",Episode: 81 | Total Reward: 43.44011282476524 | Portfolio Value: 1.54404 | Market Value: 3.486
+"2022-06-15 16:39:24,545",Saving model...
+"2022-06-15 16:43:49,822",Episode: 82 | Total Reward: 42.506312145055 | Portfolio Value: 1.52969 | Market Value: 3.486
+"2022-06-15 16:48:09,528",Episode: 83 | Total Reward: 43.51085825352415 | Portfolio Value: 1.54513 | Market Value: 3.486
+"2022-06-15 16:48:09,529",Saving model...
+"2022-06-15 16:52:35,307",Episode: 84 | Total Reward: 43.934580600927234 | Portfolio Value: 1.55169 | Market Value: 3.486
+"2022-06-15 16:52:35,307",Saving model...
+"2022-06-15 16:57:02,090",Episode: 85 | Total Reward: 43.72248891850025 | Portfolio Value: 1.5484 | Market Value: 3.486
+"2022-06-15 17:01:27,786",Episode: 86 | Total Reward: 44.28185115515258 | Portfolio Value: 1.55709 | Market Value: 3.486
+"2022-06-15 17:01:27,786",Saving model...
+"2022-06-15 17:05:54,514",Episode: 87 | Total Reward: 44.836782972236385 | Portfolio Value: 1.56575 | Market Value: 3.486
+"2022-06-15 17:05:54,514",Saving model...
+"2022-06-15 17:10:19,970",Episode: 88 | Total Reward: 44.14337615143594 | Portfolio Value: 1.55494 | Market Value: 3.486
+"2022-06-15 17:14:54,185",Episode: 89 | Total Reward: 44.57580160113925 | Portfolio Value: 1.56167 | Market Value: 3.486
+"2022-06-15 17:19:19,199",Episode: 90 | Total Reward: 45.02093668879579 | Portfolio Value: 1.56864 | Market Value: 3.486
+"2022-06-15 17:19:19,199",Saving model...
+"2022-06-15 17:23:40,834",Episode: 91 | Total Reward: 44.44212136477089 | Portfolio Value: 1.55959 | Market Value: 3.486
+"2022-06-15 17:28:03,023",Episode: 92 | Total Reward: 44.83461436642664 | Portfolio Value: 1.56572 | Market Value: 3.486
+"2022-06-15 17:32:29,645",Episode: 93 | Total Reward: 44.47342272696186 | Portfolio Value: 1.56008 | Market Value: 3.486
+"2022-06-15 17:36:54,953",Episode: 94 | Total Reward: 44.780031454801154 | Portfolio Value: 1.56487 | Market Value: 3.486
+"2022-06-15 17:41:20,013",Episode: 95 | Total Reward: 46.05436287876118 | Portfolio Value: 1.58494 | Market Value: 3.486
+"2022-06-15 17:41:20,014",Saving model...
+"2022-06-15 17:45:44,496",Episode: 96 | Total Reward: 45.75240898296183 | Portfolio Value: 1.58016 | Market Value: 3.486
+"2022-06-15 17:50:11,989",Episode: 97 | Total Reward: 46.35173410383089 | Portfolio Value: 1.58966 | Market Value: 3.486
+"2022-06-15 17:50:11,989",Saving model...
+"2022-06-15 17:54:39,011",Episode: 98 | Total Reward: 46.83026633937843 | Portfolio Value: 1.59728 | Market Value: 3.486
+"2022-06-15 17:54:39,011",Saving model...
+"2022-06-15 17:59:05,753",Episode: 99 | Total Reward: 46.73041464924704 | Portfolio Value: 1.59569 | Market Value: 3.486
+"2022-06-15 18:03:49,435",Episode: 100 | Total Reward: 47.11309161962322 | Portfolio Value: 1.6018 | Market Value: 3.486
+"2022-06-15 18:03:49,435",Saving model...
+"2022-06-15 18:08:18,436",Episode: 101 | Total Reward: 46.15683718576777 | Portfolio Value: 1.58656 | Market Value: 3.486
+"2022-06-15 18:12:42,792",Episode: 102 | Total Reward: 47.30582408762059 | Portfolio Value: 1.60489 | Market Value: 3.486
+"2022-06-15 18:12:42,792",Saving model...
+"2022-06-15 18:17:16,250",Episode: 103 | Total Reward: 46.862729485136285 | Portfolio Value: 1.5978 | Market Value: 3.486
+"2022-06-15 18:21:54,459",Episode: 104 | Total Reward: 47.541017920391916 | Portfolio Value: 1.60867 | Market Value: 3.486
+"2022-06-15 18:21:54,459",Saving model...
+"2022-06-15 18:26:21,828",Episode: 105 | Total Reward: 48.03169715538365 | Portfolio Value: 1.61659 | Market Value: 3.486
+"2022-06-15 18:26:21,828",Saving model...
+"2022-06-15 18:30:49,486",Episode: 106 | Total Reward: 47.872140306352904 | Portfolio Value: 1.61401 | Market Value: 3.486
+"2022-06-15 18:35:10,509",Episode: 107 | Total Reward: 48.019169951569864 | Portfolio Value: 1.61638 | Market Value: 3.486
+"2022-06-15 18:39:34,713",Episode: 108 | Total Reward: 48.07489535520686 | Portfolio Value: 1.61729 | Market Value: 3.486
+"2022-06-15 18:39:34,713",Saving model...
+"2022-06-15 18:43:54,482",Episode: 109 | Total Reward: 48.02015544446561 | Portfolio Value: 1.6164 | Market Value: 3.486
+"2022-06-15 18:48:12,450",Episode: 110 | Total Reward: 48.46260710585145 | Portfolio Value: 1.62357 | Market Value: 3.486
+"2022-06-15 18:48:12,450",Saving model...
+"2022-06-15 18:52:34,915",Episode: 111 | Total Reward: 48.95077575968783 | Portfolio Value: 1.63151 | Market Value: 3.486
+"2022-06-15 18:52:34,915",Saving model...
+"2022-06-15 18:56:51,311",Episode: 112 | Total Reward: 49.253349393963 | Portfolio Value: 1.63646 | Market Value: 3.486
+"2022-06-15 18:56:51,311",Saving model...
+"2022-06-15 19:01:08,148",Episode: 113 | Total Reward: 48.806201930092044 | Portfolio Value: 1.62916 | Market Value: 3.486
+"2022-06-15 19:05:23,965",Episode: 114 | Total Reward: 49.437623151025605 | Portfolio Value: 1.63948 | Market Value: 3.486
+"2022-06-15 19:05:23,965",Saving model...
+"2022-06-15 19:09:40,406",Episode: 115 | Total Reward: 50.054399727924704 | Portfolio Value: 1.64962 | Market Value: 3.486
+"2022-06-15 19:09:40,406",Saving model...
+"2022-06-15 19:13:56,986",Episode: 116 | Total Reward: 49.74196492665667 | Portfolio Value: 1.64447 | Market Value: 3.486
+"2022-06-15 19:18:13,403",Episode: 117 | Total Reward: 50.388134045225634 | Portfolio Value: 1.65513 | Market Value: 3.486
+"2022-06-15 19:18:13,403",Saving model...
+"2022-06-15 19:22:29,919",Episode: 118 | Total Reward: 49.79619575587787 | Portfolio Value: 1.64536 | Market Value: 3.486
+"2022-06-15 19:26:46,662",Episode: 119 | Total Reward: 49.93495476066168 | Portfolio Value: 1.64765 | Market Value: 3.486
+"2022-06-15 19:31:03,077",Episode: 120 | Total Reward: 50.656145861897656 | Portfolio Value: 1.65957 | Market Value: 3.486
+"2022-06-15 19:31:03,077",Saving model...
+"2022-06-15 19:35:19,694",Episode: 121 | Total Reward: 50.605843331372 | Portfolio Value: 1.65874 | Market Value: 3.486
+"2022-06-15 19:39:36,486",Episode: 122 | Total Reward: 51.290748798423586 | Portfolio Value: 1.67014 | Market Value: 3.486
+"2022-06-15 19:39:36,487",Saving model...
+"2022-06-15 19:43:53,179",Episode: 123 | Total Reward: 50.983974840732294 | Portfolio Value: 1.66502 | Market Value: 3.486
+"2022-06-15 19:48:08,867",Episode: 124 | Total Reward: 51.69632083244611 | Portfolio Value: 1.67693 | Market Value: 3.486
+"2022-06-15 19:48:08,867",Saving model...
+"2022-06-15 19:52:25,224",Episode: 125 | Total Reward: 52.17489760428677 | Portfolio Value: 1.68497 | Market Value: 3.486
+"2022-06-15 19:52:25,224",Saving model...
+"2022-06-15 19:56:41,827",Episode: 126 | Total Reward: 52.20019764782184 | Portfolio Value: 1.6854 | Market Value: 3.486
+"2022-06-15 19:56:41,827",Saving model...
+"2022-06-15 20:00:58,101",Episode: 127 | Total Reward: 51.87220025860324 | Portfolio Value: 1.67988 | Market Value: 3.486
+"2022-06-15 20:05:13,669",Episode: 128 | Total Reward: 51.87703720400858 | Portfolio Value: 1.67996 | Market Value: 3.486
+"2022-06-15 20:09:29,560",Episode: 129 | Total Reward: 52.29703264161328 | Portfolio Value: 1.68703 | Market Value: 3.486
+"2022-06-15 20:09:29,560",Saving model...
+"2022-06-15 20:13:45,818",Episode: 130 | Total Reward: 52.60988930198711 | Portfolio Value: 1.69232 | Market Value: 3.486
+"2022-06-15 20:13:45,818",Saving model...
+"2022-06-15 20:18:02,031",Episode: 131 | Total Reward: 52.726277682328586 | Portfolio Value: 1.69429 | Market Value: 3.486
+"2022-06-15 20:18:02,031",Saving model...
+"2022-06-15 20:22:18,253",Episode: 132 | Total Reward: 53.13774145798805 | Portfolio Value: 1.70127 | Market Value: 3.486
+"2022-06-15 20:22:18,253",Saving model...
+"2022-06-15 20:26:35,007",Episode: 133 | Total Reward: 52.79372174672718 | Portfolio Value: 1.69543 | Market Value: 3.486
+"2022-06-15 20:30:51,570",Episode: 134 | Total Reward: 53.16342969314464 | Portfolio Value: 1.70171 | Market Value: 3.486
+"2022-06-15 20:30:51,570",Saving model...
+"2022-06-15 20:35:08,025",Episode: 135 | Total Reward: 53.52897002759664 | Portfolio Value: 1.70794 | Market Value: 3.486
+"2022-06-15 20:35:08,025",Saving model...
+"2022-06-15 20:39:24,247",Episode: 136 | Total Reward: 53.51972322649685 | Portfolio Value: 1.70779 | Market Value: 3.486
+"2022-06-15 20:43:41,111",Episode: 137 | Total Reward: 53.99876833707901 | Portfolio Value: 1.71599 | Market Value: 3.486
+"2022-06-15 20:43:41,111",Saving model...
+"2022-06-15 20:47:57,991",Episode: 138 | Total Reward: 53.90578692151844 | Portfolio Value: 1.71439 | Market Value: 3.486
+"2022-06-15 20:52:14,168",Episode: 139 | Total Reward: 54.17633386937009 | Portfolio Value: 1.71904 | Market Value: 3.486
+"2022-06-15 20:52:14,168",Saving model...
+"2022-06-15 20:56:31,702",Episode: 140 | Total Reward: 54.414380496058065 | Portfolio Value: 1.72313 | Market Value: 3.486
+"2022-06-15 20:56:31,702",Saving model...
+"2022-06-15 21:01:24,813",Episode: 141 | Total Reward: 53.9205647550947 | Portfolio Value: 1.71464 | Market Value: 3.486
+"2022-06-15 21:06:15,417",Episode: 142 | Total Reward: 55.0033662560781 | Portfolio Value: 1.73331 | Market Value: 3.486
+"2022-06-15 21:06:15,417",Saving model...
+"2022-06-15 21:11:18,098",Episode: 143 | Total Reward: 54.93912208942244 | Portfolio Value: 1.7322 | Market Value: 3.486
+"2022-06-15 21:16:38,829",Episode: 144 | Total Reward: 55.22099362239559 | Portfolio Value: 1.73709 | Market Value: 3.486
+"2022-06-15 21:16:38,829",Saving model...
+"2022-06-15 21:21:55,272",Episode: 145 | Total Reward: 55.151805230334126 | Portfolio Value: 1.73589 | Market Value: 3.486
