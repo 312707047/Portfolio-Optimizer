@@ -384,3 +384,916 @@
 "2022-06-16 00:21:01,178",Saving model...
 "2022-06-16 00:26:33,468",Episode: 185 | Total Reward: 62.675220491980355 | Portfolio Value: 1.87152 | Market Value: 3.486
 "2022-06-16 00:26:33,468",Saving model...
+"2022-06-16 00:32:15,095",Episode: 186 | Total Reward: 62.83271035274288 | Portfolio Value: 1.87447 | Market Value: 3.486
+"2022-06-16 00:32:15,095",Saving model...
+"2022-06-16 00:37:25,810",Episode: 187 | Total Reward: 63.11646643945646 | Portfolio Value: 1.8798 | Market Value: 3.486
+"2022-06-16 00:37:25,810",Saving model...
+"2022-06-16 00:41:43,101",Episode: 188 | Total Reward: 63.13920354730167 | Portfolio Value: 1.88023 | Market Value: 3.486
+"2022-06-16 00:41:43,101",Saving model...
+"2022-06-16 00:45:59,487",Episode: 189 | Total Reward: 63.11413377230807 | Portfolio Value: 1.87975 | Market Value: 3.486
+"2022-06-16 00:50:17,261",Episode: 190 | Total Reward: 63.18790812407151 | Portfolio Value: 1.88114 | Market Value: 3.486
+"2022-06-16 00:50:17,261",Saving model...
+"2022-06-16 00:54:33,996",Episode: 191 | Total Reward: 63.35045342682265 | Portfolio Value: 1.8842 | Market Value: 3.486
+"2022-06-16 00:54:33,996",Saving model...
+"2022-06-16 00:58:50,784",Episode: 192 | Total Reward: 63.25601527530239 | Portfolio Value: 1.88242 | Market Value: 3.486
+"2022-06-16 01:03:06,969",Episode: 193 | Total Reward: 63.12377898140822 | Portfolio Value: 1.87994 | Market Value: 3.486
+"2022-06-16 01:07:23,699",Episode: 194 | Total Reward: 63.24253343380889 | Portfolio Value: 1.88217 | Market Value: 3.486
+"2022-06-16 01:11:39,881",Episode: 195 | Total Reward: 63.15930075510861 | Portfolio Value: 1.8806 | Market Value: 3.486
+"2022-06-16 01:16:09,492",Episode: 196 | Total Reward: 63.16365796408114 | Portfolio Value: 1.88069 | Market Value: 3.486
+"2022-06-16 01:20:28,270",Episode: 197 | Total Reward: 63.21268319590614 | Portfolio Value: 1.88161 | Market Value: 3.486
+"2022-06-16 01:24:46,401",Episode: 198 | Total Reward: 63.20408594225473 | Portfolio Value: 1.88145 | Market Value: 3.486
+"2022-06-16 01:29:09,626",Episode: 199 | Total Reward: 63.284434746656984 | Portfolio Value: 1.88296 | Market Value: 3.486
+"2022-06-16 01:33:25,628",Episode: 200 | Total Reward: 63.13910989522579 | Portfolio Value: 1.88022 | Market Value: 3.486
+"2022-06-16 01:37:42,111",Episode: 201 | Total Reward: 63.082935607651244 | Portfolio Value: 1.87917 | Market Value: 3.486
+"2022-06-16 01:41:58,850",Episode: 202 | Total Reward: 63.29967603803892 | Portfolio Value: 1.88325 | Market Value: 3.486
+"2022-06-16 01:46:16,039",Episode: 203 | Total Reward: 63.12331690061815 | Portfolio Value: 1.87993 | Market Value: 3.486
+"2022-06-16 01:50:32,449",Episode: 204 | Total Reward: 63.23378217475184 | Portfolio Value: 1.88201 | Market Value: 3.486
+"2022-06-16 01:54:48,766",Episode: 205 | Total Reward: 63.33925552260341 | Portfolio Value: 1.88399 | Market Value: 3.486
+"2022-06-16 01:59:05,495",Episode: 206 | Total Reward: 63.229197260201005 | Portfolio Value: 1.88192 | Market Value: 3.486
+"2022-06-16 02:03:22,262",Episode: 207 | Total Reward: 63.19120586353221 | Portfolio Value: 1.8812 | Market Value: 3.486
+"2022-06-16 02:07:39,883",Episode: 208 | Total Reward: 63.128473866620126 | Portfolio Value: 1.88002 | Market Value: 3.486
+"2022-06-16 02:12:02,038",Episode: 209 | Total Reward: 63.10059337228499 | Portfolio Value: 1.8795 | Market Value: 3.486
+"2022-06-16 02:16:19,258",Episode: 210 | Total Reward: 63.16129376469172 | Portfolio Value: 1.88064 | Market Value: 3.486
+"2022-06-16 02:20:36,416",Episode: 211 | Total Reward: 63.176118333861034 | Portfolio Value: 1.88092 | Market Value: 3.486
+"2022-06-16 02:24:53,070",Episode: 212 | Total Reward: 63.147297833702794 | Portfolio Value: 1.88038 | Market Value: 3.486
+"2022-06-16 02:29:09,879",Episode: 213 | Total Reward: 63.27807705351021 | Portfolio Value: 1.88284 | Market Value: 3.486
+"2022-06-16 02:33:26,856",Episode: 214 | Total Reward: 63.254718182606986 | Portfolio Value: 1.8824 | Market Value: 3.486
+"2022-06-16 02:37:44,043",Episode: 215 | Total Reward: 63.13012063207378 | Portfolio Value: 1.88006 | Market Value: 3.486
+"2022-06-16 02:42:00,523",Episode: 216 | Total Reward: 63.17170644784891 | Portfolio Value: 1.88084 | Market Value: 3.486
+"2022-06-16 02:46:17,349",Episode: 217 | Total Reward: 63.15338590321336 | Portfolio Value: 1.88049 | Market Value: 3.486
+"2022-06-16 02:50:33,793",Episode: 218 | Total Reward: 63.14905340597929 | Portfolio Value: 1.88041 | Market Value: 3.486
+"2022-06-16 02:54:50,486",Episode: 219 | Total Reward: 63.17580083885741 | Portfolio Value: 1.88091 | Market Value: 3.486
+"2022-06-16 02:59:06,846",Episode: 220 | Total Reward: 63.22080388167574 | Portfolio Value: 1.88176 | Market Value: 3.486
+"2022-06-16 03:03:23,449",Episode: 221 | Total Reward: 63.248027564473475 | Portfolio Value: 1.88227 | Market Value: 3.486
+"2022-06-16 03:07:42,655",Episode: 222 | Total Reward: 63.27020248221131 | Portfolio Value: 1.88269 | Market Value: 3.486
+"2022-06-16 03:11:58,869",Episode: 223 | Total Reward: 63.169293856549636 | Portfolio Value: 1.88079 | Market Value: 3.486
+"2022-06-16 03:16:15,343",Episode: 224 | Total Reward: 63.24302253059478 | Portfolio Value: 1.88218 | Market Value: 3.486
+"2022-06-16 03:20:31,633",Episode: 225 | Total Reward: 63.2271885345011 | Portfolio Value: 1.88188 | Market Value: 3.486
+"2022-06-16 03:24:48,591",Episode: 226 | Total Reward: 63.19876099947324 | Portfolio Value: 1.88135 | Market Value: 3.486
+"2022-06-16 03:29:04,755",Episode: 227 | Total Reward: 63.0133051622798 | Portfolio Value: 1.87786 | Market Value: 3.486
+"2022-06-16 03:33:21,358",Episode: 228 | Total Reward: 63.21065467229642 | Portfolio Value: 1.88157 | Market Value: 3.486
+"2022-06-16 03:37:37,345",Episode: 229 | Total Reward: 63.2527451252985 | Portfolio Value: 1.88236 | Market Value: 3.486
+"2022-06-16 03:41:53,449",Episode: 230 | Total Reward: 63.10570779858256 | Portfolio Value: 1.8796 | Market Value: 3.486
+"2022-06-16 03:46:10,103",Episode: 231 | Total Reward: 63.271123387057365 | Portfolio Value: 1.88271 | Market Value: 3.486
+"2022-06-16 03:50:27,249",Episode: 232 | Total Reward: 63.24145316536276 | Portfolio Value: 1.88215 | Market Value: 3.486
+"2022-06-16 03:54:44,184",Episode: 233 | Total Reward: 63.16282155172434 | Portfolio Value: 1.88067 | Market Value: 3.486
+"2022-06-16 03:59:02,086",Episode: 234 | Total Reward: 63.11119270357405 | Portfolio Value: 1.8797 | Market Value: 3.486
+"2022-06-16 04:03:19,009",Episode: 235 | Total Reward: 63.18841084280499 | Portfolio Value: 1.88115 | Market Value: 3.486
+"2022-06-16 04:07:35,361",Episode: 236 | Total Reward: 63.30909402850195 | Portfolio Value: 1.88342 | Market Value: 3.486
+"2022-06-16 04:11:50,804",Episode: 237 | Total Reward: 63.29837404992453 | Portfolio Value: 1.88322 | Market Value: 3.486
+"2022-06-16 04:16:06,791",Episode: 238 | Total Reward: 63.22006297215505 | Portfolio Value: 1.88175 | Market Value: 3.486
+"2022-06-16 04:20:22,947",Episode: 239 | Total Reward: 63.227861449285925 | Portfolio Value: 1.88189 | Market Value: 3.486
+"2022-06-16 04:24:39,665",Episode: 240 | Total Reward: 63.138054905561006 | Portfolio Value: 1.8802 | Market Value: 3.486
+"2022-06-16 04:28:55,734",Episode: 241 | Total Reward: 63.25351278755716 | Portfolio Value: 1.88238 | Market Value: 3.486
+"2022-06-16 04:33:12,097",Episode: 242 | Total Reward: 63.20692908267784 | Portfolio Value: 1.8815 | Market Value: 3.486
+"2022-06-16 04:37:27,988",Episode: 243 | Total Reward: 63.19606724025327 | Portfolio Value: 1.8813 | Market Value: 3.486
+"2022-06-16 04:41:43,456",Episode: 244 | Total Reward: 63.13975356083206 | Portfolio Value: 1.88024 | Market Value: 3.486
+"2022-06-16 04:45:59,770",Episode: 245 | Total Reward: 63.06914629694721 | Portfolio Value: 1.87891 | Market Value: 3.486
+"2022-06-16 04:50:16,602",Episode: 246 | Total Reward: 63.16473347312129 | Portfolio Value: 1.88071 | Market Value: 3.486
+"2022-06-16 04:54:34,125",Episode: 247 | Total Reward: 63.18664060457004 | Portfolio Value: 1.88112 | Market Value: 3.486
+"2022-06-16 04:58:50,752",Episode: 248 | Total Reward: 63.24797956333091 | Portfolio Value: 1.88227 | Market Value: 3.486
+"2022-06-16 05:03:07,340",Episode: 249 | Total Reward: 63.08442102077758 | Portfolio Value: 1.8792 | Market Value: 3.486
+"2022-06-16 05:07:23,775",Episode: 250 | Total Reward: 63.26212933485328 | Portfolio Value: 1.88254 | Market Value: 3.486
+"2022-06-16 05:11:40,583",Episode: 251 | Total Reward: 63.23824566323627 | Portfolio Value: 1.88209 | Market Value: 3.486
+"2022-06-16 05:15:56,920",Episode: 252 | Total Reward: 63.08845156455596 | Portfolio Value: 1.87927 | Market Value: 3.486
+"2022-06-16 05:20:14,087",Episode: 253 | Total Reward: 63.13693790629261 | Portfolio Value: 1.88018 | Market Value: 3.486
+"2022-06-16 05:24:31,010",Episode: 254 | Total Reward: 63.155823304560826 | Portfolio Value: 1.88054 | Market Value: 3.486
+"2022-06-16 05:28:48,828",Episode: 255 | Total Reward: 63.03019170260694 | Portfolio Value: 1.87818 | Market Value: 3.486
+"2022-06-16 05:33:05,576",Episode: 256 | Total Reward: 63.13770632324627 | Portfolio Value: 1.8802 | Market Value: 3.486
+"2022-06-16 05:37:22,154",Episode: 257 | Total Reward: 63.20278559956617 | Portfolio Value: 1.88142 | Market Value: 3.486
+"2022-06-16 05:41:40,795",Episode: 258 | Total Reward: 63.05843098374109 | Portfolio Value: 1.87871 | Market Value: 3.486
+"2022-06-16 05:45:58,200",Episode: 259 | Total Reward: 63.229353908069506 | Portfolio Value: 1.88192 | Market Value: 3.486
+"2022-06-16 05:50:14,532",Episode: 260 | Total Reward: 63.22176901149589 | Portfolio Value: 1.88178 | Market Value: 3.486
+"2022-06-16 05:54:30,824",Episode: 261 | Total Reward: 63.10612001905593 | Portfolio Value: 1.8796 | Market Value: 3.486
+"2022-06-16 05:58:47,877",Episode: 262 | Total Reward: 63.162865753675646 | Portfolio Value: 1.88067 | Market Value: 3.486
+"2022-06-16 06:03:04,781",Episode: 263 | Total Reward: 63.20009794069105 | Portfolio Value: 1.88137 | Market Value: 3.486
+"2022-06-16 06:07:21,063",Episode: 264 | Total Reward: 63.18947707286946 | Portfolio Value: 1.88117 | Market Value: 3.486
+"2022-06-16 06:11:37,525",Episode: 265 | Total Reward: 63.20438185469395 | Portfolio Value: 1.88145 | Market Value: 3.486
+"2022-06-16 06:15:54,246",Episode: 266 | Total Reward: 63.14528715455261 | Portfolio Value: 1.88034 | Market Value: 3.486
+"2022-06-16 06:20:10,764",Episode: 267 | Total Reward: 63.18646755819029 | Portfolio Value: 1.88111 | Market Value: 3.486
+"2022-06-16 06:24:27,178",Episode: 268 | Total Reward: 63.06018529446207 | Portfolio Value: 1.87874 | Market Value: 3.486
+"2022-06-16 06:28:44,301",Episode: 269 | Total Reward: 63.16488635718645 | Portfolio Value: 1.88071 | Market Value: 3.486
+"2022-06-16 06:33:01,390",Episode: 270 | Total Reward: 63.17042847122202 | Portfolio Value: 1.88081 | Market Value: 3.486
+"2022-06-16 06:37:18,215",Episode: 271 | Total Reward: 63.05251959260053 | Portfolio Value: 1.8786 | Market Value: 3.486
+"2022-06-16 06:41:35,435",Episode: 272 | Total Reward: 63.19343469630203 | Portfolio Value: 1.88125 | Market Value: 3.486
+"2022-06-16 06:45:52,796",Episode: 273 | Total Reward: 63.27560652061123 | Portfolio Value: 1.88279 | Market Value: 3.486
+"2022-06-16 06:50:08,805",Episode: 274 | Total Reward: 63.30959713825637 | Portfolio Value: 1.88343 | Market Value: 3.486
+"2022-06-16 06:54:25,459",Episode: 275 | Total Reward: 63.13940039908201 | Portfolio Value: 1.88023 | Market Value: 3.486
+"2022-06-16 06:58:41,785",Episode: 276 | Total Reward: 63.1991896073266 | Portfolio Value: 1.88135 | Market Value: 3.486
+"2022-06-16 07:02:58,288",Episode: 277 | Total Reward: 63.07889330881208 | Portfolio Value: 1.87909 | Market Value: 3.486
+"2022-06-16 07:07:15,203",Episode: 278 | Total Reward: 63.09966753562824 | Portfolio Value: 1.87948 | Market Value: 3.486
+"2022-06-16 07:11:32,229",Episode: 279 | Total Reward: 63.07585073917933 | Portfolio Value: 1.87904 | Market Value: 3.486
+"2022-06-16 07:15:48,634",Episode: 280 | Total Reward: 63.082009021456685 | Portfolio Value: 1.87915 | Market Value: 3.486
+"2022-06-16 07:20:05,439",Episode: 281 | Total Reward: 63.20938788349309 | Portfolio Value: 1.88155 | Market Value: 3.486
+"2022-06-16 07:24:22,791",Episode: 282 | Total Reward: 63.24079463352149 | Portfolio Value: 1.88214 | Market Value: 3.486
+"2022-06-16 07:28:39,270",Episode: 283 | Total Reward: 63.146707961144614 | Portfolio Value: 1.88037 | Market Value: 3.486
+"2022-06-16 07:32:56,552",Episode: 284 | Total Reward: 63.180561933328875 | Portfolio Value: 1.881 | Market Value: 3.486
+"2022-06-16 07:37:13,703",Episode: 285 | Total Reward: 63.17821683114509 | Portfolio Value: 1.88096 | Market Value: 3.486
+"2022-06-16 07:41:30,406",Episode: 286 | Total Reward: 63.282574243572355 | Portfolio Value: 1.88292 | Market Value: 3.486
+"2022-06-16 07:45:47,080",Episode: 287 | Total Reward: 63.17292181948695 | Portfolio Value: 1.88086 | Market Value: 3.486
+"2022-06-16 07:50:03,396",Episode: 288 | Total Reward: 63.28522646291405 | Portfolio Value: 1.88297 | Market Value: 3.486
+"2022-06-16 07:54:20,367",Episode: 289 | Total Reward: 63.09748495537926 | Portfolio Value: 1.87944 | Market Value: 3.486
+"2022-06-16 07:58:36,540",Episode: 290 | Total Reward: 63.28500223953153 | Portfolio Value: 1.88297 | Market Value: 3.486
+"2022-06-16 08:02:53,582",Episode: 291 | Total Reward: 63.22496005400171 | Portfolio Value: 1.88184 | Market Value: 3.486
+"2022-06-16 08:37:58,946",Start testing...
+"2022-06-16 08:37:58,946",Load model...
+"2022-06-16 08:38:00,764",Date: 2018-02-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.01958 | Portfolio Value: 0.94943
+"2022-06-16 08:38:00,766",Date: 2018-02-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.96537
+"2022-06-16 08:38:00,767",Date: 2018-02-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.97877
+"2022-06-16 08:38:00,769",Date: 2018-02-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.98036
+"2022-06-16 08:38:00,771",Date: 2018-02-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 0.99787
+"2022-06-16 08:38:00,772",Date: 2018-02-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.01219
+"2022-06-16 08:38:00,774",Date: 2018-02-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.01203
+"2022-06-16 08:38:00,776",Date: 2018-02-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.00859
+"2022-06-16 08:38:00,777",Date: 2018-02-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.00179
+"2022-06-16 08:38:00,779",Date: 2018-02-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.00051
+"2022-06-16 08:38:00,781",Date: 2018-02-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.01829
+"2022-06-16 08:38:00,783",Date: 2018-02-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.03
+"2022-06-16 08:38:00,785",Date: 2018-02-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.01862
+"2022-06-16 08:38:00,787",Date: 2018-02-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.00791
+"2022-06-16 08:38:00,789",Date: 2018-03-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 0.99659
+"2022-06-16 08:38:00,791",Date: 2018-03-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.00229
+"2022-06-16 08:38:00,793",Date: 2018-03-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.01349
+"2022-06-16 08:38:00,795",Date: 2018-03-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.01427
+"2022-06-16 08:38:00,797",Date: 2018-03-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.01136
+"2022-06-16 08:38:00,798",Date: 2018-03-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.01304
+"2022-06-16 08:38:00,800",Date: 2018-03-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.03026
+"2022-06-16 08:38:00,802",Date: 2018-03-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.02942
+"2022-06-16 08:38:00,803",Date: 2018-03-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.02151
+"2022-06-16 08:38:00,805",Date: 2018-03-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.01296
+"2022-06-16 08:38:00,807",Date: 2018-03-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0 | Portfolio Value: 1.01209
+"2022-06-16 08:38:00,809",Date: 2018-03-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.01203
+"2022-06-16 08:38:00,810",Date: 2018-03-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 0.99694
+"2022-06-16 08:38:00,812",Date: 2018-03-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.99972
+"2022-06-16 08:38:00,814",Date: 2018-03-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.9978
+"2022-06-16 08:38:00,815",Date: 2018-03-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.97321
+"2022-06-16 08:38:00,816",Date: 2018-03-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.9534
+"2022-06-16 08:38:00,818",Date: 2018-03-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0001 | Portfolio Value: 0.97579
+"2022-06-16 08:38:00,819",Date: 2018-03-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 0.95466
+"2022-06-16 08:38:00,821",Date: 2018-03-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.95084
+"2022-06-16 08:38:00,822",Date: 2018-03-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00011 | Portfolio Value: 0.95902
+"2022-06-16 08:38:00,823",Date: 2018-04-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.93739
+"2022-06-16 08:38:00,825",Date: 2018-04-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.95086
+"2022-06-16 08:38:00,827",Date: 2018-04-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 0.95818
+"2022-06-16 08:38:00,828",Date: 2018-04-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.96463
+"2022-06-16 08:38:00,830",Date: 2018-04-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.94312
+"2022-06-16 08:38:00,832",Date: 2018-04-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.94919
+"2022-06-16 08:38:00,834",Date: 2018-04-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.96564
+"2022-06-16 08:38:00,835",Date: 2018-04-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.96206
+"2022-06-16 08:38:00,837",Date: 2018-04-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00011 | Portfolio Value: 0.97586
+"2022-06-16 08:38:00,839",Date: 2018-04-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.97264
+"2022-06-16 08:38:00,841",Date: 2018-04-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.98121
+"2022-06-16 08:38:00,842",Date: 2018-04-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.99222
+"2022-06-16 08:38:00,844",Date: 2018-04-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.99474
+"2022-06-16 08:38:00,846",Date: 2018-04-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 0.99093
+"2022-06-16 08:38:00,847",Date: 2018-04-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 0.98501
+"2022-06-16 08:38:00,849",Date: 2018-04-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.9854
+"2022-06-16 08:38:00,850",Date: 2018-04-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 9e-05 | Portfolio Value: 0.97544
+"2022-06-16 08:38:00,852",Date: 2018-04-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 9e-05 | Portfolio Value: 0.97263
+"2022-06-16 08:38:00,854",Date: 2018-04-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 0.98641
+"2022-06-16 08:38:00,855",Date: 2018-04-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.98573
+"2022-06-16 08:38:00,857",Date: 2018-04-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.98024
+"2022-06-16 08:38:00,858",Date: 2018-05-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.98346
+"2022-06-16 08:38:00,860",Date: 2018-05-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.97819
+"2022-06-16 08:38:00,862",Date: 2018-05-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 0.98028
+"2022-06-16 08:38:00,864",Date: 2018-05-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.99343
+"2022-06-16 08:38:00,865",Date: 2018-05-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.99604
+"2022-06-16 08:38:00,867",Date: 2018-05-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.99533
+"2022-06-16 08:38:00,868",Date: 2018-05-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.00491
+"2022-06-16 08:38:00,869",Date: 2018-05-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.01233
+"2022-06-16 08:38:00,871",Date: 2018-05-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.01105
+"2022-06-16 08:38:00,872",Date: 2018-05-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.01439
+"2022-06-16 08:38:00,873",Date: 2018-05-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.00583
+"2022-06-16 08:38:00,875",Date: 2018-05-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.0102
+"2022-06-16 08:38:00,876",Date: 2018-05-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.00714
+"2022-06-16 08:38:00,877",Date: 2018-05-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.00567
+"2022-06-16 08:38:00,879",Date: 2018-05-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.01278
+"2022-06-16 08:38:00,880",Date: 2018-05-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.00753
+"2022-06-16 08:38:00,881",Date: 2018-05-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.00785
+"2022-06-16 08:38:00,883",Date: 2018-05-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.0074
+"2022-06-16 08:38:00,884",Date: 2018-05-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.00483
+"2022-06-16 08:38:00,886",Date: 2018-05-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.99497
+"2022-06-16 08:38:00,887",Date: 2018-05-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.00562
+"2022-06-16 08:38:00,888",Date: 2018-05-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.00159
+"2022-06-16 08:38:00,890",Date: 2018-06-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.01242
+"2022-06-16 08:38:00,891",Date: 2018-06-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.01796
+"2022-06-16 08:38:00,893",Date: 2018-06-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.0204
+"2022-06-16 08:38:00,895",Date: 2018-06-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.02794
+"2022-06-16 08:38:00,897",Date: 2018-06-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.0259
+"2022-06-16 08:38:00,898",Date: 2018-06-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.02787
+"2022-06-16 08:38:00,900",Date: 2018-06-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 9e-05 | Portfolio Value: 1.02491
+"2022-06-16 08:38:00,901",Date: 2018-06-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.02461
+"2022-06-16 08:38:00,903",Date: 2018-06-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.02022
+"2022-06-16 08:38:00,904",Date: 2018-06-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.02725
+"2022-06-16 08:38:00,906",Date: 2018-06-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.0236
+"2022-06-16 08:38:00,907",Date: 2018-06-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.02441
+"2022-06-16 08:38:00,908",Date: 2018-06-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.02185
+"2022-06-16 08:38:00,910",Date: 2018-06-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.02461
+"2022-06-16 08:38:00,912",Date: 2018-06-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.01741
+"2022-06-16 08:38:00,914",Date: 2018-06-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 9e-05 | Portfolio Value: 1.01356
+"2022-06-16 08:38:00,915",Date: 2018-06-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.99933
+"2022-06-16 08:38:00,916",Date: 2018-06-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.99992
+"2022-06-16 08:38:00,918",Date: 2018-06-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.99157
+"2022-06-16 08:38:00,919",Date: 2018-06-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.99578
+"2022-06-16 08:38:00,920",Date: 2018-06-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.99918
+"2022-06-16 08:38:00,923",Date: 2018-07-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.00528
+"2022-06-16 08:38:00,925",Date: 2018-07-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.99947
+"2022-06-16 08:38:00,926",Date: 2018-07-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.00857
+"2022-06-16 08:38:00,928",Date: 2018-07-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.01799
+"2022-06-16 08:38:00,929",Date: 2018-07-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0 | Portfolio Value: 1.02696
+"2022-06-16 08:38:00,931",Date: 2018-07-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.0266
+"2022-06-16 08:38:00,932",Date: 2018-07-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.02093
+"2022-06-16 08:38:00,934",Date: 2018-07-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.02963
+"2022-06-16 08:38:00,935",Date: 2018-07-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0 | Portfolio Value: 1.03044
+"2022-06-16 08:38:00,936",Date: 2018-07-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.03326
+"2022-06-16 08:38:00,938",Date: 2018-07-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.04049
+"2022-06-16 08:38:00,939",Date: 2018-07-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.04106
+"2022-06-16 08:38:00,941",Date: 2018-07-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.03708
+"2022-06-16 08:38:00,942",Date: 2018-07-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.0348
+"2022-06-16 08:38:00,943",Date: 2018-07-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.0379
+"2022-06-16 08:38:00,945",Date: 2018-07-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.04527
+"2022-06-16 08:38:00,946",Date: 2018-07-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.05401
+"2022-06-16 08:38:00,948",Date: 2018-07-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.04784
+"2022-06-16 08:38:00,949",Date: 2018-07-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.04073
+"2022-06-16 08:38:00,950",Date: 2018-07-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.03282
+"2022-06-16 08:38:00,952",Date: 2018-07-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.036
+"2022-06-16 08:38:00,953",Date: 2018-08-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.0347
+"2022-06-16 08:38:00,955",Date: 2018-08-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.04077
+"2022-06-16 08:38:00,956",Date: 2018-08-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.04469
+"2022-06-16 08:38:00,957",Date: 2018-08-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.04684
+"2022-06-16 08:38:00,959",Date: 2018-08-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.04781
+"2022-06-16 08:38:00,960",Date: 2018-08-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.04478
+"2022-06-16 08:38:00,961",Date: 2018-08-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.04526
+"2022-06-16 08:38:00,963",Date: 2018-08-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.03524
+"2022-06-16 08:38:00,964",Date: 2018-08-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.02938
+"2022-06-16 08:38:00,966",Date: 2018-08-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.03475
+"2022-06-16 08:38:00,967",Date: 2018-08-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.02702
+"2022-06-16 08:38:00,968",Date: 2018-08-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.03451
+"2022-06-16 08:38:00,970",Date: 2018-08-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.04031
+"2022-06-16 08:38:00,971",Date: 2018-08-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.03766
+"2022-06-16 08:38:00,972",Date: 2018-08-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.04166
+"2022-06-16 08:38:00,974",Date: 2018-08-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.04107
+"2022-06-16 08:38:00,975",Date: 2018-08-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.04061
+"2022-06-16 08:38:00,976",Date: 2018-08-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.04821
+"2022-06-16 08:38:00,978",Date: 2018-08-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.05734
+"2022-06-16 08:38:00,979",Date: 2018-08-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.05918
+"2022-06-16 08:38:00,981",Date: 2018-08-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.06511
+"2022-06-16 08:38:00,982",Date: 2018-08-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.06094
+"2022-06-16 08:38:00,983",Date: 2018-08-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.06142
+"2022-06-16 08:38:00,984",Date: 2018-09-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.06058
+"2022-06-16 08:38:00,987",Date: 2018-09-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00012 | Portfolio Value: 1.04947
+"2022-06-16 08:38:00,988",Date: 2018-09-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.0446
+"2022-06-16 08:38:00,990",Date: 2018-09-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.04039
+"2022-06-16 08:38:00,992",Date: 2018-09-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.04038
+"2022-06-16 08:38:00,993",Date: 2018-09-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.04321
+"2022-06-16 08:38:00,995",Date: 2018-09-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.04254
+"2022-06-16 08:38:00,997",Date: 2018-09-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.05289
+"2022-06-16 08:38:00,998",Date: 2018-09-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.05227
+"2022-06-16 08:38:01,000",Date: 2018-09-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.0429
+"2022-06-16 08:38:01,002",Date: 2018-09-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.0504
+"2022-06-16 08:38:01,003",Date: 2018-09-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.05105
+"2022-06-16 08:38:01,005",Date: 2018-09-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.06145
+"2022-06-16 08:38:01,006",Date: 2018-09-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.0626
+"2022-06-16 08:38:01,008",Date: 2018-09-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.0583
+"2022-06-16 08:38:01,009",Date: 2018-09-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.05645
+"2022-06-16 08:38:01,011",Date: 2018-09-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.05368
+"2022-06-16 08:38:01,012",Date: 2018-09-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.0596
+"2022-06-16 08:38:01,013",Date: 2018-09-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.05875
+"2022-06-16 08:38:01,015",Date: 2018-10-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.06242
+"2022-06-16 08:38:01,016",Date: 2018-10-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.06074
+"2022-06-16 08:38:01,017",Date: 2018-10-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.06094
+"2022-06-16 08:38:01,019",Date: 2018-10-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.05117
+"2022-06-16 08:38:01,020",Date: 2018-10-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.04472
+"2022-06-16 08:38:01,021",Date: 2018-10-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.04362
+"2022-06-16 08:38:01,023",Date: 2018-10-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.04292
+"2022-06-16 08:38:01,024",Date: 2018-10-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.0089
+"2022-06-16 08:38:01,026",Date: 2018-10-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 0.98585
+"2022-06-16 08:38:01,027",Date: 2018-10-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.00173
+"2022-06-16 08:38:01,028",Date: 2018-10-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 0.99845
+"2022-06-16 08:38:01,030",Date: 2018-10-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.02022
+"2022-06-16 08:38:01,031",Date: 2018-10-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.01995
+"2022-06-16 08:38:01,032",Date: 2018-10-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.00363
+"2022-06-16 08:38:01,034",Date: 2018-10-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.00225
+"2022-06-16 08:38:01,035",Date: 2018-10-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.00037
+"2022-06-16 08:38:01,037",Date: 2018-10-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.99532
+"2022-06-16 08:38:01,038",Date: 2018-10-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 0.96397
+"2022-06-16 08:38:01,039",Date: 2018-10-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 0.98322
+"2022-06-16 08:38:01,041",Date: 2018-10-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.96545
+"2022-06-16 08:38:01,042",Date: 2018-10-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 0.95651
+"2022-06-16 08:38:01,043",Date: 2018-10-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.9705
+"2022-06-16 08:38:01,045",Date: 2018-10-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.98252
+"2022-06-16 08:38:01,046",Date: 2018-11-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.99299
+"2022-06-16 08:38:01,047",Date: 2018-11-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.9864
+"2022-06-16 08:38:01,049",Date: 2018-11-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.991
+"2022-06-16 08:38:01,050",Date: 2018-11-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.99801
+"2022-06-16 08:38:01,052",Date: 2018-11-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.01965
+"2022-06-16 08:38:01,053",Date: 2018-11-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.0161
+"2022-06-16 08:38:01,054",Date: 2018-11-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.00517
+"2022-06-16 08:38:01,056",Date: 2018-11-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.98518
+"2022-06-16 08:38:01,057",Date: 2018-11-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.98381
+"2022-06-16 08:38:01,058",Date: 2018-11-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 0.97285
+"2022-06-16 08:38:01,060",Date: 2018-11-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.98313
+"2022-06-16 08:38:01,061",Date: 2018-11-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.98322
+"2022-06-16 08:38:01,062",Date: 2018-11-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00013 | Portfolio Value: 0.95892
+"2022-06-16 08:38:01,064",Date: 2018-11-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 0.93857
+"2022-06-16 08:38:01,065",Date: 2018-11-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.94384
+"2022-06-16 08:38:01,067",Date: 2018-11-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 0.93517
+"2022-06-16 08:38:01,068",Date: 2018-11-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00012 | Portfolio Value: 0.94526
+"2022-06-16 08:38:01,070",Date: 2018-11-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.94825
+"2022-06-16 08:38:01,071",Date: 2018-11-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 0.97472
+"2022-06-16 08:38:01,072",Date: 2018-11-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.97196
+"2022-06-16 08:38:01,074",Date: 2018-11-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 0.97608
+"2022-06-16 08:38:01,075",Date: 2018-12-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.98676
+"2022-06-16 08:38:01,077",Date: 2018-12-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 0.95652
+"2022-06-16 08:38:01,078",Date: 2018-12-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00011 | Portfolio Value: 0.95061
+"2022-06-16 08:38:01,080",Date: 2018-12-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.92803
+"2022-06-16 08:38:01,081",Date: 2018-12-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.93068
+"2022-06-16 08:38:01,082",Date: 2018-12-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.93038
+"2022-06-16 08:38:01,084",Date: 2018-12-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.93637
+"2022-06-16 08:38:01,085",Date: 2018-12-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.9341
+"2022-06-16 08:38:01,086",Date: 2018-12-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.91611
+"2022-06-16 08:38:01,088",Date: 2018-12-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00011 | Portfolio Value: 0.90226
+"2022-06-16 08:38:01,089",Date: 2018-12-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 0.90502
+"2022-06-16 08:38:01,090",Date: 2018-12-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.89037
+"2022-06-16 08:38:01,092",Date: 2018-12-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00012 | Portfolio Value: 0.88154
+"2022-06-16 08:38:01,093",Date: 2018-12-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 0.86073
+"2022-06-16 08:38:01,095",Date: 2018-12-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00016 | Portfolio Value: 0.84565
+"2022-06-16 08:38:01,096",Date: 2018-12-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0001 | Portfolio Value: 0.88478
+"2022-06-16 08:38:01,097",Date: 2018-12-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 0.88803
+"2022-06-16 08:38:01,099",Date: 2018-12-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00011 | Portfolio Value: 0.89187
+"2022-06-16 08:38:01,100",Date: 2018-12-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.89797
+"2022-06-16 08:38:01,102",Date: 2019-01-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 0.90303
+"2022-06-16 08:38:01,103",Date: 2019-01-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.87997
+"2022-06-16 08:38:01,105",Date: 2019-01-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.91007
+"2022-06-16 08:38:01,106",Date: 2019-01-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.91809
+"2022-06-16 08:38:01,107",Date: 2019-01-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.92614
+"2022-06-16 08:38:01,109",Date: 2019-01-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.9309
+"2022-06-16 08:38:01,110",Date: 2019-01-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0001 | Portfolio Value: 0.92945
+"2022-06-16 08:38:01,112",Date: 2019-01-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.92871
+"2022-06-16 08:38:01,113",Date: 2019-01-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.9236
+"2022-06-16 08:38:01,115",Date: 2019-01-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.93322
+"2022-06-16 08:38:01,116",Date: 2019-01-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.93542
+"2022-06-16 08:38:01,117",Date: 2019-01-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.94233
+"2022-06-16 08:38:01,119",Date: 2019-01-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.95289
+"2022-06-16 08:38:01,120",Date: 2019-01-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.93919
+"2022-06-16 08:38:01,121",Date: 2019-01-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.94007
+"2022-06-16 08:38:01,123",Date: 2019-01-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.9421
+"2022-06-16 08:38:01,124",Date: 2019-01-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.9503
+"2022-06-16 08:38:01,125",Date: 2019-01-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 0.94015
+"2022-06-16 08:38:01,127",Date: 2019-01-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.93721
+"2022-06-16 08:38:01,129",Date: 2019-01-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 0.95362
+"2022-06-16 08:38:01,131",Date: 2019-01-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.96191
+"2022-06-16 08:38:01,133",Date: 2019-02-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.96203
+"2022-06-16 08:38:01,134",Date: 2019-02-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.96938
+"2022-06-16 08:38:01,136",Date: 2019-02-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.97404
+"2022-06-16 08:38:01,138",Date: 2019-02-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.97168
+"2022-06-16 08:38:01,139",Date: 2019-02-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.96216
+"2022-06-16 08:38:01,141",Date: 2019-02-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 9e-05 | Portfolio Value: 0.9677
+"2022-06-16 08:38:01,143",Date: 2019-02-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.96833
+"2022-06-16 08:38:01,145",Date: 2019-02-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.98062
+"2022-06-16 08:38:01,146",Date: 2019-02-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.98281
+"2022-06-16 08:38:01,148",Date: 2019-02-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.98112
+"2022-06-16 08:38:01,150",Date: 2019-02-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.99021
+"2022-06-16 08:38:01,152",Date: 2019-02-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00011 | Portfolio Value: 0.99737
+"2022-06-16 08:38:01,153",Date: 2019-02-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.99991
+"2022-06-16 08:38:01,155",Date: 2019-02-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.99606
+"2022-06-16 08:38:01,156",Date: 2019-02-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.00242
+"2022-06-16 08:38:01,158",Date: 2019-02-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.00221
+"2022-06-16 08:38:01,159",Date: 2019-02-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.00125
+"2022-06-16 08:38:01,161",Date: 2019-02-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.00064
+"2022-06-16 08:38:01,163",Date: 2019-02-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.99879
+"2022-06-16 08:38:01,165",Date: 2019-03-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.00506
+"2022-06-16 08:38:01,167",Date: 2019-03-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.00004
+"2022-06-16 08:38:01,168",Date: 2019-03-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.00167
+"2022-06-16 08:38:01,169",Date: 2019-03-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.99571
+"2022-06-16 08:38:01,171",Date: 2019-03-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.98732
+"2022-06-16 08:38:01,172",Date: 2019-03-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.98496
+"2022-06-16 08:38:01,173",Date: 2019-03-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.99946
+"2022-06-16 08:38:01,175",Date: 2019-03-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.00333
+"2022-06-16 08:38:01,176",Date: 2019-03-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.00949
+"2022-06-16 08:38:01,178",Date: 2019-03-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0 | Portfolio Value: 1.00885
+"2022-06-16 08:38:01,180",Date: 2019-03-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.01506
+"2022-06-16 08:38:01,182",Date: 2019-03-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.01887
+"2022-06-16 08:38:01,183",Date: 2019-03-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.02005
+"2022-06-16 08:38:01,185",Date: 2019-03-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.01817
+"2022-06-16 08:38:01,186",Date: 2019-03-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.0289
+"2022-06-16 08:38:01,188",Date: 2019-03-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.00974
+"2022-06-16 08:38:01,190",Date: 2019-03-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.00822
+"2022-06-16 08:38:01,191",Date: 2019-03-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.01478
+"2022-06-16 08:38:01,193",Date: 2019-03-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.01119
+"2022-06-16 08:38:01,195",Date: 2019-03-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.01435
+"2022-06-16 08:38:01,196",Date: 2019-03-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.02169
+"2022-06-16 08:38:01,198",Date: 2019-04-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.03318
+"2022-06-16 08:38:01,199",Date: 2019-04-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00013 | Portfolio Value: 1.04118
+"2022-06-16 08:38:01,201",Date: 2019-04-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.04358
+"2022-06-16 08:38:01,202",Date: 2019-04-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.04473
+"2022-06-16 08:38:01,204",Date: 2019-04-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.05112
+"2022-06-16 08:38:01,205",Date: 2019-04-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.05521
+"2022-06-16 08:38:01,206",Date: 2019-04-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.04933
+"2022-06-16 08:38:01,208",Date: 2019-04-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.05414
+"2022-06-16 08:38:01,210",Date: 2019-04-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.05077
+"2022-06-16 08:38:01,212",Date: 2019-04-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.05702
+"2022-06-16 08:38:01,214",Date: 2019-04-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.05577
+"2022-06-16 08:38:01,216",Date: 2019-04-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.05844
+"2022-06-16 08:38:01,218",Date: 2019-04-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.05695
+"2022-06-16 08:38:01,219",Date: 2019-04-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.05985
+"2022-06-16 08:38:01,221",Date: 2019-04-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.06111
+"2022-06-16 08:38:01,223",Date: 2019-04-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.07131
+"2022-06-16 08:38:01,224",Date: 2019-04-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.06811
+"2022-06-16 08:38:01,226",Date: 2019-04-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.06586
+"2022-06-16 08:38:01,228",Date: 2019-04-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.07064
+"2022-06-16 08:38:01,230",Date: 2019-04-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.07166
+"2022-06-16 08:38:01,231",Date: 2019-04-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.0718
+"2022-06-16 08:38:01,232",Date: 2019-05-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.06525
+"2022-06-16 08:38:01,234",Date: 2019-05-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.06359
+"2022-06-16 08:38:01,235",Date: 2019-05-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.07636
+"2022-06-16 08:38:01,236",Date: 2019-05-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.07261
+"2022-06-16 08:38:01,238",Date: 2019-05-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.05509
+"2022-06-16 08:38:01,239",Date: 2019-05-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.05406
+"2022-06-16 08:38:01,240",Date: 2019-05-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.0513
+"2022-06-16 08:38:01,242",Date: 2019-05-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.0563
+"2022-06-16 08:38:01,243",Date: 2019-05-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00018 | Portfolio Value: 1.03747
+"2022-06-16 08:38:01,244",Date: 2019-05-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.0493
+"2022-06-16 08:38:01,246",Date: 2019-05-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.06021
+"2022-06-16 08:38:01,247",Date: 2019-05-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.0699
+"2022-06-16 08:38:01,248",Date: 2019-05-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.05955
+"2022-06-16 08:38:01,250",Date: 2019-05-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.05318
+"2022-06-16 08:38:01,251",Date: 2019-05-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.06258
+"2022-06-16 08:38:01,252",Date: 2019-05-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.05756
+"2022-06-16 08:38:01,254",Date: 2019-05-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.04546
+"2022-06-16 08:38:01,255",Date: 2019-05-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.04775
+"2022-06-16 08:38:01,257",Date: 2019-05-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.04372
+"2022-06-16 08:38:01,258",Date: 2019-05-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.03649
+"2022-06-16 08:38:01,260",Date: 2019-05-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.0371
+"2022-06-16 08:38:01,262",Date: 2019-05-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.02554
+"2022-06-16 08:38:01,263",Date: 2019-06-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 9e-05 | Portfolio Value: 1.01654
+"2022-06-16 08:38:01,265",Date: 2019-06-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.03668
+"2022-06-16 08:38:01,267",Date: 2019-06-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.04545
+"2022-06-16 08:38:01,268",Date: 2019-06-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.05218
+"2022-06-16 08:38:01,270",Date: 2019-06-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.06438
+"2022-06-16 08:38:01,271",Date: 2019-06-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.07033
+"2022-06-16 08:38:01,273",Date: 2019-06-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.06978
+"2022-06-16 08:38:01,275",Date: 2019-06-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.06929
+"2022-06-16 08:38:01,276",Date: 2019-06-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.07361
+"2022-06-16 08:38:01,278",Date: 2019-06-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.07365
+"2022-06-16 08:38:01,279",Date: 2019-06-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.07791
+"2022-06-16 08:38:01,281",Date: 2019-06-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.08757
+"2022-06-16 08:38:01,282",Date: 2019-06-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.09137
+"2022-06-16 08:38:01,284",Date: 2019-06-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.10191
+"2022-06-16 08:38:01,285",Date: 2019-06-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.10433
+"2022-06-16 08:38:01,286",Date: 2019-06-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.10553
+"2022-06-16 08:38:01,288",Date: 2019-06-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.09601
+"2022-06-16 08:38:01,290",Date: 2019-06-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.09967
+"2022-06-16 08:38:01,292",Date: 2019-06-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00011 | Portfolio Value: 1.09781
+"2022-06-16 08:38:01,294",Date: 2019-06-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.1063
+"2022-06-16 08:38:01,295",Date: 2019-07-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 9e-05 | Portfolio Value: 1.11126
+"2022-06-16 08:38:01,297",Date: 2019-07-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.11468
+"2022-06-16 08:38:01,299",Date: 2019-07-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.12579
+"2022-06-16 08:38:01,300",Date: 2019-07-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.12135
+"2022-06-16 08:38:01,302",Date: 2019-07-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 9e-05 | Portfolio Value: 1.12021
+"2022-06-16 08:38:01,303",Date: 2019-07-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.12267
+"2022-06-16 08:38:01,305",Date: 2019-07-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.12621
+"2022-06-16 08:38:01,307",Date: 2019-07-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.12432
+"2022-06-16 08:38:01,309",Date: 2019-07-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.13129
+"2022-06-16 08:38:01,311",Date: 2019-07-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0001 | Portfolio Value: 1.12604
+"2022-06-16 08:38:01,312",Date: 2019-07-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0001 | Portfolio Value: 1.1158
+"2022-06-16 08:38:01,314",Date: 2019-07-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.11136
+"2022-06-16 08:38:01,315",Date: 2019-07-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.11871
+"2022-06-16 08:38:01,316",Date: 2019-07-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.11151
+"2022-06-16 08:38:01,318",Date: 2019-07-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.11439
+"2022-06-16 08:38:01,319",Date: 2019-07-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.1199
+"2022-06-16 08:38:01,321",Date: 2019-07-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.12593
+"2022-06-16 08:38:01,322",Date: 2019-07-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.12026
+"2022-06-16 08:38:01,323",Date: 2019-07-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.12818
+"2022-06-16 08:38:01,325",Date: 2019-07-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.1241
+"2022-06-16 08:38:01,326",Date: 2019-07-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.12153
+"2022-06-16 08:38:01,327",Date: 2019-07-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.11146
+"2022-06-16 08:38:01,329",Date: 2019-08-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.1036
+"2022-06-16 08:38:01,330",Date: 2019-08-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.09461
+"2022-06-16 08:38:01,331",Date: 2019-08-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00012 | Portfolio Value: 1.06741
+"2022-06-16 08:38:01,333",Date: 2019-08-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.0793
+"2022-06-16 08:38:01,334",Date: 2019-08-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.082
+"2022-06-16 08:38:01,336",Date: 2019-08-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.10156
+"2022-06-16 08:38:01,337",Date: 2019-08-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.09266
+"2022-06-16 08:38:01,339",Date: 2019-08-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.07956
+"2022-06-16 08:38:01,341",Date: 2019-08-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.09498
+"2022-06-16 08:38:01,343",Date: 2019-08-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.06029
+"2022-06-16 08:38:01,344",Date: 2019-08-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.06298
+"2022-06-16 08:38:01,346",Date: 2019-08-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.07768
+"2022-06-16 08:38:01,348",Date: 2019-08-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.09395
+"2022-06-16 08:38:01,349",Date: 2019-08-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.08496
+"2022-06-16 08:38:01,351",Date: 2019-08-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.09091
+"2022-06-16 08:38:01,353",Date: 2019-08-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.09038
+"2022-06-16 08:38:01,354",Date: 2019-08-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.06392
+"2022-06-16 08:38:01,356",Date: 2019-08-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.07493
+"2022-06-16 08:38:01,358",Date: 2019-08-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.07056
+"2022-06-16 08:38:01,359",Date: 2019-08-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.07413
+"2022-06-16 08:38:01,361",Date: 2019-08-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.08664
+"2022-06-16 08:38:01,363",Date: 2019-08-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.08602
+"2022-06-16 08:38:01,364",Date: 2019-09-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.08269
+"2022-06-16 08:38:01,366",Date: 2019-09-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.094
+"2022-06-16 08:38:01,367",Date: 2019-09-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.10855
+"2022-06-16 08:38:01,369",Date: 2019-09-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.10764
+"2022-06-16 08:38:01,370",Date: 2019-09-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.10909
+"2022-06-16 08:38:01,372",Date: 2019-09-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.10809
+"2022-06-16 08:38:01,373",Date: 2019-09-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.11614
+"2022-06-16 08:38:01,374",Date: 2019-09-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.12049
+"2022-06-16 08:38:01,376",Date: 2019-09-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.11908
+"2022-06-16 08:38:01,377",Date: 2019-09-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.11766
+"2022-06-16 08:38:01,379",Date: 2019-09-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.1219
+"2022-06-16 08:38:01,380",Date: 2019-09-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.12236
+"2022-06-16 08:38:01,382",Date: 2019-09-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.12371
+"2022-06-16 08:38:01,383",Date: 2019-09-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.11686
+"2022-06-16 08:38:01,385",Date: 2019-09-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.11431
+"2022-06-16 08:38:01,387",Date: 2019-09-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00011 | Portfolio Value: 1.09763
+"2022-06-16 08:38:01,389",Date: 2019-09-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.10518
+"2022-06-16 08:38:01,391",Date: 2019-09-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.10083
+"2022-06-16 08:38:01,392",Date: 2019-09-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.09521
+"2022-06-16 08:38:01,394",Date: 2019-09-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.10222
+"2022-06-16 08:38:01,396",Date: 2019-10-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.08988
+"2022-06-16 08:38:01,397",Date: 2019-10-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.07281
+"2022-06-16 08:38:01,399",Date: 2019-10-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.08048
+"2022-06-16 08:38:01,401",Date: 2019-10-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.09438
+"2022-06-16 08:38:01,402",Date: 2019-10-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.09097
+"2022-06-16 08:38:01,404",Date: 2019-10-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.07503
+"2022-06-16 08:38:01,405",Date: 2019-10-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.08708
+"2022-06-16 08:38:01,407",Date: 2019-10-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.09391
+"2022-06-16 08:38:01,408",Date: 2019-10-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.10308
+"2022-06-16 08:38:01,410",Date: 2019-10-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.10319
+"2022-06-16 08:38:01,411",Date: 2019-10-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.11266
+"2022-06-16 08:38:01,413",Date: 2019-10-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.10951
+"2022-06-16 08:38:01,414",Date: 2019-10-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.11301
+"2022-06-16 08:38:01,416",Date: 2019-10-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.10649
+"2022-06-16 08:38:01,417",Date: 2019-10-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.11494
+"2022-06-16 08:38:01,419",Date: 2019-10-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.1096
+"2022-06-16 08:38:01,420",Date: 2019-10-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.10935
+"2022-06-16 08:38:01,422",Date: 2019-10-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.11262
+"2022-06-16 08:38:01,423",Date: 2019-10-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00012 | Portfolio Value: 1.12438
+"2022-06-16 08:38:01,425",Date: 2019-10-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.13283
+"2022-06-16 08:38:01,426",Date: 2019-10-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.13254
+"2022-06-16 08:38:01,427",Date: 2019-10-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.13462
+"2022-06-16 08:38:01,429",Date: 2019-10-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.13192
+"2022-06-16 08:38:01,430",Date: 2019-11-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.14242
+"2022-06-16 08:38:01,431",Date: 2019-11-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.14784
+"2022-06-16 08:38:01,433",Date: 2019-11-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.14718
+"2022-06-16 08:38:01,434",Date: 2019-11-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.14718
+"2022-06-16 08:38:01,436",Date: 2019-11-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.15008
+"2022-06-16 08:38:01,437",Date: 2019-11-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.15148
+"2022-06-16 08:38:01,438",Date: 2019-11-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0 | Portfolio Value: 1.14961
+"2022-06-16 08:38:01,440",Date: 2019-11-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.15234
+"2022-06-16 08:38:01,441",Date: 2019-11-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0 | Portfolio Value: 1.1528
+"2022-06-16 08:38:01,442",Date: 2019-11-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.15304
+"2022-06-16 08:38:01,444",Date: 2019-11-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.15979
+"2022-06-16 08:38:01,445",Date: 2019-11-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.1597
+"2022-06-16 08:38:01,446",Date: 2019-11-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.15925
+"2022-06-16 08:38:01,448",Date: 2019-11-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.15454
+"2022-06-16 08:38:01,450",Date: 2019-11-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.14908
+"2022-06-16 08:38:01,452",Date: 2019-11-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.14826
+"2022-06-16 08:38:01,453",Date: 2019-11-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.1566
+"2022-06-16 08:38:01,455",Date: 2019-11-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.15946
+"2022-06-16 08:38:01,457",Date: 2019-11-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.16691
+"2022-06-16 08:38:01,458",Date: 2019-11-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.16349
+"2022-06-16 08:38:01,460",Date: 2019-12-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.15148
+"2022-06-16 08:38:01,461",Date: 2019-12-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.14378
+"2022-06-16 08:38:01,463",Date: 2019-12-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.14972
+"2022-06-16 08:38:01,464",Date: 2019-12-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.15284
+"2022-06-16 08:38:01,466",Date: 2019-12-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.16326
+"2022-06-16 08:38:01,467",Date: 2019-12-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.15881
+"2022-06-16 08:38:01,469",Date: 2019-12-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.15709
+"2022-06-16 08:38:01,470",Date: 2019-12-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.16021
+"2022-06-16 08:38:01,471",Date: 2019-12-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.16939
+"2022-06-16 08:38:01,473",Date: 2019-12-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.17048
+"2022-06-16 08:38:01,474",Date: 2019-12-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.17567
+"2022-06-16 08:38:01,476",Date: 2019-12-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.1727
+"2022-06-16 08:38:01,477",Date: 2019-12-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.1778
+"2022-06-16 08:38:01,478",Date: 2019-12-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.18168
+"2022-06-16 08:38:01,480",Date: 2019-12-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.18701
+"2022-06-16 08:38:01,481",Date: 2019-12-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.18898
+"2022-06-16 08:38:01,483",Date: 2019-12-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.18887
+"2022-06-16 08:38:01,484",Date: 2019-12-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.19466
+"2022-06-16 08:38:01,486",Date: 2019-12-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.19449
+"2022-06-16 08:38:01,487",Date: 2019-12-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.18915
+"2022-06-16 08:38:01,488",Date: 2019-12-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.19095
+"2022-06-16 08:38:01,490",Date: 2020-01-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.20158
+"2022-06-16 08:38:01,491",Date: 2020-01-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.1958
+"2022-06-16 08:38:01,493",Date: 2020-01-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.20369
+"2022-06-16 08:38:01,494",Date: 2020-01-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.20223
+"2022-06-16 08:38:01,495",Date: 2020-01-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.20789
+"2022-06-16 08:38:01,497",Date: 2020-01-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.21467
+"2022-06-16 08:38:01,499",Date: 2020-01-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.2138
+"2022-06-16 08:38:01,500",Date: 2020-01-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.22218
+"2022-06-16 08:38:01,502",Date: 2020-01-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0001 | Portfolio Value: 1.22615
+"2022-06-16 08:38:01,503",Date: 2020-01-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.22841
+"2022-06-16 08:38:01,505",Date: 2020-01-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.23767
+"2022-06-16 08:38:01,506",Date: 2020-01-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.24322
+"2022-06-16 08:38:01,508",Date: 2020-01-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.24054
+"2022-06-16 08:38:01,509",Date: 2020-01-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.24103
+"2022-06-16 08:38:01,511",Date: 2020-01-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.2411
+"2022-06-16 08:38:01,513",Date: 2020-01-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.23081
+"2022-06-16 08:38:01,515",Date: 2020-01-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.21395
+"2022-06-16 08:38:01,516",Date: 2020-01-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.22905
+"2022-06-16 08:38:01,518",Date: 2020-01-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.22822
+"2022-06-16 08:38:01,520",Date: 2020-01-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.23387
+"2022-06-16 08:38:01,521",Date: 2020-01-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.21252
+"2022-06-16 08:38:01,523",Date: 2020-02-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.22407
+"2022-06-16 08:38:01,525",Date: 2020-02-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.24318
+"2022-06-16 08:38:01,526",Date: 2020-02-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.25734
+"2022-06-16 08:38:01,528",Date: 2020-02-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.26399
+"2022-06-16 08:38:01,529",Date: 2020-02-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.25924
+"2022-06-16 08:38:01,531",Date: 2020-02-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.26912
+"2022-06-16 08:38:01,532",Date: 2020-02-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.27362
+"2022-06-16 08:38:01,533",Date: 2020-02-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.28563
+"2022-06-16 08:38:01,535",Date: 2020-02-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.28434
+"2022-06-16 08:38:01,536",Date: 2020-02-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.28854
+"2022-06-16 08:38:01,538",Date: 2020-02-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.28548
+"2022-06-16 08:38:01,539",Date: 2020-02-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.28866
+"2022-06-16 08:38:01,540",Date: 2020-02-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.28262
+"2022-06-16 08:38:01,542",Date: 2020-02-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.26913
+"2022-06-16 08:38:01,543",Date: 2020-02-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.22815
+"2022-06-16 08:38:01,545",Date: 2020-02-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.19137
+"2022-06-16 08:38:01,547",Date: 2020-02-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.18487
+"2022-06-16 08:38:01,549",Date: 2020-02-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.13442
+"2022-06-16 08:38:01,550",Date: 2020-02-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.12851
+"2022-06-16 08:38:01,551",Date: 2020-03-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.17815
+"2022-06-16 08:38:01,553",Date: 2020-03-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.1455
+"2022-06-16 08:38:01,554",Date: 2020-03-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.19036
+"2022-06-16 08:38:01,556",Date: 2020-03-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.15476
+"2022-06-16 08:38:01,557",Date: 2020-03-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.13803
+"2022-06-16 08:38:01,558",Date: 2020-03-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.04862
+"2022-06-16 08:38:01,560",Date: 2020-03-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.09952
+"2022-06-16 08:38:01,562",Date: 2020-03-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.04912
+"2022-06-16 08:38:01,564",Date: 2020-03-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00029 | Portfolio Value: 0.93774
+"2022-06-16 08:38:01,565",Date: 2020-03-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 9e-05 | Portfolio Value: 1.0228
+"2022-06-16 08:38:01,567",Date: 2020-03-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 0.90643
+"2022-06-16 08:38:01,568",Date: 2020-03-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 9e-05 | Portfolio Value: 0.96035
+"2022-06-16 08:38:01,570",Date: 2020-03-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00014 | Portfolio Value: 0.91607
+"2022-06-16 08:38:01,571",Date: 2020-03-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00012 | Portfolio Value: 0.92571
+"2022-06-16 08:38:01,573",Date: 2020-03-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 0.88848
+"2022-06-16 08:38:01,574",Date: 2020-03-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00013 | Portfolio Value: 0.87081
+"2022-06-16 08:38:01,576",Date: 2020-03-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0001 | Portfolio Value: 0.94582
+"2022-06-16 08:38:01,578",Date: 2020-03-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 0.95349
+"2022-06-16 08:38:01,579",Date: 2020-03-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.00617
+"2022-06-16 08:38:01,581",Date: 2020-03-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.97445
+"2022-06-16 08:38:01,582",Date: 2020-03-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.00434
+"2022-06-16 08:38:01,584",Date: 2020-03-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 0.99167
+"2022-06-16 08:38:01,585",Date: 2020-04-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 0.95125
+"2022-06-16 08:38:01,587",Date: 2020-04-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 0.97223
+"2022-06-16 08:38:01,589",Date: 2020-04-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 0.95846
+"2022-06-16 08:38:01,590",Date: 2020-04-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.02602
+"2022-06-16 08:38:01,591",Date: 2020-04-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.02544
+"2022-06-16 08:38:01,593",Date: 2020-04-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.05733
+"2022-06-16 08:38:01,595",Date: 2020-04-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.06965
+"2022-06-16 08:38:01,596",Date: 2020-04-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.06045
+"2022-06-16 08:38:01,598",Date: 2020-04-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.09337
+"2022-06-16 08:38:01,600",Date: 2020-04-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.07128
+"2022-06-16 08:38:01,601",Date: 2020-04-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0001 | Portfolio Value: 1.08336
+"2022-06-16 08:38:01,603",Date: 2020-04-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.10716
+"2022-06-16 08:38:01,604",Date: 2020-04-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.08947
+"2022-06-16 08:38:01,605",Date: 2020-04-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.05702
+"2022-06-16 08:38:01,607",Date: 2020-04-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.0829
+"2022-06-16 08:38:01,608",Date: 2020-04-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.08439
+"2022-06-16 08:38:01,610",Date: 2020-04-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.09915
+"2022-06-16 08:38:01,612",Date: 2020-04-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.11532
+"2022-06-16 08:38:01,613",Date: 2020-04-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.10761
+"2022-06-16 08:38:01,615",Date: 2020-04-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.14231
+"2022-06-16 08:38:01,617",Date: 2020-04-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.13189
+"2022-06-16 08:38:01,618",Date: 2020-05-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.10428
+"2022-06-16 08:38:01,620",Date: 2020-05-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.10897
+"2022-06-16 08:38:01,621",Date: 2020-05-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.11904
+"2022-06-16 08:38:01,623",Date: 2020-05-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.11492
+"2022-06-16 08:38:01,624",Date: 2020-05-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.13101
+"2022-06-16 08:38:01,626",Date: 2020-05-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.14803
+"2022-06-16 08:38:01,628",Date: 2020-05-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0001 | Portfolio Value: 1.14386
+"2022-06-16 08:38:01,630",Date: 2020-05-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.12309
+"2022-06-16 08:38:01,631",Date: 2020-05-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.10758
+"2022-06-16 08:38:01,633",Date: 2020-05-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.1212
+"2022-06-16 08:38:01,635",Date: 2020-05-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.12464
+"2022-06-16 08:38:01,636",Date: 2020-05-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.15829
+"2022-06-16 08:38:01,638",Date: 2020-05-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.1488
+"2022-06-16 08:38:01,639",Date: 2020-05-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.16681
+"2022-06-16 08:38:01,641",Date: 2020-05-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.15603
+"2022-06-16 08:38:01,643",Date: 2020-05-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.16002
+"2022-06-16 08:38:01,644",Date: 2020-05-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.16892
+"2022-06-16 08:38:01,646",Date: 2020-05-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.18521
+"2022-06-16 08:38:01,648",Date: 2020-05-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.18518
+"2022-06-16 08:38:01,649",Date: 2020-05-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.19169
+"2022-06-16 08:38:01,650",Date: 2020-06-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.20177
+"2022-06-16 08:38:01,652",Date: 2020-06-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.2078
+"2022-06-16 08:38:01,653",Date: 2020-06-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.22252
+"2022-06-16 08:38:01,655",Date: 2020-06-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.21849
+"2022-06-16 08:38:01,656",Date: 2020-06-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.24571
+"2022-06-16 08:38:01,658",Date: 2020-06-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.26026
+"2022-06-16 08:38:01,659",Date: 2020-06-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.25432
+"2022-06-16 08:38:01,661",Date: 2020-06-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.25181
+"2022-06-16 08:38:01,662",Date: 2020-06-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.18218
+"2022-06-16 08:38:01,664",Date: 2020-06-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.19641
+"2022-06-16 08:38:01,665",Date: 2020-06-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.20685
+"2022-06-16 08:38:01,667",Date: 2020-06-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.22891
+"2022-06-16 08:38:01,668",Date: 2020-06-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.22513
+"2022-06-16 08:38:01,669",Date: 2020-06-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.22596
+"2022-06-16 08:38:01,671",Date: 2020-06-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.21985
+"2022-06-16 08:38:01,672",Date: 2020-06-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.23146
+"2022-06-16 08:38:01,674",Date: 2020-06-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.23734
+"2022-06-16 08:38:01,675",Date: 2020-06-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.20668
+"2022-06-16 08:38:01,677",Date: 2020-06-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.21836
+"2022-06-16 08:38:01,678",Date: 2020-06-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.19083
+"2022-06-16 08:38:01,680",Date: 2020-06-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.20636
+"2022-06-16 08:38:01,681",Date: 2020-06-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.22254
+"2022-06-16 08:38:01,682",Date: 2020-07-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.23216
+"2022-06-16 08:38:01,684",Date: 2020-07-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.23775
+"2022-06-16 08:38:01,685",Date: 2020-07-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.25986
+"2022-06-16 08:38:01,686",Date: 2020-07-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.24799
+"2022-06-16 08:38:01,688",Date: 2020-07-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.25958
+"2022-06-16 08:38:01,689",Date: 2020-07-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.25531
+"2022-06-16 08:38:01,691",Date: 2020-07-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.26647
+"2022-06-16 08:38:01,692",Date: 2020-07-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.2524
+"2022-06-16 08:38:01,693",Date: 2020-07-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.26645
+"2022-06-16 08:38:01,695",Date: 2020-07-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.27599
+"2022-06-16 08:38:01,696",Date: 2020-07-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.27022
+"2022-06-16 08:38:01,698",Date: 2020-07-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.27338
+"2022-06-16 08:38:01,699",Date: 2020-07-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.2882
+"2022-06-16 08:38:01,700",Date: 2020-07-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.28946
+"2022-06-16 08:38:01,702",Date: 2020-07-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.29812
+"2022-06-16 08:38:01,703",Date: 2020-07-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.28166
+"2022-06-16 08:38:01,705",Date: 2020-07-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.27307
+"2022-06-16 08:38:01,706",Date: 2020-07-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00012 | Portfolio Value: 1.29269
+"2022-06-16 08:38:01,708",Date: 2020-07-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.28256
+"2022-06-16 08:38:01,709",Date: 2020-07-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.29787
+"2022-06-16 08:38:01,711",Date: 2020-07-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.29738
+"2022-06-16 08:38:01,712",Date: 2020-07-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.31025
+"2022-06-16 08:38:01,714",Date: 2020-08-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.32347
+"2022-06-16 08:38:01,715",Date: 2020-08-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.32841
+"2022-06-16 08:38:01,717",Date: 2020-08-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.33776
+"2022-06-16 08:38:01,718",Date: 2020-08-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.3469
+"2022-06-16 08:38:01,719",Date: 2020-08-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.34317
+"2022-06-16 08:38:01,721",Date: 2020-08-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.34695
+"2022-06-16 08:38:01,722",Date: 2020-08-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.33158
+"2022-06-16 08:38:01,724",Date: 2020-08-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.35278
+"2022-06-16 08:38:01,725",Date: 2020-08-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.35516
+"2022-06-16 08:38:01,726",Date: 2020-08-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.35509
+"2022-06-16 08:38:01,728",Date: 2020-08-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.36229
+"2022-06-16 08:38:01,729",Date: 2020-08-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.36546
+"2022-06-16 08:38:01,731",Date: 2020-08-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.35807
+"2022-06-16 08:38:01,732",Date: 2020-08-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.36542
+"2022-06-16 08:38:01,733",Date: 2020-08-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.3679
+"2022-06-16 08:38:01,735",Date: 2020-08-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.38174
+"2022-06-16 08:38:01,736",Date: 2020-08-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.38446
+"2022-06-16 08:38:01,738",Date: 2020-08-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.40072
+"2022-06-16 08:38:01,739",Date: 2020-08-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.40166
+"2022-06-16 08:38:01,740",Date: 2020-08-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.41131
+"2022-06-16 08:38:01,742",Date: 2020-08-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.41315
+"2022-06-16 08:38:01,743",Date: 2020-09-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.43098
+"2022-06-16 08:38:01,745",Date: 2020-09-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.44506
+"2022-06-16 08:38:01,746",Date: 2020-09-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00011 | Portfolio Value: 1.38654
+"2022-06-16 08:38:01,747",Date: 2020-09-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.37559
+"2022-06-16 08:38:01,749",Date: 2020-09-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0001 | Portfolio Value: 1.33013
+"2022-06-16 08:38:01,750",Date: 2020-09-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.35841
+"2022-06-16 08:38:01,751",Date: 2020-09-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.33745
+"2022-06-16 08:38:01,753",Date: 2020-09-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.33678
+"2022-06-16 08:38:01,754",Date: 2020-09-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.35595
+"2022-06-16 08:38:01,756",Date: 2020-09-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.36418
+"2022-06-16 08:38:01,757",Date: 2020-09-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.35669
+"2022-06-16 08:38:01,759",Date: 2020-09-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.34572
+"2022-06-16 08:38:01,760",Date: 2020-09-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.3308
+"2022-06-16 08:38:01,761",Date: 2020-09-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.31563
+"2022-06-16 08:38:01,763",Date: 2020-09-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.33073
+"2022-06-16 08:38:01,764",Date: 2020-09-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.29696
+"2022-06-16 08:38:01,766",Date: 2020-09-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.30424
+"2022-06-16 08:38:01,767",Date: 2020-09-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.32576
+"2022-06-16 08:38:01,768",Date: 2020-09-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.34802
+"2022-06-16 08:38:01,770",Date: 2020-09-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.34204
+"2022-06-16 08:38:01,771",Date: 2020-09-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.35126
+"2022-06-16 08:38:01,773",Date: 2020-10-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.36131
+"2022-06-16 08:38:01,774",Date: 2020-10-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.34409
+"2022-06-16 08:38:01,775",Date: 2020-10-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.36849
+"2022-06-16 08:38:01,777",Date: 2020-10-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.3483
+"2022-06-16 08:38:01,778",Date: 2020-10-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.37047
+"2022-06-16 08:38:01,780",Date: 2020-10-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.38237
+"2022-06-16 08:38:01,781",Date: 2020-10-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.39689
+"2022-06-16 08:38:01,782",Date: 2020-10-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.42448
+"2022-06-16 08:38:01,784",Date: 2020-10-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.41711
+"2022-06-16 08:38:01,785",Date: 2020-10-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.40796
+"2022-06-16 08:38:01,787",Date: 2020-10-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.40537
+"2022-06-16 08:38:01,788",Date: 2020-10-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.40139
+"2022-06-16 08:38:01,789",Date: 2020-10-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.38358
+"2022-06-16 08:38:01,791",Date: 2020-10-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.38768
+"2022-06-16 08:38:01,792",Date: 2020-10-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.38899
+"2022-06-16 08:38:01,793",Date: 2020-10-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.39721
+"2022-06-16 08:38:01,795",Date: 2020-10-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.40073
+"2022-06-16 08:38:01,796",Date: 2020-10-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.37661
+"2022-06-16 08:38:01,797",Date: 2020-10-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.37693
+"2022-06-16 08:38:01,799",Date: 2020-10-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.32996
+"2022-06-16 08:38:01,800",Date: 2020-10-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.3445
+"2022-06-16 08:38:01,802",Date: 2020-10-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.32716
+"2022-06-16 08:38:01,803",Date: 2020-11-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.33886
+"2022-06-16 08:38:01,805",Date: 2020-11-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.36261
+"2022-06-16 08:38:01,806",Date: 2020-11-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.39789
+"2022-06-16 08:38:01,807",Date: 2020-11-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.42946
+"2022-06-16 08:38:01,809",Date: 2020-11-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.43215
+"2022-06-16 08:38:01,810",Date: 2020-11-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00012 | Portfolio Value: 1.4385
+"2022-06-16 08:38:01,811",Date: 2020-11-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.43246
+"2022-06-16 08:38:01,813",Date: 2020-11-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.44803
+"2022-06-16 08:38:01,814",Date: 2020-11-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.43735
+"2022-06-16 08:38:01,815",Date: 2020-11-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.45551
+"2022-06-16 08:38:01,817",Date: 2020-11-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.47072
+"2022-06-16 08:38:01,819",Date: 2020-11-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.46812
+"2022-06-16 08:38:01,821",Date: 2020-11-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.4531
+"2022-06-16 08:38:01,822",Date: 2020-11-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.45975
+"2022-06-16 08:38:01,824",Date: 2020-11-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.45475
+"2022-06-16 08:38:01,826",Date: 2020-11-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.46716
+"2022-06-16 08:38:01,827",Date: 2020-11-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.48965
+"2022-06-16 08:38:01,829",Date: 2020-11-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.48745
+"2022-06-16 08:38:01,830",Date: 2020-11-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.48781
+"2022-06-16 08:38:01,832",Date: 2020-11-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00014 | Portfolio Value: 1.49267
+"2022-06-16 08:38:01,834",Date: 2020-12-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.50595
+"2022-06-16 08:38:01,835",Date: 2020-12-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.50973
+"2022-06-16 08:38:01,837",Date: 2020-12-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.51178
+"2022-06-16 08:38:01,838",Date: 2020-12-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.51926
+"2022-06-16 08:38:01,840",Date: 2020-12-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.52103
+"2022-06-16 08:38:01,841",Date: 2020-12-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.52227
+"2022-06-16 08:38:01,843",Date: 2020-12-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.50679
+"2022-06-16 08:38:01,845",Date: 2020-12-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.50657
+"2022-06-16 08:38:01,846",Date: 2020-12-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.5032
+"2022-06-16 08:38:01,848",Date: 2020-12-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.50508
+"2022-06-16 08:38:01,849",Date: 2020-12-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.5239
+"2022-06-16 08:38:01,851",Date: 2020-12-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.53283
+"2022-06-16 08:38:01,852",Date: 2020-12-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.54416
+"2022-06-16 08:38:01,854",Date: 2020-12-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.53996
+"2022-06-16 08:38:01,855",Date: 2020-12-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.53285
+"2022-06-16 08:38:01,857",Date: 2020-12-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.53508
+"2022-06-16 08:38:01,858",Date: 2020-12-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.53144
+"2022-06-16 08:38:01,859",Date: 2020-12-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.53868
+"2022-06-16 08:38:01,861",Date: 2020-12-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00012 | Portfolio Value: 1.56136
+"2022-06-16 08:38:01,862",Date: 2020-12-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.55906
+"2022-06-16 08:38:01,864",Date: 2020-12-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.56373
+"2022-06-16 08:38:01,865",Date: 2020-12-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.56984
+"2022-06-16 08:38:01,867",Date: 2021-01-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00022 | Portfolio Value: 1.56618
+"2022-06-16 08:38:01,869",Date: 2021-01-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.58067
+"2022-06-16 08:38:01,870",Date: 2021-01-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.59039
+"2022-06-16 08:38:01,872",Date: 2021-01-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.61845
+"2022-06-16 08:38:01,873",Date: 2021-01-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.62973
+"2022-06-16 08:38:01,875",Date: 2021-01-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.0001 | Portfolio Value: 1.60938
+"2022-06-16 08:38:01,876",Date: 2021-01-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.60761
+"2022-06-16 08:38:01,878",Date: 2021-01-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.6179
+"2022-06-16 08:38:01,879",Date: 2021-01-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.61741
+"2022-06-16 08:38:01,881",Date: 2021-01-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.60199
+"2022-06-16 08:38:01,882",Date: 2021-01-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.62095
+"2022-06-16 08:38:01,884",Date: 2021-01-20 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.64419
+"2022-06-16 08:38:01,885",Date: 2021-01-21 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00013 | Portfolio Value: 1.63593
+"2022-06-16 08:38:01,886",Date: 2021-01-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.63736
+"2022-06-16 08:38:01,887",Date: 2021-01-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.64598
+"2022-06-16 08:38:01,889",Date: 2021-01-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.64534
+"2022-06-16 08:38:01,890",Date: 2021-01-27 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.60132
+"2022-06-16 08:38:01,891",Date: 2021-01-28 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.61869
+"2022-06-16 08:38:01,893",Date: 2021-01-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.59088
+"2022-06-16 08:38:01,894",Date: 2021-02-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.61732
+"2022-06-16 08:38:01,896",Date: 2021-02-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.64484
+"2022-06-16 08:38:01,897",Date: 2021-02-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.65029
+"2022-06-16 08:38:01,899",Date: 2021-02-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.66626
+"2022-06-16 08:38:01,900",Date: 2021-02-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.6766
+"2022-06-16 08:38:01,901",Date: 2021-02-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.69634
+"2022-06-16 08:38:01,903",Date: 2021-02-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.69613
+"2022-06-16 08:38:01,904",Date: 2021-02-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.69304
+"2022-06-16 08:38:01,906",Date: 2021-02-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.70041
+"2022-06-16 08:38:01,907",Date: 2021-02-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.70927
+"2022-06-16 08:38:01,908",Date: 2021-02-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.70717
+"2022-06-16 08:38:01,910",Date: 2021-02-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.70854
+"2022-06-16 08:38:01,911",Date: 2021-02-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.70259
+"2022-06-16 08:38:01,913",Date: 2021-02-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.7033
+"2022-06-16 08:38:01,915",Date: 2021-02-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 9e-05 | Portfolio Value: 1.68008
+"2022-06-16 08:38:01,917",Date: 2021-02-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.67276
+"2022-06-16 08:38:01,919",Date: 2021-02-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.69079
+"2022-06-16 08:38:01,920",Date: 2021-02-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.64357
+"2022-06-16 08:38:01,922",Date: 2021-02-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.6373
+"2022-06-16 08:38:01,923",Date: 2021-03-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.68209
+"2022-06-16 08:38:01,925",Date: 2021-03-02 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.66396
+"2022-06-16 08:38:01,926",Date: 2021-03-03 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.64119
+"2022-06-16 08:38:01,928",Date: 2021-03-04 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.6178
+"2022-06-16 08:38:01,930",Date: 2021-03-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.64459
+"2022-06-16 08:38:01,931",Date: 2021-03-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 0.00012 | Portfolio Value: 1.639
+"2022-06-16 08:38:01,933",Date: 2021-03-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 8e-05 | Portfolio Value: 1.67112
+"2022-06-16 08:38:01,934",Date: 2021-03-10 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.67738
+"2022-06-16 08:38:01,936",Date: 2021-03-11 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.70022
+"2022-06-16 08:38:01,937",Date: 2021-03-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.69808
+"2022-06-16 08:38:01,939",Date: 2021-03-15 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.70892
+"2022-06-16 08:38:01,940",Date: 2021-03-16 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.70912
+"2022-06-16 08:38:01,942",Date: 2021-03-17 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.71639
+"2022-06-16 08:38:01,943",Date: 2021-03-18 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.68488
+"2022-06-16 08:38:01,945",Date: 2021-03-19 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.68558
+"2022-06-16 08:38:01,946",Date: 2021-03-22 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.69569
+"2022-06-16 08:38:01,948",Date: 2021-03-23 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.68323
+"2022-06-16 08:38:01,949",Date: 2021-03-24 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 6e-05 | Portfolio Value: 1.66711
+"2022-06-16 08:38:01,950",Date: 2021-03-25 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.67354
+"2022-06-16 08:38:01,952",Date: 2021-03-26 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.70354
+"2022-06-16 08:38:01,953",Date: 2021-03-29 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.70546
+"2022-06-16 08:38:01,955",Date: 2021-03-30 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 2e-05 | Portfolio Value: 1.70245
+"2022-06-16 08:38:01,956",Date: 2021-03-31 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 5e-05 | Portfolio Value: 1.71449
+"2022-06-16 08:38:01,957",Date: 2021-04-01 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.73518
+"2022-06-16 08:38:01,959",Date: 2021-04-05 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.76221
+"2022-06-16 08:38:01,960",Date: 2021-04-06 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.76096
+"2022-06-16 08:38:01,962",Date: 2021-04-07 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.75874
+"2022-06-16 08:38:01,963",Date: 2021-04-08 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 4e-05 | Portfolio Value: 1.77224
+"2022-06-16 08:38:01,964",Date: 2021-04-09 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 1e-05 | Portfolio Value: 1.7833
+"2022-06-16 08:38:01,966",Date: 2021-04-12 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.78565
+"2022-06-16 08:38:01,967",Date: 2021-04-13 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 7e-05 | Portfolio Value: 1.79834
+"2022-06-16 08:38:01,968",Date: 2021-04-14 | Asset Weight: [0.021 0.021 0.021 0.187 0.187 0.187 0.187 0.187] | Cost: 3e-05 | Portfolio Value: 1.792

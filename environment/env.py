@@ -142,8 +142,8 @@ class TradingEnv(gym.Env):
         else:
             market_value = self.info_list[-1]["market_value"] * r
  
-        info = {"portfolio_value": round(p1, 5), "return": round(r, 3), "weights": np.around(w1, decimals=3),
-                "weights_mean": round(w1.mean(), 3), "weights_std": round(w1.std(), 3), "cost": round(mu1, 5), 'date': np.datetime_as_string(self.dates[t])[:10],
+        info = {"log_return": agent_return, "portfolio_value": round(p1, 5), "return": round(r, 3), "weights": np.around(w1, decimals=3),
+                "weights_std": round(w1.std(), 3), "cost": round(mu1, 5), 'date': np.datetime_as_string(self.dates[t])[:10],
                 'steps': self.step_number, "market_value": round(market_value, 3)}
         self.info_list.append(info)
 

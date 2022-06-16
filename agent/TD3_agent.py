@@ -190,7 +190,7 @@ class TD3:
                     finish = True
                     
     
-    def test(self, model_path='agent/saved_model/'):
+    def test(self, model_path):
         self.logger.info('Start testing...')
         self.load_model(model_path)
         state = self.env.reset()
@@ -198,6 +198,7 @@ class TD3:
             with torch.no_grad():
                 action = self._choose_action(state)
             next_state, _, done, info = self.env.step(action)
+            self.logger.info(f"Date: {info['date']} | Asset Weight: {info['weights']} | Cost: {info['cost']} | Portfolio Value: {info['portfolio_value']}")
             
             if done:
                 break

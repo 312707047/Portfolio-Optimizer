@@ -3,7 +3,8 @@ from environment.wrappers import env_wrapper
 from agent.TD3_agent import TD3
 
 
-env = TradingEnv('data', commission=0.01, steps=800, augment=0.005)
+env = TradingEnv('data', commission=0.01, steps=800, start_date_index=0, augment=0)
+# train: 800, test: 244
 env = env_wrapper(env)
 
 params = {
@@ -30,6 +31,7 @@ params = {
 # 
 # 
 agent = TD3(**params)
-agent.pretrain(pretrain_step=50000)
-agent.load_model('networks/saved_models/another_stage')
-agent.train()
+# agent.pretrain(pretrain_step=50000)
+# agent.load_model('networks/saved_models/another_stage')
+# agent.train()
+agent.test(model_path='networks/saved_models/another_stage')
