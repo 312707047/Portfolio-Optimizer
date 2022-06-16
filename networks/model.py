@@ -64,7 +64,7 @@ class TD3_Actor(nn.Module):
         # output_recorder(self.model_type, m, 'conv_mix')
         # output_recorder(self.model_type, all, 'conv_out')
         
-        return torch.tanh(all.squeeze())
+        return all.squeeze()
         
 
 class TD3_Critic(nn.Module):
@@ -92,7 +92,7 @@ class TD3_Critic(nn.Module):
         
         port = torch.tensor(observation['observation'], dtype=torch.float32, device=self.device)
         port = port.view(-1, 3, 8, 60)
-        cov = calculate_cov(port).to(self.device)
+        # cov = calculate_cov(port).to(self.device)
         action = torch.tensor(observation['action'], dtype=torch.float32, device=self.device)
         action = action.view((-1, 1, 8, 1))
         act = act.view((-1, 1, 8, 1))
@@ -103,7 +103,7 @@ class TD3_Critic(nn.Module):
         # q1_m = torch.concat([q1_port, q1_cov], dim=1)
         q1_m = F.leaky_relu(self.conv_mix1(q1_port)) # shape(1, 20, 8, 1)
         q1_all = torch.concat([q1_m, action, act], dim=1) # shape(1, 22, 8, 1)
-        q1_all = F.leaky_relu(self.conv_out1(q1_all)).squeeze()
+        q1_all = self.conv_out1(q1_all).squeeze()
         # q1 = self.linear1(q1_all)
         
         # Q2
@@ -112,7 +112,7 @@ class TD3_Critic(nn.Module):
         # q2_m = torch.concat([q2_port, q2_cov], dim=1)
         q2_m = F.leaky_relu(self.conv_mix2(q2_port)) # shape(1, 20, 8, 1)
         q2_all = torch.concat([q2_m, action, act], dim=1) # shape(1, 22, 8, 1)
-        q2_all = F.leaky_relu(self.conv_out2(q2_all)).squeeze()
+        q2_all = self.conv_out2(q2_all).squeeze()
         # q1 = self.linear1(q1_all)
             
         return q1_all, q2_all

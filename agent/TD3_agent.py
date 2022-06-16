@@ -166,7 +166,7 @@ class TD3:
             episode_reward_list.append(episode_reward)
 
             if episode_reward >= max(episode_reward_list):
-                self.save_model('networks/saved_models/another_stage')
+                self.save_model('networks/saved_models/third_stage')
     
     def pretrain(self, pretrain_step):
         self.logger.info('Filling replay buffer...')

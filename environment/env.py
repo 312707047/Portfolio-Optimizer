@@ -10,8 +10,9 @@ class TradingEnv(gym.Env):
     def __init__(self, data_path,
                  rolling_window=60,
                  commission=0.01,
+                 time_cost=0.0,
                  steps=200,
-                 augment=0.05,
+                 augment=0.00,
                  start_date_index=None):
         '''
         Args:
@@ -27,6 +28,7 @@ class TradingEnv(gym.Env):
         '''
         self.rolling_window = rolling_window
         self.commission = commission
+        self.time_cost = time_cost
         self.data_path = data_path
         self.augment = augment
         
@@ -81,6 +83,7 @@ class TradingEnv(gym.Env):
         dw1 = (y1 * w0) / (np.dot(y1, w0)+EPS)
         mu1 = self.commission * (np.abs(dw1 - w1)).sum()
         p1 = p0 * (1 - mu1) * np.dot(y1, w1)
+        p1_augmented = p1 * (1 - self.time_cost) # make reward depreciate by time
         p1 = np.clip(p1, 0, np.inf)
         rho1 = p1 / p0 - 1
         agent_return = np.log((p1+EPS)/(p0+EPS))
@@ -96,7 +99,7 @@ class TradingEnv(gym.Env):
         # same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
         # calculate reward and scale reward between 1 and -1, and do reward shaping to avoid big weight
-        reward = agent_return * 100 #- (np.max(w1)*0.3)
+        reward = np.log((p1_augmented+EPS)/(p0+EPS)) * 1000 - 1 #- (np.max(w1)*0.3)
         # reward = (agent_return - same_weighted_return) * 1000 #- 0.3 * max(w1)
         
         # observe the next state
