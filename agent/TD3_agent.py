@@ -72,8 +72,6 @@ class TD3:
             target_Q1, target_Q2 = self.critic_target(s1, a1)
             target_Q = torch.min(target_Q1, target_Q2)
             target_Q = r1 + (1 - done) * self.GAMMA * target_Q.detach()
-            # (r1.shape=(64,1), target_Q.shape=(64, 64))
-            # target_Q = r1 + self.GAMMA * target_Q.detach()
         
         # Optimize Critic
         current_Q1, current_Q2 = self.critic(s0, a0) # both shape(64)
@@ -157,7 +155,7 @@ class TD3:
                     print(info)
                 episode_reward += r1
                 s0 = s1
-                self._optimize()   
+                self._optimize()
                 
                 if done:
                     break
