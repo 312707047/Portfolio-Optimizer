@@ -10,7 +10,6 @@ class TD3_Actor(nn.Module):
         self.device = device
 
         self.conv_port = nn.Conv2d(3, 2, (1, 3))
-        # self.conv_cov = nn.Conv2d(3, 1, (1, 1))
         self.conv_mix = nn.Conv2d(2, 20, (1, 58))
         self.conv_out = nn.Conv2d(21, 1, 1)
     

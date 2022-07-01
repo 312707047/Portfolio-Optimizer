@@ -1,2 +1,4 @@
 *.ckpt
 *.txt
+*.json
+*.csv

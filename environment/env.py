@@ -3,6 +3,7 @@ import os
 import numpy as np
 import pandas as pd
 
+from data.load_data import RawDataLoader
 
 EPS = 1e-8
 
@@ -32,34 +33,39 @@ class TradingEnv(gym.Env):
         self.data_path = data_path
         self.augment = augment
         
-        # read data
-        self.close_prices = pd.read_csv(os.path.join(data_path, 'Close.csv'), index_col=0, parse_dates=True)
-        self.high_prices = pd.read_csv(os.path.join(self.data_path, 'High.csv'), index_col=0, parse_dates=True)
-        self.low_prices = pd.read_csv(os.path.join(self.data_path, 'Low.csv'), index_col=0, parse_dates=True)
+        self.tickers = [i[:-17] for i in os.listdir(self.data_path)]
+        raw_data_loader = RawDataLoader(self.tickers)
+        data = raw_data_loader.load_data(self.data_path)
         
-        self.close_obs = np.expand_dims(self.close_prices, 0) #shape(1, 1042, 8)
+        # read data
+        self.close_prices = data['Close']
+        self.open_prices = data['Open']
+        self.high_prices = data['High']
+        self.low_prices = data['Low']
+        
+        self.close_obs = np.expand_dims(self.close_prices, 0) #shape(1, 65321, 10)
+        self.open_obs = np.expand_dims(self.open_prices, 0)
         self.high_obs = np.expand_dims(self.high_prices, 0)
         self.low_obs = np.expand_dims(self.low_prices, 0)
             
-        self.tickers = self.close_prices.columns.to_list()
         self.tickers_num = len(self.tickers)
         self.dates = self.close_prices.index.values[1:]
         self.dates_num = self.dates.shape[0]
-        # if cash is needed
-        # self.gain = np.hstack((np.ones((self.close_prices.shape[0]-1, 1)), self.close_prices.values[1:] / self.close_prices.values[:-1]))
-        self.gain = self.close_prices.values[1:] / self.close_prices.values[:-1]
+        
+        # add cash to the gain
+        self.gain = np.hstack((np.ones((self.close_prices.shape[0]-1, 1)), self.close_prices.values[1:] / self.close_prices.values[:-1]))
+        self.gain = self.gain[1:] / self.gain[:-1]
         
         self.info = []
         self.step_number = 0
         
         # Observation space and action space
         self.action_space = gym.spaces.Box(
-            0, 0.65, shape=(self.tickers_num,), dtype=np.float32)  # limitation of the asset ratio
+            0, 1, shape=(self.tickers_num+1,), dtype=np.float32)
             
-        spaces = {'observation': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, rolling_window, self.tickers_num), dtype=np.float32),
+        spaces = {'observation': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(4, rolling_window, self.tickers_num+1), dtype=np.float32),
                   'action': self.action_space}
             
-        # self.observation_space = gym.spaces.Dict(spaces)
         self.observation_space = gym.spaces.Dict(spaces)
         self.start_date_index = start_date_index
         self.steps = steps
@@ -69,7 +75,7 @@ class TradingEnv(gym.Env):
         
         self.step_number += 1
         
-        # if cash is needed
+        # if cash is needed ### add this to neural network later
         # w1 = np.clip(action, a_min=0, a_max=1)
         # w1 = np.insert(w1, 0, np.clip(1 - w1.sum(), a_min=0, a_max=1))
         w1 = action
@@ -87,16 +93,6 @@ class TradingEnv(gym.Env):
         p1 = np.clip(p1, 0, np.inf)
         rho1 = p1 / p0 - 1
         agent_return = np.log((p1+EPS)/(p0+EPS))
-
-        # 2. Calculate return of same-weighted portfolio
-        # s_w0 = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        # s_w1 = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        # s_p0 = self.same_weighted_portfolio_value
-        # s_dw1 = (y1 * s_w0) / (np.dot(y1, s_w0)+EPS)
-        # s_mu1 = self.commission * (np.abs(s_dw1 - s_w1)).sum()
-        # s_p1 = s_p0 * (1 - s_mu1) * np.dot(y1, s_w1)
-        # s_p1 = np.clip(s_p1, 0, np.inf)
-        # same_weighted_return = np.log((s_p1+EPS)/(s_p0+EPS))
         
         # calculate reward and scale reward between 1 and -1, and do reward shaping to avoid big weight
         reward = np.log((p1_augmented+EPS)/(p0+EPS)) #- (np.max(w1)*0.3)
