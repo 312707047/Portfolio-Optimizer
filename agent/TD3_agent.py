@@ -10,12 +10,13 @@ import copy
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
 
-from collections import deque
+from utils.replay_buffer import ReplayBuffer
+from utils.decay import  LinearAnneal
+from base.base_agent import BaseAgent
 from networks.model import TD3_Actor, TD3_Critic
-from utils import  LinearAnneal
 
 
-class TD3:
+class TD3(BaseAgent):
     def __init__(self, **kwargs):
         
         for key, value in kwargs.items():
@@ -23,9 +24,9 @@ class TD3:
         
         self.exploration_noise = LinearAnneal(self.EXPLORATION_NOISE, self.EXPLORATION_NOISE_END, self.EPISODES*150)
         
-        # self.s_dim = self.env.observation_space.shape[0]
-        # self.a_dim = self.env.action_space.shape[0]
-        # self.max_action = self.env.action_space.high.shape[0]
+        self.s_dim = self.env.observation_space['observation'].shape[0]
+        self.a_dim = self.env.action_space.shape[0]
+        self.max_action = self.env.action_space.high.shape[0]
         self.csv = 'output/portfolio-management.csv'
         
         # initialize network
@@ -38,7 +39,7 @@ class TD3:
         self.critic_optimizer = optim.Adam(self.critic.parameters(), lr=self.CRITIC_LR)
         
         self._log_init()
-        self.replay_memory = deque(maxlen=self.MEMORY_SIZE)
+        self.replay_memory = ReplayBuffer(maxlen=self.MEMORY_SIZE, obs_dim=self.s_dim, action_dim=self.a_dim)
         self.itr = 0
     
     def _log_init(self):
@@ -58,8 +59,8 @@ class TD3:
             a0 =  self.actor(s0).squeeze(0).cpu().detach().numpy()
         return a0
     
-    def _update_memory(self, *transitions):
-        self.replay_memory.append(transitions)
+    def update_memory(self, *transitions):
+        self.replay_memory.update(transitions)
     
     def _update_Q(self, s0, a0, r1, s1, done):
         with torch.no_grad():
@@ -86,7 +87,7 @@ class TD3:
         actor_loss.backward()
         self.actor_optimizer.step()
         
-    def _optimize(self):
+    def optimize(self):
         self.itr += 1
         if len(self.replay_memory) < self.BATCH_SIZE:
             return
@@ -95,22 +96,8 @@ class TD3:
         k = 1 + len(self.replay_memory) / self.MEMORY_SIZE
         batch_size = int(k * self.BATCH_SIZE)
         
-        # Sample continuous data from the replay memory, not just random
-        rand_num = random.randint(0, len(self.replay_memory)-batch_size)
-        batch = list(itertools.islice(self.replay_memory, rand_num, rand_num+batch_size))
-        
-        s0, a0, r1, s1, done = zip(*batch)
-        
-        s0_obs = np.stack(tuple(map(lambda x: x['observation'], s0)))
-        s0_act = np.stack(tuple(map(lambda x: x['action'], s0)))
-        s0 = {'observation':s0_obs, 'action':s0_act}
-        
+        s0, a0, r1, s1, done = self.replay_memory.sample(batch_size)
         a0 = torch.tensor(a0, dtype=torch.float32, device=self.device)
-        
-        s1_obs = np.stack(tuple(map(lambda x: x['observation'], s1)))
-        s1_act = np.stack(tuple(map(lambda x: x['action'], s1)))
-        s1 = {'observation':s1_obs, 'action':s1_act}
-        
         r1 = torch.tensor(r1, dtype=torch.float32, device=self.device).view(batch_size)
         done = torch.tensor(done, dtype=torch.float32, device=self.device)
         self._update_Q(s0, a0, r1, s1, done)
@@ -150,12 +137,12 @@ class TD3:
                 
                 # print('action after noise:', a0)
                 s1, r1, done, info = self.env.step(a0)
-                self._update_memory(s0, a0, r1, s1, done)
+                self.update_memory(s0, a0, r1, done)
                 if self.print_info:
                     print(info)
                 episode_reward += r1
                 s0 = s1
-                self._optimize()
+                self.optimize()
                 
                 if done:
                     break
@@ -176,7 +163,7 @@ class TD3:
                 for _ in range(pretrain_step):
                     action = np.random.random(8)
                     next_state, reward, done, _ = self.env.step(action)
-                    self._update_memory(state, action, reward, next_state, done)
+                    self.update_memory(state, action, reward, next_state, done)
                     state = next_state
                     n_steps += 1
                     

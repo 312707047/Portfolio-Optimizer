@@ -151,11 +151,8 @@ class TradingEnv(gym.Env):
     def reset(self):
         
         self.info_list = []
-        # self.weights = np.array([0.1/3, 0.1/3, 0.1/3, 0.9/5, 0.9/5, 0.9/5, 0.9/5, 0.9/5])
-        self.weights = np.array([0, 0, 1, 0, 0, 0, 0, 0])
-        # self.weights = np.insert(np.zeros(self.tickers_num), 0, 1.0)
+        self.weights = np.insert(np.zeros(self.tickers_num), 0, 1.0)
         self.portfolio_value = 1.0
-        self.same_weighted_portfolio_value = 1.0
         self.step_number = 0
         
         # Calculate MDD

@@ -1,26 +1,12 @@
 import itertools
 import logging
-import crypto
 import os
 
 import pandas as pd
-import numpy as np
 
-from abc import ABC, abstractmethod
+from base.base_dataloader import BaseDataLoader
+from crypto import get_all_binance
 from multiprocessing import Pool
-
-
-class BaseDataLoader(ABC):
-    def __init__(self,
-                 tag:list,
-                 kline_size:str='15m'):
-        
-        self.tag = tag
-        self.kline_size = kline_size
-    
-    @abstractmethod
-    def load_data(self, *arg):
-        pass
 
 
 class RawDataLoader(BaseDataLoader):
@@ -43,7 +29,7 @@ class RawDataLoader(BaseDataLoader):
         logger.info('Downloading data...')
         
         with Pool() as pool:
-            pool.starmap(crypto.get_all_binance, tag_with_klines)
+            pool.starmap(get_all_binance, tag_with_klines)
         
         logger.info('Finished download!')
     
