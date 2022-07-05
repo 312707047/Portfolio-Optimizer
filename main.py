@@ -3,7 +3,7 @@ from environment.wrappers import env_wrapper
 from agent.TD3_agent import TD3
 
 
-env = TradingEnv('data', commission=0.01, time_cost=0.05, steps=800, start_date_index=0, augment=0.05)
+env = TradingEnv('data/history', commission=0.01, time_cost=0.05, steps=800, start_date_index=0, augment=0.05)
 # train: 800, test: 244
 env = env_wrapper(env)
 

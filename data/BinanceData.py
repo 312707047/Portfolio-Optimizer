@@ -1,17 +1,13 @@
 # IMPORTS
 import pandas as pd
-import backtrader as bt
 import math
 import os.path
-import time
 import json
 
 
-from bitmex import bitmex
 from binance.client import Client
 from datetime import timedelta, datetime
 from dateutil import parser
-from tqdm import tqdm_notebook #(Optional, used for progress-bars)
 
 
 
@@ -90,7 +86,7 @@ def minutes_of_new_data(symbol, kline_size, data, source):
 binsizes = {"1m": 1, "5m": 5, "15m": 15, "30m": 30, "1h": 60, "2h":120, "4h": 240, "6h": 360, "8h": 480, "1d": 1440}
 batch_size = 750
 
-with open("api.json") as f:
+with open("data/api.json") as f:
     data = json.load(f)
     
 API_KEY = data["BINANCE_API_KEY"]

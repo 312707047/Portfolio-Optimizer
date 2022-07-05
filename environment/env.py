@@ -9,7 +9,7 @@ EPS = 1e-8
 
 class TradingEnv(gym.Env):
     def __init__(self, data_path,
-                 rolling_window=60,
+                 rolling_window=30,
                  commission=0.01,
                  time_cost=0.0,
                  steps=200,
@@ -63,7 +63,7 @@ class TradingEnv(gym.Env):
         self.action_space = gym.spaces.Box(
             0, 1, shape=(self.tickers_num+1,), dtype=np.float32)
             
-        spaces = {'observation': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(4, rolling_window, self.tickers_num+1), dtype=np.float32),
+        spaces = {'observation': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(4, rolling_window, self.tickers_num), dtype=np.float32),
                   'action': self.action_space}
             
         self.observation_space = gym.spaces.Dict(spaces)
@@ -171,7 +171,7 @@ class TradingEnv(gym.Env):
         t = self.start_date_index + self.step_number
         t0 = t - self.rolling_window + 1
         
-        self.portfolio = np.concatenate([self.close_obs, self.high_obs, self.low_obs], axis=0) # shape(3, 1042, 8)
+        self.portfolio = np.concatenate([self.open_obs, self.high_obs, self.low_obs, self.close_obs], axis=0) # shape(4, 1042, 9)
         
         # add noise to the data to prevent overfitting
         self.portfolio += np.random.normal(loc=0, scale=self.augment, size=self.portfolio.shape)

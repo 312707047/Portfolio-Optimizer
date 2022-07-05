@@ -2,7 +2,6 @@ import gym
 import numpy as np
 import torch
 
-from networks.Denoise import Autoencoder
 from pykalman import KalmanFilter
 from sklearn.preprocessing import MinMaxScaler
 from .env import TradingEnv
@@ -62,35 +61,6 @@ class scaler(gym.ObservationWrapper):
             data[i, :, :] = scaler.fit_transform(data[i, :, :])
         
         data = data.transpose(0, 2, 1)
-        obs.update({'observation': data})
-        
-        return obs
-
-
-class Encoder(gym.ObservationWrapper):
-    def __init__(self, env:TradingEnv):
-        super().__init__(env)
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        
-        autoencoder = Autoencoder()
-        autoencoder.load_state_dict(torch.load('networks/saved_models/Autoencoder.ckpt'))
-        for p in autoencoder.parameters():
-            p.requires_grad = False
-        
-        self.encoder = autoencoder.encoder
-        self.encoder.to(self.device)
-        self.encoder.eval()
-        
-        spaces = {'observation': gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3, env.tickers_num, 30), dtype=np.float32),
-                  'action': self.action_space}
-        self.observation_space = gym.spaces.Dict(spaces)
-    
-    def observation(self, obs:dict):
-        data = torch.from_numpy(obs['observation']).float().to(self.device)
-        with torch.no_grad():
-            data = self.encoder(data.view(-1, 3, 8, 60))
-        
-        data = data.squeeze(0).detach().cpu().numpy()
         obs.update({'observation': data})
         
         return obs

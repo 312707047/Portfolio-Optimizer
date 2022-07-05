@@ -1,11 +1,10 @@
 import itertools
 import logging
 import os
-
 import pandas as pd
 
-from base.base_dataloader import BaseDataLoader
-from crypto import get_all_binance
+from .base_dataloader import BaseDataLoader
+from .BinanceData import get_all_binance
 from multiprocessing import Pool
 
 
@@ -14,11 +13,9 @@ class RawDataLoader(BaseDataLoader):
     def __init__(self,
                  tag:list,
                  kline_size:str='15m'):
-        
         super().__init__(tag, kline_size)
-        self.__get_data()
         
-    def __get_data(self):
+    def get_data(self):
         logger = logging.getLogger()
         
         # preprocess tag to get the data
